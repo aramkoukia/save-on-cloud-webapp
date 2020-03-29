@@ -10,65 +10,10 @@ import Menu from '@material-ui/icons/Menu';
 import Button from '../CustomButtons/Button';
 import headerStyle from '../../assets/jss/material-dashboard-react/components/headerStyle';
 import HeaderLinks from './HeaderLinks';
-import LocationService from '../../services/LocationService';
-import Auth from '../../services/Auth';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      locations: [],
-      isLoading: true,
-    };
-  }
-
-  async componentDidMount() {
-    this.setState({
-      locations: [
-        {
-          locationId: 1,
-          locationName: 'Vancouver',
-        },
-        {
-          locationId: 2,
-          locationName: 'Abbotsford',
-        },
-        {
-          locationId: 3,
-          locationName: 'Victoria',
-        },
-      ],
-      isLoading: true,
-    });
-    await this.getLocations();
-  }
-
-  async getLocations() {
-    if (Auth.isSignedIn()) {
-      LocationService.getLocationsForUser()
-        .then(results => this.setState({
-          locations: results,
-          isLoading: false,
-        }));
-    }
-  }
-
-  makeBrand() {
-    const { routes, location } = this.props;
-    let name;
-    routes.map((prop, key) => {
-      if (prop.path === location.pathname) {
-        name = prop.navbarName;
-      }
-      return null;
-    });
-    return name;
-  }
-
   render() {
     const { classes, color, handleDrawerToggle } = this.props;
-    const { locations, isLoading } = this.state;
     const appBarClasses = classNames({
       [` ${classes[color]}`]: color,
     });
@@ -79,11 +24,11 @@ class Header extends React.Component {
           <div className={classes.flex}>
             {/* Here we create navbar brand, based on route name */}
             <Button color="transparent" href="#" className={classes.title}>
-              {this.makeBrand()}
+              Save On Cloud
             </Button>
           </div>
           <Hidden smDown implementation="css">
-            <HeaderLinks locations={locations} />
+            <HeaderLinks />
           </Hidden>
           <Hidden mdUp implementation="css">
             <IconButton

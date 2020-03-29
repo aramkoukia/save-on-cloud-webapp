@@ -129,8 +129,7 @@ export default class SignIn extends React.Component {
             <Card>
               <CardHeader color="primary">
                 <h4 className={styles.cardTitleWhite}>
-                  {/* <img src="../logo.png" alt="Lights and Parts" /> */}
-                  Lights and Parts - Sign In
+                  Save On Cloud - Sign In
                 </h4>
                 {initialLoadContent}
                 {this.state.error && (

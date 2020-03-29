@@ -24,34 +24,6 @@ const Sidebar = ({ ...props }) => {
     classes, color, logo, image, logoText, routes, open, handleDrawerToggle,
   } = props;
 
-  function getLocations() {
-    return [
-      {
-        locationId: 1,
-        locationName: 'Vancouver',
-      },
-      {
-        locationId: 2,
-        locationName: 'Abbotsford',
-      },
-      {
-        locationId: 3,
-        locationName: 'Victoria',
-      },
-    ];
-    // return LocationService.getLocationsForUser();
-  }
-
-  // async function getLocations() {
-  //   if (Auth.isSignedIn()) {
-  //     LocationService.getLocationsForUser()
-  //       .then(results => this.setState({
-  //         locations: results,
-  //         isLoading: false,
-  //       }));
-  //   }
-  // }
-
   const links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -59,9 +31,9 @@ const Sidebar = ({ ...props }) => {
         if (prop.redirect || prop.sidebarName === '') {
           return null;
         }
-        if (!Auth.userHasPermission(prop.permission)) {
-          return null;
-        }
+        // if (!Auth.userHasPermission(prop.permission)) {
+        //   return null;
+        // }
         const activePro = ' ';
         const listItemClasses = classNames({
           [` ${classes[color]}`]: activeRoute(prop.path),
@@ -97,7 +69,7 @@ const Sidebar = ({ ...props }) => {
   );
   const brand = (
     <div className={classes.logo}>
-      <a href="https://lightsandparts.com/" target="_blank" rel="noopenner noreferrer" className={classes.logoLink}>
+      <a href="https://koukia.ca/" target="_blank" rel="noopenner noreferrer" className={classes.logoLink}>
         <div className={classes.logoImage}>
           <img src={logo} alt="logo" className={classes.img} />
         </div>
@@ -105,7 +77,6 @@ const Sidebar = ({ ...props }) => {
       </a>
     </div>
   );
-  const locations = getLocations();
 
   return (
     <div>
@@ -123,12 +94,6 @@ const Sidebar = ({ ...props }) => {
           }}
         >
           {brand}
-          <div className={classes.sidebarWrapper}>
-            {locations
-            && (<HeaderLinks locations={locations} location={locations[0]} />)
-            }
-            {links}
-          </div>
           {image !== undefined ? (
             <div
               className={classes.background}
@@ -159,9 +124,5 @@ const Sidebar = ({ ...props }) => {
     </div>
   );
 };
-
-// Sidebar.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(sidebarStyle)(Sidebar);

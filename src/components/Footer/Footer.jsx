@@ -40,7 +40,7 @@ function Footer({ ...props }) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a href="https://www.ligthsandparts.com" className={classes.a}>
-              Lights and Parts
+              Save On Cloud
             </a>, made with love for a better web
           </span>
         </p>

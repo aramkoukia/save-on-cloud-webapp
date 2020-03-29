@@ -10,7 +10,6 @@ import dashboardStyle from '../../assets/jss/material-dashboard-react/layouts/da
 import image from '../../assets/img/sidebar-2.jpg';
 import logo from '../../assets/img/logo.png';
 import Auth from '../../services/Auth';
-import Reports from '../../views/Reports/Reports';
 
 function requireAuth(nextState, replace) {
   if (!Auth.isSignedIn) {
@@ -89,20 +88,17 @@ class App extends React.Component {
     return (
       <div className={classes.wrapper}>
 
-        { !this.isLogin() ? (
-          <Sidebar
-            routes={dashboardRoutes}
-            permissionsChanged={permissionsChanged}
-            logoText="Lights and Parts"
-            logo={logo}
-            image={image}
-            handleDrawerToggle={this.handleDrawerToggle}
-            open={this.state.mobileOpen}
-            color="blue"
-            {...rest}
-          />
-        ) : <div />
-        }
+        <Sidebar
+          routes={dashboardRoutes}
+          permissionsChanged={permissionsChanged}
+          logoText="Save On Cloud"
+          logo={logo}
+          image={image}
+          handleDrawerToggle={this.handleDrawerToggle}
+          open={this.state.mobileOpen}
+          color="blue"
+          {...rest}
+        />
 
         <div className={classes.mainPanel} ref="mainPanel">
 
