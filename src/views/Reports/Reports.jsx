@@ -36,6 +36,17 @@ class Reports extends React.Component {
     const {
       azureCost,
     } = this.state;
+    const options = {
+      seriesBarDistance: 100,
+      reverseData: true,
+      horizontalBars: true,
+      axisY: {
+        offset: 150,
+        scaleMinSpace: 50,
+      },
+      height:500,
+    };
+
     return (
       <div>
         <GridContainer>
@@ -45,8 +56,8 @@ class Reports extends React.Component {
                 <ChartistGraph
                   className="ct-chart"
                   data={azureCost}
-                  type="Line"
-                  options={dailySalesChart.options}
+                  type="Bar"
+                  options={options}
                   listener={dailySalesChart.animation}
                 />
               </CardHeader>
