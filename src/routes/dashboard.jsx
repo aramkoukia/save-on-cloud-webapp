@@ -1,5 +1,6 @@
 import InsertChart from '@material-ui/icons/InsertChart';
 import Reports from '../views/Reports/Reports';
+import LoginPage from '../views/Login/Login';
 // import Permissions from '../stores/Permissions';
 
 const dashboardRoutes = [
@@ -12,7 +13,12 @@ const dashboardRoutes = [
     // permission: Permissions.ViewReports,
   },
   {
-    redirect: true, path: '/', to: '/login', navbarName: 'Redirect',
+    path: '/login',
+    sidebarName: 'Login',
+    navbarName: '',
+    icon: InsertChart,
+    component: LoginPage,
+    // redirect: true,
   },
 ];
 
