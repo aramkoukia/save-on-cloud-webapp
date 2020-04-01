@@ -82,7 +82,7 @@ function NavBar(props) {
               display="inline"
               color="primary"
             >
-              Wa
+              Save
             </Typography>
             <Typography
               variant="h4"
@@ -90,7 +90,15 @@ function NavBar(props) {
               display="inline"
               color="secondary"
             >
-              Ver
+              On
+            </Typography>
+            <Typography
+              variant="h4"
+              className={classes.brandText}
+              display="inline"
+              color="primary"
+            >
+              Cloud
             </Typography>
           </div>
           <div>
