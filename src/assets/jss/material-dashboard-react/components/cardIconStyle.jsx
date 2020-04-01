@@ -22,7 +22,7 @@ const cardIconStyle = {
   dangerCardHeader,
   infoCardHeader,
   primaryCardHeader,
-  roseCardHeader
+  roseCardHeader,
 };
 
 export default cardIconStyle;
