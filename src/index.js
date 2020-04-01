@@ -16,6 +16,7 @@ function permissionsChanged() {
 }
 
 ReactDOM.render(
+  // eslint-disable-next-line react/jsx-filename-extension
   <Router history={hist}>
     <Switch>
       {indexRoutes.map((prop, key) => {
