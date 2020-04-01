@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   Grid,
   TablePagination,
@@ -9,26 +9,26 @@ import {
   Button,
   Paper,
   Box,
-  withStyles
-} from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import SelfAligningImage from "../../../shared/components/SelfAligningImage";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
-import ConfirmationDialog from "../../../shared/components/ConfirmationDialog";
+  withStyles,
+} from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SelfAligningImage from '../../../shared/components/SelfAligningImage';
+import HighlightedInformation from '../../../shared/components/HighlightedInformation';
+import ConfirmationDialog from '../../../shared/components/ConfirmationDialog';
 
 const styles = {
-  dBlock: { display: "block" },
-  dNone: { display: "none" },
+  dBlock: { display: 'block' },
+  dNone: { display: 'none' },
   toolbar: {
-    justifyContent: "space-between"
-  }
+    justifyContent: 'space-between',
+  },
 };
 
 class PostContent extends PureComponent {
   state = {
     page: 0,
     deletePostDialogOpen: false,
-    deletePostLoading: false
+    deletePostLoading: false,
   };
 
   rowsPerPage = 25;
@@ -36,7 +36,7 @@ class PostContent extends PureComponent {
   closeDeletePostDialog = () => {
     this.setState({
       deletePostDialogOpen: false,
-      deletePostLoading: false
+      deletePostLoading: false,
     });
   };
 
@@ -46,17 +46,17 @@ class PostContent extends PureComponent {
     setTimeout(() => {
       this.setState({
         deletePostLoading: false,
-        deletePostDialogOpen: false
+        deletePostDialogOpen: false,
       });
       pushMessageToSnackbar({
-        text: "Your scheduled post has been deleted"
+        text: 'Your scheduled post has been deleted',
       });
     }, 1500);
   };
 
   onDelete = () => {
     this.setState({
-      deletePostDialogOpen: true
+      deletePostDialogOpen: true,
     });
   };
 
@@ -67,9 +67,9 @@ class PostContent extends PureComponent {
   printImageGrid = () => {
     const options = [];
     options.push({
-      name: "Delete",
+      name: 'Delete',
       onClick: this.onDelete,
-      icon: <DeleteIcon />
+      icon: <DeleteIcon />,
     });
     const { posts } = this.props;
     const { page } = this.state;
@@ -80,9 +80,9 @@ class PostContent extends PureComponent {
             {posts
               .slice(
                 page * this.rowsPerPage,
-                page * this.rowsPerPage + this.rowsPerPage
+                page * this.rowsPerPage + this.rowsPerPage,
               )
-              .map(element => (
+              .map((element) => (
                 <Grid item xs={6} sm={4} md={3} key={element.id}>
                   <SelfAligningImage
                     src={element.src}
@@ -130,17 +130,17 @@ class PostContent extends PureComponent {
           rowsPerPage={this.rowsPerPage}
           page={page}
           backIconButtonProps={{
-            "aria-label": "Previous Page"
+            'aria-label': 'Previous Page',
           }}
           nextIconButtonProps={{
-            "aria-label": "Next Page"
+            'aria-label': 'Next Page',
           }}
           onChangePage={this.handleChangePage}
           classes={{
             select: classes.dNone,
             selectIcon: classes.dNone,
             actions: posts.length > 0 ? classes.dBlock : classes.dNone,
-            caption: posts.length > 0 ? classes.dBlock : classes.dNone
+            caption: posts.length > 0 ? classes.dBlock : classes.dNone,
           }}
           labelRowsPerPage=""
         />
@@ -161,7 +161,7 @@ PostContent.propTypes = {
   openAddPostModal: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pushMessageToSnackbar: PropTypes.func
+  pushMessageToSnackbar: PropTypes.func,
 };
 
 export default withStyles(styles)(PostContent);

@@ -1,7 +1,7 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
-import "emoji-mart/css/emoji-mart.css";
-import { Picker } from "emoji-mart";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from 'emoji-mart';
 import {
   TextField,
   IconButton,
@@ -9,59 +9,59 @@ import {
   FormHelperText,
   Box,
   Grid,
-  withStyles
-} from "@material-ui/core";
-import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
-import CloseIcon from "@material-ui/icons/Close";
-import countWithEmojis from "../functions/countWithEmojis";
+  withStyles,
+} from '@material-ui/core';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+import CloseIcon from '@material-ui/icons/Close';
+import countWithEmojis from '../functions/countWithEmojis';
 
-const styles = theme => ({
-  "@global": {
-    ".emoji-mart-category-label": theme.typography.body1,
-    ".emoji-mart-bar": { display: "none !important" },
-    ".emoji-mart-search input": {
+const styles = (theme) => ({
+  '@global': {
+    '.emoji-mart-category-label': theme.typography.body1,
+    '.emoji-mart-bar': { display: 'none !important' },
+    '.emoji-mart-search input': {
       ...theme.typography.body1,
-      ...theme.border
+      ...theme.border,
     },
-    ".emoji-mart-search": {
+    '.emoji-mart-search': {
       marginTop: `${theme.spacing(1)}px !important`,
       paddingRight: `${theme.spacing(1)}px !important`,
       paddingLeft: `${theme.spacing(1)}px !important`,
-      paddingBottom: `${theme.spacing(1)}px !important`
+      paddingBottom: `${theme.spacing(1)}px !important`,
     },
-    ".emoji-mart-search-icon": {
-      top: "5px !important",
-      right: "14px !important",
-      fontSize: 20
+    '.emoji-mart-search-icon': {
+      top: '5px !important',
+      right: '14px !important',
+      fontSize: 20,
     },
-    ".emoji-mart-scroll": {
-      height: 240
+    '.emoji-mart-scroll': {
+      height: 240,
     },
-    ".emoji-mart": {
-      ...theme.border
-    }
+    '.emoji-mart': {
+      ...theme.border,
+    },
   },
   floatButtonWrapper: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 12,
-    right: 12
+    right: 12,
   },
   floatButtonSVG: {
-    color: theme.palette.primary.light
+    color: theme.palette.primary.light,
   },
   relative: {
-    position: "relative"
-  }
+    position: 'relative',
+  },
 });
 
 class EmojiTextarea extends PureComponent {
   state = {
     open: false,
-    value: "",
-    characters: 0
+    value: '',
+    characters: 0,
   };
 
-  onSelectEmoji = emoji => {
+  onSelectEmoji = (emoji) => {
     let { value } = this.state;
     const { maxCharacters, onChange } = this.props;
     let characters;
@@ -78,7 +78,7 @@ class EmojiTextarea extends PureComponent {
     this.setState({ value, characters });
   };
 
-  handleTextFieldChange = event => {
+  handleTextFieldChange = (event) => {
     const { maxCharacters, onChange } = this.props;
     const { target } = event;
     const { value } = target;
@@ -100,7 +100,7 @@ class EmojiTextarea extends PureComponent {
    * are not displayed correcty in the browser.
    * We won't display them.
    */
-  emojisToShowFilter = emoji => {
+  emojisToShowFilter = (emoji) => {
     if (emoji.unified.length > 5) {
       return false;
     }
@@ -121,10 +121,10 @@ class EmojiTextarea extends PureComponent {
       placeholder,
       maxCharacters,
       emojiSet,
-      inputClassName
+      inputClassName,
     } = this.props;
     return (
-      <Fragment>
+      <>
         <Grid spacing={0} container>
           <Grid
             item
@@ -143,8 +143,8 @@ class EmojiTextarea extends PureComponent {
               placeholder={placeholder}
               InputProps={{
                 classes: {
-                  notchedOutline: inputClassName ? inputClassName : null
-                }
+                  notchedOutline: inputClassName || null,
+                },
               }}
             />
             <div className={classes.floatButtonWrapper}>
@@ -173,13 +173,13 @@ class EmojiTextarea extends PureComponent {
             <Picker
               set={emojiSet}
               color={theme.palette.primary.main}
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               onSelect={this.onSelectEmoji}
               emojisToShowFilter={this.emojisToShowFilter}
             />
           </Box>
         </Collapse>
-      </Fragment>
+      </>
     );
   }
 }
@@ -192,7 +192,7 @@ EmojiTextarea.propTypes = {
   placeholder: PropTypes.string,
   maxCharacters: PropTypes.number,
   onChange: PropTypes.func,
-  inputClassName: PropTypes.string
+  inputClassName: PropTypes.string,
 };
 
 export default withStyles(styles, { withTheme: true })(EmojiTextarea);

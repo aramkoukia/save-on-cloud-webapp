@@ -1,24 +1,24 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import AOS from "aos/dist/aos";
-import { withStyles } from "@material-ui/core";
-import NavBar from "./navigation/NavBar";
-import Footer from "./footer/Footer";
-import "aos/dist/aos.css";
-import CookieRulesDialog from "./cookies/CookieRulesDialog";
-import CookieConsent from "./cookies/CookieConsent";
-import dummyBlogPosts from "../dummy_data/blogPosts";
-import DialogSelector from "./register_login/DialogSelector";
-import Routing from "./Routing";
-import smoothScrollTop from "../../shared/functions/smoothScrollTop";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import AOS from 'aos/dist/aos';
+import { withStyles } from '@material-ui/core';
+import NavBar from './navigation/NavBar';
+import Footer from './footer/Footer';
+import 'aos/dist/aos.css';
+import CookieRulesDialog from './cookies/CookieRulesDialog';
+import CookieConsent from './cookies/CookieConsent';
+import dummyBlogPosts from '../dummy_data/blogPosts';
+import DialogSelector from './register_login/DialogSelector';
+import Routing from './Routing';
+import smoothScrollTop from '../../shared/functions/smoothScrollTop';
 
 AOS.init({ once: true });
 
-const styles = theme => ({
+const styles = (theme) => ({
   wrapper: {
     backgroundColor: theme.palette.common.white,
-    overflowX: "hidden"
-  }
+    overflowX: 'hidden',
+  },
 });
 
 class Main extends PureComponent {
@@ -27,7 +27,7 @@ class Main extends PureComponent {
     mobileDrawerOpen: false,
     blogPosts: [],
     dialogOpen: null,
-    cookieRulesDialogOpen: false
+    cookieRulesDialogOpen: false,
   };
 
   blogPostsMaxUnix = Math.round(new Date().getTime() / 1000);
@@ -38,19 +38,18 @@ class Main extends PureComponent {
 
   selectHome = () => {
     smoothScrollTop();
-    document.title =
-      "Save On Cloud";
-    this.setState({ selectedTab: "Home" });
+    document.title = 'Save On Cloud';
+    this.setState({ selectedTab: 'Home' });
   };
 
   selectBlog = () => {
     smoothScrollTop();
-    document.title = "Save On Cloud - Blog";
-    this.setState({ selectedTab: "Blog" });
+    document.title = 'Save On Cloud - Blog';
+    this.setState({ selectedTab: 'Blog' });
   };
 
   openLoginDialog = () => {
-    this.setState({ dialogOpen: "login", mobileDrawerOpen: false });
+    this.setState({ dialogOpen: 'login', mobileDrawerOpen: false });
   };
 
   closeDialog = () => {
@@ -59,13 +58,13 @@ class Main extends PureComponent {
 
   openRegisterDialog = () => {
     this.setState({
-      dialogOpen: "register",
-      mobileDrawerOpen: false
+      dialogOpen: 'register',
+      mobileDrawerOpen: false,
     });
   };
 
   openTermsDialog = () => {
-    this.setState({ dialogOpen: "termsOfService" });
+    this.setState({ dialogOpen: 'termsOfService' });
   };
 
   handleMobileDrawerOpen = () => {
@@ -76,12 +75,12 @@ class Main extends PureComponent {
     this.setState({ mobileDrawerOpen: false });
   };
 
-  switchSelectedTab = tab => {
+  switchSelectedTab = (tab) => {
     this.setState({ selectedTab: tab });
   };
 
   openChangePasswordDialog = () => {
-    this.setState({ dialogOpen: "changePassword" });
+    this.setState({ dialogOpen: 'changePassword' });
   };
 
   fetchBlogPosts = () => {
@@ -89,21 +88,21 @@ class Main extends PureComponent {
      * You would fetch this from the server, however we gonna use the example values from state here
      */
     this.blogPostsMaxUnix = dummyBlogPosts[dummyBlogPosts.length - 1].date;
-    const blogPosts = dummyBlogPosts.map(blogPost => {
-      let title = blogPost.title;
+    const blogPosts = dummyBlogPosts.map((blogPost) => {
+      let { title } = blogPost;
       title = title.toLowerCase();
       /* Remove unwanted characters, only accept alphanumeric and space */
-      title = title.replace(/[^A-Za-z0-9 ]/g, "");
+      title = title.replace(/[^A-Za-z0-9 ]/g, '');
       /* Replace multi spaces with a single space */
-      title = title.replace(/\s{2,}/g, " ");
+      title = title.replace(/\s{2,}/g, ' ');
       /* Replace space with a '-' symbol */
-      title = title.replace(/\s/g, "-");
+      title = title.replace(/\s/g, '-');
       blogPost.url = `/blog/post/${title}`;
       blogPost.params = `?id=${blogPost.id}`;
       return blogPost;
     });
     this.setState({
-      blogPosts
+      blogPosts,
     });
   };
 
@@ -122,7 +121,7 @@ class Main extends PureComponent {
       mobileDrawerOpen,
       blogPosts,
       dialogOpen,
-      cookieRulesDialogOpen
+      cookieRulesDialogOpen,
     } = this.state;
     return (
       <div className={classes.wrapper}>
@@ -164,7 +163,7 @@ class Main extends PureComponent {
 }
 
 Main.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(Main);

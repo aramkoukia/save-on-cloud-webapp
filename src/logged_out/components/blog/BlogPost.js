@@ -1,34 +1,36 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import format from "date-fns/format";
-import { Grid, Typography, Card, Box, withStyles } from "@material-ui/core";
-import BlogCard from "./BlogCard";
-import ShareButton from "../../../shared/components/ShareButton";
-import ZoomImage from "../../../shared/components/ZoomImage";
-import smoothScrollTop from "../../../shared/functions/smoothScrollTop";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import format from 'date-fns/format';
+import {
+  Grid, Typography, Card, Box, withStyles,
+} from '@material-ui/core';
+import BlogCard from './BlogCard';
+import ShareButton from '../../../shared/components/ShareButton';
+import ZoomImage from '../../../shared/components/ZoomImage';
+import smoothScrollTop from '../../../shared/functions/smoothScrollTop';
 
-const styles = theme => ({
+const styles = (theme) => ({
   blogContentWrapper: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(4),
-      marginRight: theme.spacing(4)
+      marginRight: theme.spacing(4),
     },
     maxWidth: 1280,
-    width: "100%"
+    width: '100%',
   },
   wrapper: {
-    minHeight: "60vh"
+    minHeight: '60vh',
   },
   img: {
-    width: "100%",
-    height: "auto"
+    width: '100%',
+    height: 'auto',
   },
   card: {
-    boxShadow: theme.shadows[4]
-  }
+    boxShadow: theme.shadows[4],
+  },
 });
 
 class BlogPost extends PureComponent {
@@ -39,10 +41,12 @@ class BlogPost extends PureComponent {
   }
 
   render() {
-    const { classes, date, title, src, content, otherArticles } = this.props;
+    const {
+      classes, date, title, src, content, otherArticles,
+    } = this.props;
     return (
       <Box
-        className={classNames("lg-p-top", classes.wrapper)}
+        className={classNames('lg-p-top', classes.wrapper)}
         display="flex"
         justifyContent="center"
       >
@@ -55,8 +59,8 @@ class BlogPost extends PureComponent {
                     <b>{title}</b>
                   </Typography>
                   <Typography variant="body1" color="textSecondary">
-                    {format(new Date(date * 1000), "PPP", {
-                      awareOfUnicodeTokens: true
+                    {format(new Date(date * 1000), 'PPP', {
+                      awareOfUnicodeTokens: true,
                     })}
                   </Typography>
                 </Box>
@@ -65,7 +69,7 @@ class BlogPost extends PureComponent {
                   {content}
                   <Box pt={2}>
                     <Grid spacing={1} container>
-                      {["Facebook", "Twitter", "Reddit", "Tumblr"].map(
+                      {['Facebook', 'Twitter', 'Reddit', 'Tumblr'].map(
                         (type, index) => (
                           <Grid item key={index}>
                             <ShareButton
@@ -76,11 +80,11 @@ class BlogPost extends PureComponent {
                               variant="contained"
                               className="text-white"
                               classes={{
-                                label: "text-white"
+                                label: 'text-white',
                               }}
                             />
                           </Grid>
-                        )
+                        ),
                       )}
                     </Grid>
                   </Box>
@@ -91,7 +95,7 @@ class BlogPost extends PureComponent {
               <Typography variant="h6" paragraph>
                 Other arcticles
               </Typography>
-              {otherArticles.map(blogPost => (
+              {otherArticles.map((blogPost) => (
                 <Box key={blogPost.id} mb={3}>
                   <BlogCard
                     title={blogPost.title}
@@ -115,7 +119,7 @@ BlogPost.propTypes = {
   date: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
-  otherArticles: PropTypes.arrayOf(PropTypes.object).isRequired
+  otherArticles: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(BlogPost);

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Backdrop, withStyles } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Backdrop, withStyles } from '@material-ui/core';
 
 const styles = {
   backdrop: {
@@ -9,10 +9,10 @@ const styles = {
     right: 0,
     bottom: 0,
     zIndex: 1200,
-    position: "fixed",
-    touchAction: "none",
-    backgroundColor: "rgba(0, 0, 0, 0.5)"
-  }
+    position: 'fixed',
+    touchAction: 'none',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
 };
 
 function ModalBackdrop(props) {
@@ -22,7 +22,7 @@ function ModalBackdrop(props) {
 
 ModalBackdrop.propTypes = {
   classes: PropTypes.object.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(ModalBackdrop);

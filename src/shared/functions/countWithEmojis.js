@@ -1,4 +1,4 @@
-import toArray from "./toArray";
+import toArray from './toArray';
 
 /**
  * Counts the characters in a string and counts emojis correctly.

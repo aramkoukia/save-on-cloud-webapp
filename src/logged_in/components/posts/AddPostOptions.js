@@ -1,5 +1,5 @@
-import React, { Fragment, PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   Typography,
   IconButton,
@@ -12,85 +12,87 @@ import {
   OutlinedInput,
   MenuItem,
   Box,
-  withStyles
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import Bordered from "../../../shared/components/Bordered";
-import ImageCropperDialog from "../../../shared/components/ImageCropperDialog";
+  withStyles,
+} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import Bordered from '../../../shared/components/Bordered';
+import ImageCropperDialog from '../../../shared/components/ImageCropperDialog';
 
-const styles = theme => ({
+const styles = (theme) => ({
   floatButtonWrapper: {
-    position: "absolute",
+    position: 'absolute',
     top: theme.spacing(1),
     right: theme.spacing(1),
-    zIndex: 1000
+    zIndex: 1000,
   },
   inputRoot: {
     width: 190,
-    "@media (max-width:  400px)": {
-      width: 160
+    '@media (max-width:  400px)': {
+      width: 160,
     },
-    "@media (max-width:  360px)": {
-      width: 140
+    '@media (max-width:  360px)': {
+      width: 140,
     },
-    "@media (max-width:  340px)": {
-      width: 120
-    }
+    '@media (max-width:  340px)': {
+      width: 120,
+    },
   },
   uploadIcon: {
     fontSize: 48,
-    transition: theme.transitions.create(["color", "box-shadow", "border"], {
+    transition: theme.transitions.create(['color', 'box-shadow', 'border'], {
       duration: theme.transitions.duration.short,
-      easing: theme.transitions.easing.easeInOut
-    })
+      easing: theme.transitions.easing.easeInOut,
+    }),
   },
-  imgWrapper: { position: "relative" },
+  imgWrapper: { position: 'relative' },
   img: {
-    width: "100%",
-    border: "1px solid rgba(0, 0, 0, 0.23)",
+    width: '100%',
+    border: '1px solid rgba(0, 0, 0, 0.23)',
     borderRadius: theme.shape.borderRadius,
     borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0
+    borderBottomLeftRadius: 0,
   },
   uploadText: {
-    transition: theme.transitions.create(["color", "box-shadow", "border"], {
+    transition: theme.transitions.create(['color', 'box-shadow', 'border'], {
       duration: theme.transitions.duration.short,
-      easing: theme.transitions.easing.easeInOut
-    })
+      easing: theme.transitions.easing.easeInOut,
+    }),
   },
   numberInput: {
-    width: 110
+    width: 110,
   },
   numberInputInput: {
-    padding: "9px 34px 9px 14.5px"
+    padding: '9px 34px 9px 14.5px',
   },
   emojiTextArea: {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
-    marginRight: -1
+    marginRight: -1,
   },
   dNone: {
-    display: "none"
-  }
+    display: 'none',
+  },
 });
 
-const inputOptions = ["None", "Slow", "Normal", "Fast"];
+const inputOptions = ['None', 'Slow', 'Normal', 'Fast'];
 
 class AddPostOptions extends PureComponent {
   state = {
-    option1: "None",
-    option2: "None",
-    option3: "None",
-    option4: "None"
+    option1: 'None',
+    option2: 'None',
+    option3: 'None',
+    option4: 'None',
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   printFile = () => {
-    const { Dropzone, classes, files, deleteItem, onDrop } = this.props;
+    const {
+      Dropzone, classes, files, deleteItem, onDrop,
+    } = this.props;
     if (files[0]) {
       return (
         <div className={classes.imgWrapper}>
@@ -111,7 +113,11 @@ class AddPostOptions extends PureComponent {
     return (
       <Dropzone accept="image/png, image/jpeg" onDrop={onDrop} fullHeight>
         <span className={classes.uploadText}>
-          Click / Drop file <br /> here
+          Click / Drop file
+          {' '}
+          <br />
+          {' '}
+          here
         </span>
       </Dropzone>
     );
@@ -127,38 +133,40 @@ class AddPostOptions extends PureComponent {
       onCrop,
       onCropperClose,
       uploadAt,
-      onChangeUploadAt
+      onChangeUploadAt,
     } = this.props;
-    const { option1, option2, option3, option4 } = this.state;
+    const {
+      option1, option2, option3, option4,
+    } = this.state;
     const inputs = [
       {
         state: option1,
-        label: "Option 1",
-        stateName: "option1"
+        label: 'Option 1',
+        stateName: 'option1',
       },
       {
         state: option2,
-        label: "Option 2",
-        stateName: "option2"
+        label: 'Option 2',
+        stateName: 'option2',
       },
       {
         state: option3,
-        label: "Option 3",
-        stateName: "option3"
+        label: 'Option 3',
+        stateName: 'option3',
       },
       {
         state: option4,
-        label: "Option 4",
-        stateName: "option4"
-      }
+        label: 'Option 4',
+        stateName: 'option4',
+      },
     ];
     return (
-      <Fragment>
+      <>
         {ImageCropper && (
           <ImageCropperDialog
-            open={cropperFile ? true : false}
+            open={!!cropperFile}
             ImageCropper={ImageCropper}
-            src={cropperFile ? cropperFile.preview : ""}
+            src={cropperFile ? cropperFile.preview : ''}
             onCrop={onCrop}
             onClose={onCropperClose}
             aspectRatio={4 / 3}
@@ -212,16 +220,16 @@ class AddPostOptions extends PureComponent {
                     <Select
                       value={element.state}
                       onChange={this.handleChange}
-                      input={
+                      input={(
                         <OutlinedInput
                           name={element.stateName}
                           labelWidth={0}
                           className={classes.numberInput}
                           classes={{ input: classes.numberInputInput }}
                         />
-                      }
+                      )}
                     >
-                      {inputOptions.map(innerElement => (
+                      {inputOptions.map((innerElement) => (
                         <MenuItem value={innerElement} key={innerElement}>
                           {innerElement}
                         </MenuItem>
@@ -233,7 +241,7 @@ class AddPostOptions extends PureComponent {
             ))}
           </Bordered>
         </List>
-      </Fragment>
+      </>
     );
   }
 }
@@ -254,7 +262,7 @@ AddPostOptions.propTypes = {
   value: PropTypes.string,
   characters: PropTypes.number,
   uploadAt: PropTypes.instanceOf(Date),
-  onChangeUploadAt: PropTypes.func
+  onChangeUploadAt: PropTypes.func,
 };
 
 export default withStyles(styles, { withTheme: true })(AddPostOptions);

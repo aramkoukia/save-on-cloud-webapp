@@ -1,14 +1,14 @@
-import React from "react";
-import { TextField, InputAdornment, IconButton } from "@material-ui/core";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import React from 'react';
+import { TextField, InputAdornment, IconButton } from '@material-ui/core';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 function VisibilityPasswordTextField(props) {
   const { isVisible, onVisibilityChange, ...rest } = props;
   return (
     <TextField
       {...rest}
-      type={isVisible ? "text" : "password"}
+      type={isVisible ? 'text' : 'password'}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
@@ -17,16 +17,16 @@ function VisibilityPasswordTextField(props) {
               onClick={() => {
                 onVisibilityChange(!isVisible);
               }}
-              onMouseDown={event => {
+              onMouseDown={(event) => {
                 event.preventDefault();
               }}
             >
               {isVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </IconButton>
           </InputAdornment>
-        )
+        ),
       }}
-    ></TextField>
+    />
   );
 }
 

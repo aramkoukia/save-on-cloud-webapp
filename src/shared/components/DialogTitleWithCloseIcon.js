@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   IconButton,
   DialogTitle,
   Typography,
   Box,
-  withTheme
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+  withTheme,
+} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 function DialogTitleWithCloseIcon(props) {
   const {
@@ -16,7 +16,7 @@ function DialogTitleWithCloseIcon(props) {
     onClose,
     disabled,
     title,
-    disablePadding
+    disablePadding,
   } = props;
   return (
     <DialogTitle
@@ -29,7 +29,7 @@ function DialogTitleWithCloseIcon(props) {
         paddingLeft: disablePadding ? 0 : null,
         paddingRight: disablePadding ? 0 : null,
         paddingTop: disablePadding ? 0 : theme.spacing(2),
-        width: "100%"
+        width: '100%',
       }}
       disableTypography
     >
@@ -54,7 +54,7 @@ DialogTitleWithCloseIcon.propTypes = {
   onClose: PropTypes.func,
   disabled: PropTypes.bool,
   title: PropTypes.string,
-  disablePadding: PropTypes.bool
+  disablePadding: PropTypes.bool,
 };
 
 export default withTheme(DialogTitleWithCloseIcon);

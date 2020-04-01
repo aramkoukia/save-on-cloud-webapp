@@ -1,26 +1,28 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import { Grid, Box, isWidthUp, withWidth, withStyles } from "@material-ui/core";
-import BlogCard from "./BlogCard";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import {
+  Grid, Box, isWidthUp, withWidth, withStyles,
+} from '@material-ui/core';
+import BlogCard from './BlogCard';
 
-const styles = theme => ({
+const styles = (theme) => ({
   blogContentWrapper: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(4),
-      marginRight: theme.spacing(4)
+      marginRight: theme.spacing(4),
     },
     maxWidth: 1280,
-    width: "100%"
+    width: '100%',
   },
   wrapper: {
-    minHeight: "60vh"
+    minHeight: '60vh',
   },
   noDecoration: {
-    textDecoration: "none !important"
-  }
+    textDecoration: 'none !important',
+  },
 });
 
 class Blog extends PureComponent {
@@ -34,10 +36,10 @@ class Blog extends PureComponent {
     const gridRows = [[], [], []];
     let rows;
     let xs;
-    if (isWidthUp("md", width)) {
+    if (isWidthUp('md', width)) {
       rows = 3;
       xs = 4;
-    } else if (isWidthUp("sm", width)) {
+    } else if (isWidthUp('sm', width)) {
       rows = 2;
       xs = 6;
     } else {
@@ -56,7 +58,7 @@ class Blog extends PureComponent {
               url={blogPost.url}
             />
           </Box>
-        </Grid>
+        </Grid>,
       );
     });
     return gridRows.map((element, index) => (
@@ -72,7 +74,7 @@ class Blog extends PureComponent {
       <Box
         display="flex"
         justifyContent="center"
-        className={classNames(classes.wrapper, "lg-p-top")}
+        className={classNames(classes.wrapper, 'lg-p-top')}
       >
         <div className={classes.blogContentWrapper}>
           <Grid container spacing={3}>
@@ -88,7 +90,7 @@ Blog.propTypes = {
   selectBlog: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   width: PropTypes.string.isRequired,
-  blogposts: PropTypes.arrayOf(PropTypes.object)
+  blogposts: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default withWidth()(withStyles(styles, { withTheme: true })(Blog));

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   List,
   ListItem,
@@ -14,45 +14,45 @@ import {
   MenuItem,
   FormControl,
   Select,
-  withStyles
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import withWidth from "@material-ui/core/withWidth";
-import Bordered from "../../../shared/components/Bordered";
-import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
+  withStyles,
+} from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import withWidth from '@material-ui/core/withWidth';
+import Bordered from '../../../shared/components/Bordered';
+import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
 
-const styles = theme => ({
+const styles = (theme) => ({
   numberInput: {
-    width: 110
+    width: 110,
   },
   numberInputInput: {
-    padding: "9px 34px 9px 14.5px"
+    padding: '9px 34px 9px 14.5px',
   },
-  dBlock: { display: "block" },
+  dBlock: { display: 'block' },
   listItemLeftPadding: {
-    paddingRight: theme.spacing(3)
+    paddingRight: theme.spacing(3),
   },
   expansionPanelDetails: {
     paddintTop: theme.spacing(0),
-    justifyContent: "flex-end"
-  }
+    justifyContent: 'flex-end',
+  },
 });
-const inputOptions = ["None", "Slow", "Normal", "Fast"];
+const inputOptions = ['None', 'Slow', 'Normal', 'Fast'];
 
 class Settings1 extends Component {
   state = {
-    option1: "None",
-    option2: "None",
-    option3: "None",
-    option4: "None",
-    option5: "2 Days",
+    option1: 'None',
+    option2: 'None',
+    option3: 'None',
+    option4: 'None',
+    option5: '2 Days',
     option6: 7500,
-    loading: false
+    loading: false,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === "option6") {
+    if (name === 'option6') {
       if (value > 7500 || value < 1000) {
         return;
       }
@@ -65,7 +65,7 @@ class Settings1 extends Component {
     this.setState({ loading: true });
     setTimeout(() => {
       pushMessageToSnackbar({
-        text: "Your settings have been saved"
+        text: 'Your settings have been saved',
       });
       this.setState({ loading: false });
     }, 1500);
@@ -79,30 +79,30 @@ class Settings1 extends Component {
       option3,
       option4,
       option5,
-      option6
+      option6,
     } = this.state;
     const { classes } = this.props;
     const inputs = [
       {
         state: option1,
-        label: "Option 1",
-        stateName: "option1"
+        label: 'Option 1',
+        stateName: 'option1',
       },
       {
         state: option2,
-        label: "Option 2",
-        stateName: "option2"
+        label: 'Option 2',
+        stateName: 'option2',
       },
       {
         state: option3,
-        label: "Option 3",
-        stateName: "option3"
+        label: 'Option 3',
+        stateName: 'option3',
       },
       {
         state: option4,
-        label: "Option 4",
-        stateName: "option4"
-      }
+        label: 'Option 4',
+        stateName: 'option4',
+      },
     ];
     return (
       <ExpansionPanel>
@@ -129,16 +129,16 @@ class Settings1 extends Component {
                       <Select
                         value={element.state}
                         onChange={this.handleChange}
-                        input={
+                        input={(
                           <OutlinedInput
                             name={element.stateName}
                             labelWidth={0}
                             className={classes.numberInput}
                             classes={{ input: classes.numberInputInput }}
                           />
-                        }
+                        )}
                       >
-                        {inputOptions.map(innerElement => (
+                        {inputOptions.map((innerElement) => (
                           <MenuItem value={innerElement} key={innerElement}>
                             {innerElement}
                           </MenuItem>
@@ -159,24 +159,24 @@ class Settings1 extends Component {
                     <Select
                       value={option5}
                       onChange={this.handleChange}
-                      input={
+                      input={(
                         <OutlinedInput
                           name="option5"
                           labelWidth={0}
                           className={classes.numberInput}
                           classes={{ input: classes.numberInputInput }}
                         />
-                      }
+                      )}
                     >
                       {[
-                        "Always",
-                        "6 Hours",
-                        "12 Hours",
-                        "1 Day",
-                        "2 Days",
-                        "3 Days",
-                        "1 Week"
-                      ].map(element => (
+                        'Always',
+                        '6 Hours',
+                        '12 Hours',
+                        '1 Day',
+                        '2 Days',
+                        '3 Days',
+                        '1 Week',
+                      ].map((element) => (
                         <MenuItem value={element} key={element}>
                           {element}
                         </MenuItem>
@@ -216,7 +216,9 @@ class Settings1 extends Component {
             disabled={loading}
             onClick={this.onSubmit}
           >
-            Save {loading && <ButtonCircularProgress />}
+            Save
+            {' '}
+            {loading && <ButtonCircularProgress />}
           </Button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -227,7 +229,7 @@ class Settings1 extends Component {
 Settings1.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  pushMessageToSnackbar: PropTypes.func
+  pushMessageToSnackbar: PropTypes.func,
 };
 
 export default withWidth()(withStyles(styles, { withTheme: true })(Settings1));

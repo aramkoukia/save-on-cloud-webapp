@@ -1,11 +1,11 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
-import PostContent from "./PostContent";
-import AddPost from "./AddPost";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import PostContent from './PostContent';
+import AddPost from './AddPost';
 
 class Posts extends PureComponent {
   state = {
-    addPostPaperOpen: false
+    addPostPaperOpen: false,
   };
 
   componentDidMount() {
@@ -29,10 +29,10 @@ class Posts extends PureComponent {
       Dropzone,
       DateTimePicker,
       pushMessageToSnackbar,
-      posts
+      posts,
     } = this.props;
     return (
-      <Fragment>
+      <>
         {addPostPaperOpen ? (
           <AddPost
             onClose={this.closeAddPostModal}
@@ -50,7 +50,7 @@ class Posts extends PureComponent {
             pushMessageToSnackbar={pushMessageToSnackbar}
           />
         )}
-      </Fragment>
+      </>
     );
   }
 }
@@ -62,7 +62,7 @@ Posts.propTypes = {
   DateTimePicker: PropTypes.elementType,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
   pushMessageToSnackbar: PropTypes.func,
-  selectPosts: PropTypes.func.isRequired
+  selectPosts: PropTypes.func.isRequired,
 };
 
 export default Posts;

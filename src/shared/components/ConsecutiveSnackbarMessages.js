@@ -1,13 +1,13 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { Snackbar, withStyles } from "@material-ui/core";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { Snackbar, withStyles } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     paddingTop: 0,
-    paddingBottom: 0
-  }
+    paddingBottom: 0,
+  },
 });
 
 class ConsecutiveSnackbars extends PureComponent {
@@ -15,7 +15,7 @@ class ConsecutiveSnackbars extends PureComponent {
 
   state = {
     open: false,
-    messageInfo: {}
+    messageInfo: {},
   };
 
   componentDidMount() {
@@ -26,11 +26,11 @@ class ConsecutiveSnackbars extends PureComponent {
     getPushMessageFromChild(this.pushMessage);
   }
 
-  pushMessage = message => {
+  pushMessage = (message) => {
     const { open } = this.state;
     this.queue.push({
       message,
-      key: new Date().getTime()
+      key: new Date().getTime(),
     });
     if (open) {
       // immediately begin dismissing current message
@@ -45,13 +45,13 @@ class ConsecutiveSnackbars extends PureComponent {
     if (this.queue.length > 0) {
       this.setState({
         messageInfo: this.queue.shift(),
-        open: true
+        open: true,
       });
     }
   };
 
   handleClose = (_, reason) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     this.setState({ open: false });
@@ -69,8 +69,8 @@ class ConsecutiveSnackbars extends PureComponent {
         disableWindowBlurListener
         key={messageInfo.key}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left"
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         open={open}
         autoHideDuration={6000}
@@ -78,8 +78,8 @@ class ConsecutiveSnackbars extends PureComponent {
         onExited={this.handleExited}
         ContentProps={{
           classes: {
-            root: classes.root
-          }
+            root: classes.root,
+          },
         }}
         message={
           <span>{messageInfo.message ? messageInfo.message.text : null}</span>
@@ -91,7 +91,7 @@ class ConsecutiveSnackbars extends PureComponent {
 
 ConsecutiveSnackbars.propTypes = {
   getPushMessageFromChild: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(ConsecutiveSnackbars);

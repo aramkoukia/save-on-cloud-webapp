@@ -1,7 +1,7 @@
-import React, { PureComponent, Fragment } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, { PureComponent, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   AppBar,
   Toolbar,
@@ -18,50 +18,50 @@ import {
   Box,
   withStyles,
   isWidthUp,
-  withWidth
-} from "@material-ui/core";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import ImageIcon from "@material-ui/icons/Image";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import MenuIcon from "@material-ui/icons/Menu";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import MessagePopperButton from "./MessagePopperButton";
-import SideDrawer from "./SideDrawer";
-import Balance from "./Balance";
-import NavigationDrawer from "../../../shared/components/NavigationDrawer";
-import profilePicture from "../../dummy_data/images/profilePicture.jpg";
+  withWidth,
+} from '@material-ui/core';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ImageIcon from '@material-ui/icons/Image';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import MenuIcon from '@material-ui/icons/Menu';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import MessagePopperButton from './MessagePopperButton';
+import SideDrawer from './SideDrawer';
+import Balance from './Balance';
+import NavigationDrawer from '../../../shared/components/NavigationDrawer';
+import profilePicture from '../../dummy_data/images/profilePicture.jpg';
 
-const styles = theme => ({
+const styles = (theme) => ({
   appBar: {
     boxShadow: theme.shadows[6],
     backgroundColor: theme.palette.common.white,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      marginLeft: 0
-    }
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      marginLeft: 0,
+    },
   },
   appBarToolbar: {
-    display: "flex",
-    justifyContent: "space-between",
+    display: 'flex',
+    justifyContent: 'space-between',
     paddingLeft: theme.spacing(1),
     paddingRight: theme.spacing(1),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
+      paddingRight: theme.spacing(2),
     },
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3)
+      paddingRight: theme.spacing(3),
     },
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up('lg')]: {
       paddingLeft: theme.spacing(4),
-      paddingRight: theme.spacing(4)
-    }
+      paddingRight: theme.spacing(4),
+    },
   },
   accountAvatar: {
     backgroundColor: theme.palette.secondary.main,
@@ -69,62 +69,62 @@ const styles = theme => ({
     width: 24,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('xs')]: {
       marginLeft: theme.spacing(1.5),
-      marginRight: theme.spacing(1.5)
-    }
+      marginRight: theme.spacing(1.5),
+    },
   },
   drawerPaper: {
-    height: "100%vh",
-    whiteSpace: "nowrap",
+    height: '100%vh',
+    whiteSpace: 'nowrap',
     border: 0,
     width: theme.spacing(7),
-    overflowX: "hidden",
+    overflowX: 'hidden',
     marginTop: theme.spacing(8),
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9)
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing(9),
     },
-    backgroundColor: theme.palette.common.black
+    backgroundColor: theme.palette.common.black,
   },
   smBordered: {
-    [theme.breakpoints.down("xs")]: {
-      borderRadius: "50% !important"
-    }
+    [theme.breakpoints.down('xs')]: {
+      borderRadius: '50% !important',
+    },
   },
   menuLink: {
-    textDecoration: "none",
-    color: theme.palette.text.primary
+    textDecoration: 'none',
+    color: theme.palette.text.primary,
   },
   iconListItem: {
-    width: "auto",
+    width: 'auto',
     borderRadius: theme.shape.borderRadius,
     paddingTop: 11,
     paddingBottom: 11,
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   textPrimary: {
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
   },
   mobileItemSelected: {
-    backgroundColor: `${theme.palette.primary.main} !important`
+    backgroundColor: `${theme.palette.primary.main} !important`,
   },
   brandText: {
     fontFamily: "'Baloo Bhaijaan', cursive",
-    fontWeight: 400
+    fontWeight: 400,
   },
   username: {
     paddingLeft: 0,
-    paddingRight: theme.spacing(2)
+    paddingRight: theme.spacing(2),
   },
   justifyCenter: {
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   permanentDrawerListItem: {
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
-  }
+    paddingBottom: theme.spacing(2),
+  },
 });
 
 class NavBar extends PureComponent {
@@ -156,12 +156,12 @@ class NavBar extends PureComponent {
       messages,
       classes,
       width,
-      openAddBalanceDialog
+      openAddBalanceDialog,
     } = this.props;
     const menuItems = [
       {
-        link: "/c/dashboard",
-        name: "Dashboard",
+        link: '/c/dashboard',
+        name: 'Dashboard',
         onClick: () => {
           this.closeMobileDrawer();
         },
@@ -169,17 +169,17 @@ class NavBar extends PureComponent {
           desktop: (
             <DashboardIcon
               className={
-                selectedTab === "Dashboard" ? classes.textPrimary : "text-white"
+                selectedTab === 'Dashboard' ? classes.textPrimary : 'text-white'
               }
               fontSize="small"
             />
           ),
-          mobile: <DashboardIcon className="text-white" />
-        }
+          mobile: <DashboardIcon className="text-white" />,
+        },
       },
       {
-        link: "/c/posts",
-        name: "Posts",
+        link: '/c/posts',
+        name: 'Posts',
         onClick: () => {
           this.closeMobileDrawer();
         },
@@ -187,17 +187,17 @@ class NavBar extends PureComponent {
           desktop: (
             <ImageIcon
               className={
-                selectedTab === "Posts" ? classes.textPrimary : "text-white"
+                selectedTab === 'Posts' ? classes.textPrimary : 'text-white'
               }
               fontSize="small"
             />
           ),
-          mobile: <ImageIcon className="text-white" />
-        }
+          mobile: <ImageIcon className="text-white" />,
+        },
       },
       {
-        link: "/c/subscription",
-        name: "Subscription",
+        link: '/c/subscription',
+        name: 'Subscription',
         onClick: () => {
           this.closeMobileDrawer();
         },
@@ -205,29 +205,29 @@ class NavBar extends PureComponent {
           desktop: (
             <AccountBalanceIcon
               className={
-                selectedTab === "Subscription"
+                selectedTab === 'Subscription'
                   ? classes.textPrimary
-                  : "text-white"
+                  : 'text-white'
               }
               fontSize="small"
             />
           ),
-          mobile: <AccountBalanceIcon className="text-white" />
-        }
+          mobile: <AccountBalanceIcon className="text-white" />,
+        },
       },
       {
-        link: "/",
-        name: "Logout",
+        link: '/',
+        name: 'Logout',
         icon: {
           desktop: (
             <PowerSettingsNewIcon className="text-white" fontSize="small" />
           ),
-          mobile: <PowerSettingsNewIcon className="text-white" />
-        }
-      }
+          mobile: <PowerSettingsNewIcon className="text-white" />,
+        },
+      },
     ];
     return (
-      <Fragment>
+      <>
         <AppBar position="sticky" className={classes.appBar}>
           <Toolbar className={classes.appBarToolbar}>
             <Box display="flex" alignItems="center">
@@ -267,7 +267,7 @@ class NavBar extends PureComponent {
               alignItems="center"
               width="100%"
             >
-              {isWidthUp("sm", width) && (
+              {isWidthUp('sm', width) && (
                 <Box mr={3}>
                   <Balance
                     balance={2573}
@@ -285,7 +285,7 @@ class NavBar extends PureComponent {
                   src={profilePicture}
                   className={classNames(classes.accountAvatar)}
                 />
-                {isWidthUp("sm", width) && (
+                {isWidthUp('sm', width) && (
                   <ListItemText
                     className={classes.username}
                     primary={
@@ -309,7 +309,7 @@ class NavBar extends PureComponent {
           <Drawer //  both drawers can be combined into one for performance
             variant="permanent"
             classes={{
-              paper: classes.drawerPaper
+              paper: classes.drawerPaper,
             }}
             open={false}
           >
@@ -320,7 +320,7 @@ class NavBar extends PureComponent {
                   className={classes.menuLink}
                   onClick={element.onClick}
                   key={index}
-                  ref={node => {
+                  ref={(node) => {
                     this.links[index] = node;
                   }}
                 >
@@ -338,8 +338,8 @@ class NavBar extends PureComponent {
                         this.links[index].click();
                       }}
                       aria-label={
-                        element.name === "Logout"
-                          ? "Logout"
+                        element.name === 'Logout'
+                          ? 'Logout'
                           : `Go to ${element.name}`
                       }
                     >
@@ -354,18 +354,18 @@ class NavBar extends PureComponent {
           </Drawer>
         </Hidden>
         <NavigationDrawer
-          menuItems={menuItems.map(element => ({
+          menuItems={menuItems.map((element) => ({
             link: element.link,
             name: element.name,
             icon: element.icon.mobile,
-            onClick: element.onClick
+            onClick: element.onClick,
           }))}
           anchor="left"
           open={mobileOpen}
           selectedItem={selectedTab}
           onClose={this.closeMobileDrawer}
         />
-      </Fragment>
+      </>
     );
   }
 }
@@ -375,7 +375,7 @@ NavBar.propTypes = {
   selectedTab: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
-  openAddBalanceDialog: PropTypes.func.isRequired
+  openAddBalanceDialog: PropTypes.func.isRequired,
 };
 
 export default withWidth()(withStyles(styles, { withTheme: true })(NavBar));

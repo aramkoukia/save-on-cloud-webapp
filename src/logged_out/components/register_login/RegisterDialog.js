@@ -1,5 +1,5 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   FormHelperText,
   TextField,
@@ -7,35 +7,35 @@ import {
   Checkbox,
   Typography,
   FormControlLabel,
-  withStyles
-} from "@material-ui/core";
-import FormDialog from "../../../shared/components/FormDialog";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
-import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
-import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
+  withStyles,
+} from '@material-ui/core';
+import FormDialog from '../../../shared/components/FormDialog';
+import HighlightedInformation from '../../../shared/components/HighlightedInformation';
+import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
+import VisibilityPasswordTextField from '../../../shared/components/VisibilityPasswordTextField';
 
-const styles = theme => ({
+const styles = (theme) => ({
   link: {
-    transition: theme.transitions.create(["background-color"], {
+    transition: theme.transitions.create(['background-color'], {
       duration: theme.transitions.duration.complex,
-      easing: theme.transitions.easing.easeInOut
+      easing: theme.transitions.easing.easeInOut,
     }),
-    cursor: "pointer",
+    cursor: 'pointer',
     color: theme.palette.primary.main,
-    "&:enabled:hover": {
-      color: theme.palette.primary.dark
+    '&:enabled:hover': {
+      color: theme.palette.primary.dark,
     },
-    "&:enabled:focus": {
-      color: theme.palette.primary.dark
-    }
-  }
+    '&:enabled:focus': {
+      color: theme.palette.primary.dark,
+    },
+  },
 });
 
 class RegisterDialog extends PureComponent {
   state = {
     loading: false,
     termsOfServiceError: false,
-    passwordIsVisible: false
+    passwordIsVisible: false,
   };
 
   register = () => {
@@ -45,7 +45,7 @@ class RegisterDialog extends PureComponent {
       return;
     }
     if (this.registerPassword.value !== this.registerPasswordRepeat.value) {
-      setStatus("passwordsDontMatch");
+      setStatus('passwordsDontMatch');
       return;
     }
     setStatus(null);
@@ -55,7 +55,7 @@ class RegisterDialog extends PureComponent {
     }, 1500);
   };
 
-  onVisibilityChange = isVisible => {
+  onVisibilityChange = (isVisible) => {
     this.setState({ passwordIsVisible: isVisible });
   };
 
@@ -66,7 +66,7 @@ class RegisterDialog extends PureComponent {
       openTermsDialog,
       setStatus,
       status,
-      classes
+      classes,
     } = this.props;
     const { loading, termsOfServiceError, passwordIsVisible } = this.state;
     return (
@@ -75,29 +75,29 @@ class RegisterDialog extends PureComponent {
         onClose={onClose}
         open
         headline="Register"
-        onFormSubmit={e => {
+        onFormSubmit={(e) => {
           e.preventDefault();
           this.register();
         }}
         hideBackdrop
         hasCloseIcon
-        content={
-          <Fragment>
+        content={(
+          <>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              error={status === "invalidEmail"}
+              error={status === 'invalidEmail'}
               label="Email Address"
-              inputRef={node => {
+              inputRef={(node) => {
                 this.registerEmail = node;
               }}
               autoFocus
               autoComplete="off"
               type="email"
               onChange={() => {
-                if (status === "invalidEmail") {
+                if (status === 'invalidEmail') {
                   setStatus(null);
                 }
               }}
@@ -109,27 +109,27 @@ class RegisterDialog extends PureComponent {
               required
               fullWidth
               error={
-                status === "passwordTooShort" || status === "passwordsDontMatch"
+                status === 'passwordTooShort' || status === 'passwordsDontMatch'
               }
               label="Password"
-              inputRef={node => {
+              inputRef={(node) => {
                 this.registerPassword = node;
               }}
               autoComplete="off"
               onChange={() => {
                 if (
-                  status === "passwordTooShort" ||
-                  status === "passwordsDontMatch"
+                  status === 'passwordTooShort'
+                  || status === 'passwordsDontMatch'
                 ) {
                   setStatus(null);
                 }
               }}
               helperText={(() => {
-                if (status === "passwordTooShort") {
-                  return "Create a password at least 6 characters long.";
+                if (status === 'passwordTooShort') {
+                  return 'Create a password at least 6 characters long.';
                 }
-                if (status === "passwordsDontMatch") {
-                  return "Your passwords dont match.";
+                if (status === 'passwordsDontMatch') {
+                  return 'Your passwords dont match.';
                 }
                 return null;
               })()}
@@ -143,27 +143,27 @@ class RegisterDialog extends PureComponent {
               required
               fullWidth
               error={
-                status === "passwordTooShort" || status === "passwordsDontMatch"
+                status === 'passwordTooShort' || status === 'passwordsDontMatch'
               }
               label="Repeat Password"
-              inputRef={node => {
+              inputRef={(node) => {
                 this.registerPasswordRepeat = node;
               }}
               autoComplete="off"
               onChange={() => {
                 if (
-                  status === "passwordTooShort" ||
-                  status === "passwordsDontMatch"
+                  status === 'passwordTooShort'
+                  || status === 'passwordsDontMatch'
                 ) {
                   setStatus(null);
                 }
               }}
               helperText={(() => {
-                if (status === "passwordTooShort") {
-                  return "Create a password at least 6 characters long.";
+                if (status === 'passwordTooShort') {
+                  return 'Create a password at least 6 characters long.';
                 }
-                if (status === "passwordsDontMatch") {
-                  return "Your passwords dont match.";
+                if (status === 'passwordsDontMatch') {
+                  return 'Your passwords dont match.';
                 }
               })()}
               FormHelperTextProps={{ error: true }}
@@ -172,18 +172,18 @@ class RegisterDialog extends PureComponent {
             />
             <FormControlLabel
               style={{ marginRight: 0 }}
-              control={
+              control={(
                 <Checkbox
                   color="primary"
-                  inputRef={node => {
+                  inputRef={(node) => {
                     this.registerTermsCheckbox = node;
                   }}
                   onChange={() => {
                     this.setState({ termsOfServiceError: false });
                   }}
                 />
-              }
-              label={
+              )}
+              label={(
                 <Typography variant="body1">
                   I agree to the
                   <span
@@ -191,35 +191,35 @@ class RegisterDialog extends PureComponent {
                     onClick={loading ? null : openTermsDialog}
                     tabIndex={0}
                     role="button"
-                    onKeyDown={event => {
+                    onKeyDown={(event) => {
                       // For screenreaders listen to space and enter events
                       if (
-                        (!loading && event.keyCode === 13) ||
-                        event.keyCode === 32
+                        (!loading && event.keyCode === 13)
+                        || event.keyCode === 32
                       ) {
                         openTermsDialog();
                       }
                     }}
                   >
-                    {" "}
+                    {' '}
                     terms of service
                   </span>
                 </Typography>
-              }
+              )}
             />
             {termsOfServiceError && (
               <FormHelperText
                 error
                 style={{
-                  display: "block",
-                  marginTop: theme.spacing(-1)
+                  display: 'block',
+                  marginTop: theme.spacing(-1),
                 }}
               >
                 In order to create an account, you have to accept our terms of
                 service.
               </FormHelperText>
             )}
-            {status === "accountCreated" ? (
+            {status === 'accountCreated' ? (
               <HighlightedInformation>
                 We have created your account. Please click on the link in the
                 email we have sent to you before logging in.
@@ -229,9 +229,9 @@ class RegisterDialog extends PureComponent {
                 Registration is disabled until we go live.
               </HighlightedInformation>
             )}
-          </Fragment>
-        }
-        actions={
+          </>
+        )}
+        actions={(
           <Button
             type="submit"
             fullWidth
@@ -243,7 +243,7 @@ class RegisterDialog extends PureComponent {
             Register
             {loading && <ButtonCircularProgress />}
           </Button>
-        }
+        )}
       />
     );
   }
@@ -255,7 +255,7 @@ RegisterDialog.propTypes = {
   openTermsDialog: PropTypes.func.isRequired,
   status: PropTypes.string,
   setStatus: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(RegisterDialog);

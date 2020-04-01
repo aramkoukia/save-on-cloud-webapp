@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   Typography,
   TableCell,
@@ -8,29 +8,31 @@ import {
   TableRow,
   TableSortLabel,
   Tooltip,
-  withStyles
-} from "@material-ui/core";
+  withStyles,
+} from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme) => ({
   tableSortLabel: {
-    cursor: "text",
-    userSelect: "auto",
-    color: "inherit !important"
+    cursor: 'text',
+    userSelect: 'auto',
+    color: 'inherit !important',
   },
   noIcon: {
-    "& path": {
-      display: "none !important"
-    }
+    '& path': {
+      display: 'none !important',
+    },
   },
   paddingFix: {
-    paddingLeft: theme.spacing(3)
-  }
+    paddingLeft: theme.spacing(3),
+  },
 });
 
 function EnhancedTableHead(props) {
-  const { order, orderBy, rows, onRequestSort, classes } = props;
+  const {
+    order, orderBy, rows, onRequestSort, classes,
+  } = props;
 
-  const createSortHandler = property => event => {
+  const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
@@ -40,7 +42,7 @@ function EnhancedTableHead(props) {
         {rows.map((row, index) => (
           <TableCell
             key={index}
-            align={row.numeric ? "right" : "inherit"}
+            align={row.numeric ? 'right' : 'inherit'}
             padding="default"
             sortDirection={orderBy === row.name ? order : false}
             className={index === 0 ? classes.paddingFix : null}
@@ -48,7 +50,7 @@ function EnhancedTableHead(props) {
             {onRequestSort ? (
               <Tooltip
                 title="Sort"
-                placement={row.numeric ? "bottom-end" : "bottom-start"}
+                placement={row.numeric ? 'bottom-end' : 'bottom-start'}
                 enterDelay={300}
               >
                 <TableSortLabel
@@ -80,7 +82,7 @@ EnhancedTableHead.propTypes = {
   onRequestSort: PropTypes.func,
   order: PropTypes.string,
   orderBy: PropTypes.string,
-  rows: PropTypes.arrayOf(PropTypes.object).isRequired
+  rows: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(EnhancedTableHead);

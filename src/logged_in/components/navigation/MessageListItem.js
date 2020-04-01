@@ -1,22 +1,22 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Avatar
-} from "@material-ui/core";
-import ErrorIcon from "@material-ui/icons/Error";
-import formatDistance from "date-fns/formatDistance";
+  Avatar,
+} from '@material-ui/core';
+import ErrorIcon from '@material-ui/icons/Error';
+import formatDistance from 'date-fns/formatDistance';
 
 class MessageListItem extends PureComponent {
   state = {
-    errorOccured: false
+    errorOccured: false,
   };
 
   handleError = () => {
     this.setState({
-      errorOccured: true
+      errorOccured: true,
     });
   };
 
@@ -46,7 +46,7 @@ class MessageListItem extends PureComponent {
 
 MessageListItem.propTypes = {
   message: PropTypes.object,
-  divider: PropTypes.bool
+  divider: PropTypes.bool,
 };
 
 export default MessageListItem;

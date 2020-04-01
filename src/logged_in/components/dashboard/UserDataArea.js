@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   Table,
   TableBody,
@@ -12,92 +12,92 @@ import {
   ExpansionPanel,
   ExpansionPanelSummary,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import PlayCirlceOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EnhancedTableHead from "../../../shared/components/EnhancedTableHead";
-import stableSort from "../../../shared/functions/stableSort";
-import getSorting from "../../../shared/functions/getSorting";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
-import ConfirmationDialog from "../../../shared/components/ConfirmationDialog";
+  withStyles,
+} from '@material-ui/core';
+import PlayCirlceOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EnhancedTableHead from '../../../shared/components/EnhancedTableHead';
+import stableSort from '../../../shared/functions/stableSort';
+import getSorting from '../../../shared/functions/getSorting';
+import HighlightedInformation from '../../../shared/components/HighlightedInformation';
+import ConfirmationDialog from '../../../shared/components/ConfirmationDialog';
 
-const styles = theme => ({
+const styles = (theme) => ({
   tableWrapper: {
-    overflowX: "auto"
+    overflowX: 'auto',
   },
   alignRight: {
-    display: "flex",
-    flexDirection: "row-reverse",
-    alignItems: "center",
-    paddingLeft: theme.spacing(2)
+    display: 'flex',
+    flexDirection: 'row-reverse',
+    alignItems: 'center',
+    paddingLeft: theme.spacing(2),
   },
   blackIcon: {
-    color: theme.palette.common.black
+    color: theme.palette.common.black,
   },
   avatar: {
     width: 28,
-    height: 28
+    height: 28,
   },
   firstData: {
-    paddingLeft: theme.spacing(3)
+    paddingLeft: theme.spacing(3),
   },
   iconButton: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
   },
   dBlock: {
-    display: "block"
+    display: 'block',
   },
   dNone: {
-    display: "none"
-  }
+    display: 'none',
+  },
 });
 
 const rows = [
   {
-    id: "icon",
+    id: 'icon',
     numeric: true,
-    label: ""
+    label: '',
   },
   {
-    id: "name",
+    id: 'name',
     numeric: false,
-    label: "Name"
+    label: 'Name',
   },
-  { id: "number1", numeric: false, label: "Category 1" },
-  { id: "number2", numeric: false, label: "Category 2" },
-  { id: "number3", numeric: false, label: "Category 3" },
+  { id: 'number1', numeric: false, label: 'Category 1' },
+  { id: 'number2', numeric: false, label: 'Category 2' },
+  { id: 'number3', numeric: false, label: 'Category 3' },
   {
-    id: "number4",
+    id: 'number4',
     numeric: false,
-    label: "Category 4"
+    label: 'Category 4',
   },
   {
-    id: "actions",
+    id: 'actions',
     numeric: false,
-    label: ""
-  }
+    label: '',
+  },
 ];
 
 class CustomTable extends PureComponent {
   state = {
-    order: "asc",
+    order: 'asc',
     orderBy: null,
     page: 0,
     deleteTargetDialogOpen: false,
     deleteTargetDialogName: null,
-    deleteTargetLoading: false
+    deleteTargetLoading: false,
   };
 
   rowsPerPage = 25;
 
   handleRequestSort = (__, property) => {
     const orderBy = property;
-    let order = "desc";
-    if (this.state.orderBy === property && this.state.order === "desc") {
-      order = "asc";
+    let order = 'desc';
+    if (this.state.orderBy === property && this.state.order === 'desc') {
+      order = 'asc';
     }
     this.setState({ order, orderBy });
   };
@@ -108,10 +108,10 @@ class CustomTable extends PureComponent {
     setTimeout(() => {
       this.setState({
         deleteTargetLoading: false,
-        deleteTargetDialogOpen: false
+        deleteTargetDialogOpen: false,
       });
       pushMessageToSnackbar({
-        text: "Your friend has been removed"
+        text: 'Your friend has been removed',
       });
     }, 1500);
   };
@@ -122,14 +122,14 @@ class CustomTable extends PureComponent {
 
   handleDeleteTargetDialogClose = () => {
     this.setState({
-      deleteTargetDialogOpen: false
+      deleteTargetDialogOpen: false,
     });
   };
 
   handleDeleteTargetDialogOpen = (_, name) => {
     this.setState({
       deleteTargetDialogOpen: true,
-      deleteTargetDialogName: name
+      deleteTargetDialogName: name,
     });
   };
 
@@ -140,11 +140,11 @@ class CustomTable extends PureComponent {
     const { pushMessageToSnackbar } = this.props;
     if (activate) {
       pushMessageToSnackbar({
-        text: "The row is now activated"
+        text: 'The row is now activated',
       });
     } else {
       pushMessageToSnackbar({
-        text: "The row is now deactivated"
+        text: 'The row is now deactivated',
       });
     }
   };
@@ -166,7 +166,7 @@ class CustomTable extends PureComponent {
             {stableSort(targets, getSorting(order, orderBy))
               .slice(
                 page * this.rowsPerPage,
-                page * this.rowsPerPage + this.rowsPerPage
+                page * this.rowsPerPage + this.rowsPerPage,
               )
               .map((row, index) => (
                 <TableRow hover tabIndex={-1} key={index}>
@@ -250,7 +250,7 @@ class CustomTable extends PureComponent {
       page,
       deleteTargetDialogOpen,
       deleteTargetDialogName,
-      deleteTargetLoading
+      deleteTargetLoading,
     } = this.state;
     const { classes, targets } = this.props;
     return (
@@ -261,14 +261,14 @@ class CustomTable extends PureComponent {
         <ConfirmationDialog
           open={deleteTargetDialogOpen}
           title="Confirmation"
-          content={
+          content={(
             <span
               dangerouslySetInnerHTML={{
                 __html: `Do you really want to remove the friend
-            <b>${deleteTargetDialogName}</b> from your list?`
+            <b>${deleteTargetDialogName}</b> from your list?`,
               }}
             />
-          }
+          )}
           onClose={this.handleDeleteTargetDialogClose}
           onConfirm={this.deleteTarget}
           loading={deleteTargetLoading}
@@ -282,17 +282,17 @@ class CustomTable extends PureComponent {
               rowsPerPage={this.rowsPerPage}
               page={page}
               backIconButtonProps={{
-                "aria-label": "Previous Page"
+                'aria-label': 'Previous Page',
               }}
               nextIconButtonProps={{
-                "aria-label": "Next Page"
+                'aria-label': 'Next Page',
               }}
               onChangePage={this.handleChangePage}
               classes={{
                 select: classes.dNone,
                 selectIcon: classes.dNone,
                 actions: targets.length > 0 ? classes.dBlock : classes.dNone,
-                caption: targets.length > 0 ? classes.dBlock : classes.dNone
+                caption: targets.length > 0 ? classes.dBlock : classes.dNone,
               }}
               labelRowsPerPage=""
             />
@@ -306,7 +306,7 @@ class CustomTable extends PureComponent {
 CustomTable.propTypes = {
   classes: PropTypes.object.isRequired,
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pushMessageToSnackbar: PropTypes.func
+  pushMessageToSnackbar: PropTypes.func,
 };
 
 export default withStyles(styles, { withTheme: true })(CustomTable);

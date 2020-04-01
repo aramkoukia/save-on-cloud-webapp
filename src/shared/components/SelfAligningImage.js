@@ -1,24 +1,24 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import format from "date-fns/format";
-import { GridListTileBar, withStyles } from "@material-ui/core";
-import VertOptions from "./VertOptions";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import format from 'date-fns/format';
+import { GridListTileBar, withStyles } from '@material-ui/core';
+import VertOptions from './VertOptions';
 
 const styles = {
   imageContainer: {
-    width: "100%",
-    paddingTop: "100%",
-    overflow: "hidden",
-    position: "relative"
+    width: '100%',
+    paddingTop: '100%',
+    overflow: 'hidden',
+    position: 'relative',
   },
   image: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
-    margin: "auto"
-  }
+    margin: 'auto',
+  },
 };
 
 class SelfAligningImage extends PureComponent {
@@ -33,18 +33,18 @@ class SelfAligningImage extends PureComponent {
       timeStamp,
       options,
       roundedBorder,
-      theme
+      theme,
     } = this.props;
     return (
       <div className={classes.imageContainer}>
         <img
           style={{
-            height: moreWidthThanHeight ? "100%" : "auto",
-            width: moreWidthThanHeight ? "auto" : "100%",
-            display: loaded ? "block" : "none",
-            borderRadius: roundedBorder ? theme.shape.borderRadius : 0
+            height: moreWidthThanHeight ? '100%' : 'auto',
+            width: moreWidthThanHeight ? 'auto' : '100%',
+            display: loaded ? 'block' : 'none',
+            borderRadius: roundedBorder ? theme.shape.borderRadius : 0,
           }}
-          ref={node => {
+          ref={(node) => {
             this.img = node;
           }}
           className={classes.image}
@@ -52,12 +52,12 @@ class SelfAligningImage extends PureComponent {
             if (this.img.naturalHeight > this.img.naturalWidth) {
               this.setState({
                 moreWidthThanHeight: false,
-                loaded: true
+                loaded: true,
               });
             } else {
               this.setState({
                 moreWidthThanHeight: true,
-                loaded: true
+                loaded: true,
               });
             }
           }}
@@ -67,8 +67,8 @@ class SelfAligningImage extends PureComponent {
         {title && (
           <GridListTileBar
             title={title}
-            subtitle={format(new Date(timeStamp * 1000), "PP - k:mm", {
-              awareOfUnicodeTokens: true
+            subtitle={format(new Date(timeStamp * 1000), 'PP - k:mm', {
+              awareOfUnicodeTokens: true,
             })}
             actionIcon={
               options.length > 0 && (
@@ -92,7 +92,7 @@ SelfAligningImage.propTypes = {
   title: PropTypes.string,
   timeStamp: PropTypes.number,
   roundedBorder: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.object)
+  options: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default withStyles(styles, { withTheme: true })(SelfAligningImage);

@@ -3,7 +3,7 @@ import AuthStore from '../stores/Auth';
 
 export default class Auth {
   static isSignedIn() {
-    return true; //!!AuthStore.getToken();
+    return true; //! !AuthStore.getToken();
   }
 
   static getUser() {

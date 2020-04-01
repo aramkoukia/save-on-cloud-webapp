@@ -1,30 +1,30 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import { withStyles } from "@material-ui/core";
-import Routing from "./Routing";
-import NavBar from "./navigation/NavBar";
-import ConsecutiveSnackbarMessages from "../../shared/components/ConsecutiveSnackbarMessages";
-import smoothScrollTop from "../../shared/functions/smoothScrollTop";
-import persons from "../dummy_data/persons";
-import LazyLoadAddBalanceDialog from "./subscription/LazyLoadAddBalanceDialog";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core';
+import Routing from './Routing';
+import NavBar from './navigation/NavBar';
+import ConsecutiveSnackbarMessages from '../../shared/components/ConsecutiveSnackbarMessages';
+import smoothScrollTop from '../../shared/functions/smoothScrollTop';
+import persons from '../dummy_data/persons';
+import LazyLoadAddBalanceDialog from './subscription/LazyLoadAddBalanceDialog';
 
-const styles = theme => ({
+const styles = (theme) => ({
   main: {
     marginLeft: theme.spacing(9),
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: 0
-    }
-  }
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
+    },
+  },
 });
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
@@ -43,7 +43,7 @@ class Main extends PureComponent {
     targets: [],
     messages: [],
     isAccountActivated: false,
-    addBalanceDialogOpen: false
+    addBalanceDialogOpen: false,
   };
 
   componentDidMount() {
@@ -66,7 +66,7 @@ class Main extends PureComponent {
         number4: Math.floor(Math.random() * 251),
         name: randomPerson.name,
         profilePicUrl: randomPerson.profilePicUrl,
-        isActivated: Math.round(Math.random()) ? true : false
+        isActivated: !!Math.round(Math.random()),
       };
       targets.push(target);
     }
@@ -84,7 +84,7 @@ class Main extends PureComponent {
   onPaymentSuccess = () => {
     if (this.pushMessageToSnackbar) {
       this.pushMessageToSnackbar({
-        text: "Your balance has been updated."
+        text: 'Your balance has been updated.',
       });
     }
     this.setState({ addBalanceDialogOpen: false });
@@ -103,11 +103,11 @@ class Main extends PureComponent {
       curViews += Math.round((Math.random() * 2 - 1) * 10);
       statistics.profit.push({
         value: curProfit,
-        timestamp: curUnix
+        timestamp: curUnix,
       });
       statistics.views.push({
         value: curViews,
-        timestamp: curUnix
+        timestamp: curUnix,
       });
     }
     this.setState({ statistics });
@@ -119,50 +119,49 @@ class Main extends PureComponent {
     const oneMonthSeconds = Math.round(60 * 60 * 24 * 30.5);
     const transactionTemplates = [
       {
-        description: "Starter subscription",
+        description: 'Starter subscription',
         isSubscription: true,
-        balanceChange: -1499
+        balanceChange: -1499,
       },
       {
-        description: "Premium subscription",
+        description: 'Premium subscription',
         isSubscription: true,
-        balanceChange: -2999
+        balanceChange: -2999,
       },
       {
-        description: "Business subscription",
+        description: 'Business subscription',
         isSubscription: true,
-        balanceChange: -4999
+        balanceChange: -4999,
       },
       {
-        description: "Tycoon subscription",
+        description: 'Tycoon subscription',
         isSubscription: true,
-        balanceChange: -9999
+        balanceChange: -9999,
       },
       {
-        description: "Added funds",
+        description: 'Added funds',
         isSubscription: false,
-        balanceChange: 2000
+        balanceChange: 2000,
       },
       {
-        description: "Added funds",
+        description: 'Added funds',
         isSubscription: false,
-        balanceChange: 5000
-      }
+        balanceChange: 5000,
+      },
     ];
     let curUnix = Math.round(
-      new Date().getTime() / 1000 - iterations * oneMonthSeconds
+      new Date().getTime() / 1000 - iterations * oneMonthSeconds,
     );
     for (let i = 0; i < iterations; i += 1) {
-      const randomTransactionTemplate =
-        transactionTemplates[
-          Math.floor(Math.random() * transactionTemplates.length)
-        ];
+      const randomTransactionTemplate = transactionTemplates[
+        Math.floor(Math.random() * transactionTemplates.length)
+      ];
       const transaction = {
         id: i,
         description: randomTransactionTemplate.description,
         balanceChange: randomTransactionTemplate.balanceChange,
         paidUntil: curUnix + oneMonthSeconds,
-        timestamp: curUnix
+        timestamp: curUnix,
       };
       curUnix += oneMonthSeconds;
       transactions.push(transaction);
@@ -177,7 +176,7 @@ class Main extends PureComponent {
     const iterations = persons.length;
     const oneDaySeconds = 60 * 60 * 24;
     let curUnix = Math.round(
-      new Date().getTime() / 1000 - iterations * oneDaySeconds
+      new Date().getTime() / 1000 - iterations * oneDaySeconds,
     );
     for (let i = 0; i < iterations; i += 1) {
       const person = persons[i];
@@ -185,7 +184,7 @@ class Main extends PureComponent {
         id: i,
         profilePicUrl: person.profilePicUrl,
         date: curUnix,
-        text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed."
+        text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed.',
       };
       curUnix += oneDaySeconds;
       messages.push(message);
@@ -200,7 +199,7 @@ class Main extends PureComponent {
     const iterations = persons.length;
     const oneDaySeconds = 60 * 60 * 24;
     let curUnix = Math.round(
-      new Date().getTime() / 1000 - iterations * oneDaySeconds
+      new Date().getTime() / 1000 - iterations * oneDaySeconds,
     );
     for (let i = 0; i < iterations; i += 1) {
       const person = persons[i];
@@ -208,7 +207,7 @@ class Main extends PureComponent {
         id: i,
         src: person.profilePicUrl,
         timestamp: curUnix,
-        name: person.name
+        name: person.name,
       };
       curUnix += oneDaySeconds;
       posts.reverse();
@@ -222,7 +221,7 @@ class Main extends PureComponent {
    * child's consecutiveSnackbarMessages component. Thats why we pass it
    * when the component did mount to this components state.
    */
-  getPushMessageFromChild = pushFunction => {
+  getPushMessageFromChild = (pushFunction) => {
     this.pushMessageToSnackbar = pushFunction;
   };
 
@@ -233,11 +232,11 @@ class Main extends PureComponent {
     const { isAccountActivated } = this.state;
     if (isAccountActivated) {
       this.pushMessageToSnackbar({
-        text: "Your account is now deactivated."
+        text: 'Your account is now deactivated.',
       });
     } else {
       this.pushMessageToSnackbar({
-        text: "Your account is now activated."
+        text: 'Your account is now activated.',
       });
     }
     this.setState({ isAccountActivated: !isAccountActivated });
@@ -245,13 +244,13 @@ class Main extends PureComponent {
 
   selectDashboard = () => {
     smoothScrollTop();
-    document.title = "Save On Cloud - Dashboard";
+    document.title = 'Save On Cloud - Dashboard';
     this.setState({
-      selectedTab: "Dashboard"
+      selectedTab: 'Dashboard',
     });
     if (!this.hasFetchedCardChart) {
       this.hasFetchedCardChart = true;
-      import("../../shared/components/CardChart").then(Component => {
+      import('../../shared/components/CardChart').then((Component) => {
         this.setState({ CardChart: Component.default });
       });
     }
@@ -259,31 +258,31 @@ class Main extends PureComponent {
 
   selectPosts = () => {
     smoothScrollTop();
-    document.title = "Save On Cloud - Posts";
+    document.title = 'Save On Cloud - Posts';
     this.setState({
-      selectedTab: "Posts"
+      selectedTab: 'Posts',
     });
     if (!this.hasFetchedEmojiTextArea) {
       this.hasFetchedEmojiTextArea = true;
-      import("../../shared/components/EmojiTextArea").then(Component => {
+      import('../../shared/components/EmojiTextArea').then((Component) => {
         this.setState({ EmojiTextArea: Component.default });
       });
     }
     if (!this.hasFetchedImageCropper) {
       this.hasFetchedImageCropper = true;
-      import("../../shared/components/ImageCropper").then(Component => {
+      import('../../shared/components/ImageCropper').then((Component) => {
         this.setState({ ImageCropper: Component.default });
       });
     }
     if (!this.hasFetchedDropzone) {
       this.hasFetchedDropzone = true;
-      import("../../shared/components/Dropzone").then(Component => {
+      import('../../shared/components/Dropzone').then((Component) => {
         this.setState({ Dropzone: Component.default });
       });
     }
     if (!this.hasFetchedDateTimePicker) {
       this.hasFetchedDateTimePicker = true;
-      import("../../shared/components/DateTimePicker").then(Component => {
+      import('../../shared/components/DateTimePicker').then((Component) => {
         this.setState({ DateTimePicker: Component.default });
       });
     }
@@ -291,9 +290,9 @@ class Main extends PureComponent {
 
   selectSubscription = () => {
     smoothScrollTop();
-    document.title = "Save On Cloud - Subscription";
+    document.title = 'Save On Cloud - Subscription';
     this.setState({
-      selectedTab: "Subscription"
+      selectedTab: 'Subscription',
     });
   };
 
@@ -312,10 +311,10 @@ class Main extends PureComponent {
       targets,
       isAccountActivated,
       messages,
-      addBalanceDialogOpen
+      addBalanceDialogOpen,
     } = this.state;
     return (
-      <Fragment>
+      <>
         <LazyLoadAddBalanceDialog
           open={addBalanceDialogOpen}
           onClose={this.closeAddBalanceDialog}
@@ -352,13 +351,13 @@ class Main extends PureComponent {
             openAddBalanceDialog={this.openAddBalanceDialog}
           />
         </main>
-      </Fragment>
+      </>
     );
   }
 }
 
 Main.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(Main);

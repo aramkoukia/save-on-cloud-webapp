@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   Paper,
   Toolbar,
@@ -9,25 +9,25 @@ import {
   ListItemIcon,
   Switch,
   Box,
-  withStyles
-} from "@material-ui/core";
-import LoopIcon from "@material-ui/icons/Loop";
+  withStyles,
+} from '@material-ui/core';
+import LoopIcon from '@material-ui/icons/Loop';
 
-const styles = theme => ({
+const styles = (theme) => ({
   paper: {
     borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0
+    borderBottomRightRadius: 0,
   },
-  toolbar: { justifyContent: "space-between" },
+  toolbar: { justifyContent: 'space-between' },
   scaleMinus: {
-    transform: "scaleX(-1)"
+    transform: 'scaleX(-1)',
   },
-  "@keyframes spin": {
-    from: { transform: "rotate(359deg)" },
-    to: { transform: "rotate(0deg)" }
+  '@keyframes spin': {
+    from: { transform: 'rotate(359deg)' },
+    to: { transform: 'rotate(0deg)' },
   },
-  spin: { animation: "$spin 2s infinite linear" },
-  listItemSecondaryAction: { paddingRight: theme.spacing(1) }
+  spin: { animation: '$spin 2s infinite linear' },
+  listItemSecondaryAction: { paddingRight: theme.spacing(1) },
 });
 
 function AccountInformationArea(props) {
@@ -39,7 +39,7 @@ function AccountInformationArea(props) {
           <Box mr={2}>
             <ListItemText
               primary="Status"
-              secondary={isAccountActivated ? "Activated" : "Not activated"}
+              secondary={isAccountActivated ? 'Activated' : 'Not activated'}
               className="mr-2"
             />
           </Box>
@@ -47,7 +47,7 @@ function AccountInformationArea(props) {
             <LoopIcon
               className={classNames(
                 isAccountActivated ? classes.spin : null,
-                classes.scaleMinus
+                classes.scaleMinus,
               )}
             />
           </ListItemIcon>
@@ -58,9 +58,9 @@ function AccountInformationArea(props) {
             checked={isAccountActivated}
             onClick={toggleAccountActivation}
             inputProps={{
-              "aria-label": isAccountActivated
-                ? "Deactivate Account"
-                : "Activate Account"
+              'aria-label': isAccountActivated
+                ? 'Deactivate Account'
+                : 'Activate Account',
             }}
           />
         </ListItemSecondaryAction>
@@ -73,7 +73,7 @@ AccountInformationArea.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   toggleAccountActivation: PropTypes.func.isRequired,
-  isAccountActivated: PropTypes.bool.isRequired
+  isAccountActivated: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(AccountInformationArea);

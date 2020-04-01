@@ -1,14 +1,14 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   AreaChart,
   Area,
   XAxis,
   Tooltip,
   ResponsiveContainer,
-  YAxis
-} from "recharts";
-import format from "date-fns/format";
+  YAxis,
+} from 'recharts';
+import format from 'date-fns/format';
 import {
   Card,
   CardContent,
@@ -17,23 +17,23 @@ import {
   Menu,
   MenuItem,
   withStyles,
-  Box
-} from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+  Box,
+} from '@material-ui/core';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const styles = theme => ({
+const styles = (theme) => ({
   cardContentInner: {
-    marginTop: theme.spacing(-4)
-  }
+    marginTop: theme.spacing(-4),
+  },
 });
 
 function labelFormatter(label) {
-  return format(new Date(label * 1000), "MMMM d, p yyyy");
+  return format(new Date(label * 1000), 'MMMM d, p yyyy');
 }
 
 function calculateMin(data, yKey, factor) {
   let max = Number.POSITIVE_INFINITY;
-  data.forEach(element => {
+  data.forEach((element) => {
     if (max > element[yKey]) {
       max = element[yKey];
     }
@@ -42,44 +42,42 @@ function calculateMin(data, yKey, factor) {
 }
 
 const itemHeight = 216;
-const options = ["1 Week", "1 Month", "6 Months"];
+const options = ['1 Week', '1 Month', '6 Months'];
 
 class CardChart extends PureComponent {
-  state = { anchorEl: null, selectedOption: "1 Month" };
+  state = { anchorEl: null, selectedOption: '1 Month' };
 
-  handleClick = event => {
+  handleClick = (event) => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  formatter = value => {
-    return [value, this.props.title];
-  };
+  formatter = (value) => [value, this.props.title];
 
   getSeconds = () => {
     const { selectedOption } = this.state;
     switch (selectedOption) {
-      case "1 Week":
+      case '1 Week':
         return 60 * 60 * 24 * 7;
-      case "1 Month":
+      case '1 Month':
         return 60 * 60 * 24 * 7 * 31;
-      case "6 Months":
+      case '6 Months':
         return 60 * 60 * 24 * 7 * 31 * 6;
       default:
-        throw new Error("No branch selected in switch-statement");
+        throw new Error('No branch selected in switch-statement');
     }
   };
 
   getSubtitle = () => {
     const { selectedOption } = this.state;
     switch (selectedOption) {
-      case "1 Week":
-        return "Last week";
-      case "1 Month":
-        return "Last month";
-      case "6 Months":
-        return "Last 6 months";
+      case '1 Week':
+        return 'Last week';
+      case '1 Month':
+        return 'Last month';
+      case '6 Months':
+        return 'Last 6 months';
       default:
-        throw new Error("No branch selected in switch-statement");
+        throw new Error('No branch selected in switch-statement');
     }
   };
 
@@ -96,7 +94,7 @@ class CardChart extends PureComponent {
     return arr;
   };
 
-  selectOption = selectedOption => {
+  selectOption = (selectedOption) => {
     this.setState({ selectedOption, anchorEl: null });
   };
 
@@ -105,7 +103,9 @@ class CardChart extends PureComponent {
   };
 
   render() {
-    const { color, data, title, classes, theme, height } = this.props;
+    const {
+      color, data, title, classes, theme, height,
+    } = this.props;
     const { anchorEl, selectedOption } = this.state;
     const open = Boolean(anchorEl);
     return (
@@ -121,7 +121,7 @@ class CardChart extends PureComponent {
             <div>
               <IconButton
                 aria-label="More"
-                aria-owns={open ? "long-menu" : undefined}
+                aria-owns={open ? 'long-menu' : undefined}
                 aria-haspopup="true"
                 onClick={this.handleClick}
               >
@@ -135,11 +135,11 @@ class CardChart extends PureComponent {
                 PaperProps={{
                   style: {
                     maxHeight: itemHeight,
-                    width: 200
-                  }
+                    width: 200,
+                  },
                 }}
               >
-                {options.map(option => (
+                {options.map((option) => (
                   <MenuItem
                     key={option}
                     selected={option === selectedOption}
@@ -162,11 +162,11 @@ class CardChart extends PureComponent {
                 <XAxis
                   dataKey="timestamp"
                   type="number"
-                  domain={["dataMin", "dataMax"]}
+                  domain={['dataMin', 'dataMax']}
                   hide
                 />
                 <YAxis
-                  domain={[calculateMin(data, "value", 0.05), "dataMax"]}
+                  domain={[calculateMin(data, 'value', 0.05), 'dataMax']}
                   hide
                 />
                 <Area
@@ -180,10 +180,10 @@ class CardChart extends PureComponent {
                   formatter={this.formatter}
                   cursor={false}
                   contentStyle={{
-                    border: "none",
+                    border: 'none',
                     padding: theme.spacing(1),
                     borderRadius: theme.shape.borderRadius,
-                    boxShadow: theme.shadows[1]
+                    boxShadow: theme.shadows[1],
                   }}
                   labelStyle={theme.typography.body1}
                   itemStyle={{
@@ -191,7 +191,7 @@ class CardChart extends PureComponent {
                     letterSpacing: theme.typography.body1.letterSpacing,
                     fontFamily: theme.typography.body1.fontFamily,
                     lineHeight: theme.typography.body1.lineHeight,
-                    fontWeight: theme.typography.body1.fontWeight
+                    fontWeight: theme.typography.body1.fontWeight,
                   }}
                 />
               </AreaChart>
@@ -209,7 +209,7 @@ CardChart.propTypes = {
   title: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  height: PropTypes.string.isRequired
+  height: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(CardChart);

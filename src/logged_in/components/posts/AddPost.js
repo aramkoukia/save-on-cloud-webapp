@@ -1,9 +1,9 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
-import { Button, Box } from "@material-ui/core";
-import ActionPaper from "../../../shared/components/ActionPaper";
-import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
-import AddPostOptions from "./AddPostOptions";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { Button, Box } from '@material-ui/core';
+import ActionPaper from '../../../shared/components/ActionPaper';
+import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
+import AddPostOptions from './AddPostOptions';
 
 const now = new Date();
 
@@ -13,10 +13,10 @@ class AddPost extends PureComponent {
     cropFunction: null,
     uploadAt: now,
     loading: false,
-    cropperFile: null
+    cropperFile: null,
   };
 
-  acceptDrop = file => {
+  acceptDrop = (file) => {
     this.setState({ files: [file] });
   };
 
@@ -25,12 +25,12 @@ class AddPost extends PureComponent {
     if (acceptedFiles.length + rejectedFiles.length > 1) {
       pushMessageToSnackbar({
         isErrorMessage: true,
-        text: "You cannot upload more than one file at once"
+        text: 'You cannot upload more than one file at once',
       });
     } else if (acceptedFiles.length === 0) {
       pushMessageToSnackbar({
         isErrorMessage: true,
-        text: "The file you wanted to upload isn't an image"
+        text: "The file you wanted to upload isn't an image",
       });
     } else if (acceptedFiles.length === 1) {
       const file = acceptedFiles[0];
@@ -40,9 +40,9 @@ class AddPost extends PureComponent {
     }
   };
 
-  onChangeUploadAt = uploadAt => {
+  onChangeUploadAt = (uploadAt) => {
     this.setState({
-      uploadAt
+      uploadAt,
     });
   };
 
@@ -54,7 +54,7 @@ class AddPost extends PureComponent {
     this.setState({ files: [] });
   };
 
-  onCrop = dataUrl => {
+  onCrop = (dataUrl) => {
     const { cropperFile } = this.state;
     const file = cropperFile;
     file.preview = dataUrl;
@@ -67,27 +67,29 @@ class AddPost extends PureComponent {
     this.setState({ loading: true });
     setTimeout(() => {
       pushMessageToSnackbar({
-        text: "Your post has been uploaded"
+        text: 'Your post has been uploaded',
       });
       onClose();
     }, 1500);
   };
 
   render() {
-    const { files, uploadAt, cropperFile, loading } = this.state;
+    const {
+      files, uploadAt, cropperFile, loading,
+    } = this.state;
     const {
       Dropzone,
       EmojiTextArea,
       DateTimePicker,
       ImageCropper,
-      onClose
+      onClose,
     } = this.props;
     return (
-      <Fragment>
+      <>
         <ActionPaper
           helpPadding
           maxWidth="md"
-          content={
+          content={(
             <AddPostOptions
               EmojiTextArea={EmojiTextArea}
               Dropzone={Dropzone}
@@ -102,9 +104,9 @@ class AddPost extends PureComponent {
               cropperFile={cropperFile}
               onCropperClose={this.onCropperClose}
             />
-          }
-          actions={
-            <Fragment>
+          )}
+          actions={(
+            <>
               <Box mr={1}>
                 <Button onClick={onClose} disabled={loading}>
                   Back
@@ -116,12 +118,14 @@ class AddPost extends PureComponent {
                 color="secondary"
                 disabled={files.length === 0 || loading}
               >
-                Upload {loading && <ButtonCircularProgress />}
+                Upload
+                {' '}
+                {loading && <ButtonCircularProgress />}
               </Button>
-            </Fragment>
-          }
+            </>
+          )}
         />
-      </Fragment>
+      </>
     );
   }
 }
@@ -132,7 +136,7 @@ AddPost.propTypes = {
   Dropzone: PropTypes.elementType,
   EmojiTextArea: PropTypes.elementType,
   DateTimePicker: PropTypes.elementType,
-  ImageCropper: PropTypes.elementType
+  ImageCropper: PropTypes.elementType,
 };
 
 export default AddPost;

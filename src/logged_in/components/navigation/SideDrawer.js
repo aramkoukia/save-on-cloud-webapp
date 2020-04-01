@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Drawer,
   IconButton,
@@ -7,16 +7,16 @@ import {
   Divider,
   Typography,
   Box,
-  withStyles
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+  withStyles,
+} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 const drawerWidth = 240;
 
 const styles = {
   toolbar: {
-    minWidth: drawerWidth
-  }
+    minWidth: drawerWidth,
+  },
 };
 
 function SideDrawer(props) {
@@ -50,7 +50,7 @@ function SideDrawer(props) {
 SideDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SideDrawer);

@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { TextField, Grid, InputAdornment } from "@material-ui/core";
-import { CardElement } from "@stripe/react-stripe-js";
-import StripeTextField from "./StripeTextField";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TextField, Grid, InputAdornment } from '@material-ui/core';
+import { CardElement } from '@stripe/react-stripe-js';
+import StripeTextField from './StripeTextField';
 
 function StripeCardForm(props) {
   const {
@@ -12,7 +12,7 @@ function StripeCardForm(props) {
     amountError,
     onAmountChange,
     name,
-    setName
+    setName,
   } = props;
   return (
     <Grid container spacing={2} justify="space-between">
@@ -23,7 +23,7 @@ function StripeCardForm(props) {
           required
           label="Your Name"
           value={name}
-          onChange={event => {
+          onChange={(event) => {
             setName(event.target.value);
           }}
           fullWidth
@@ -36,10 +36,10 @@ function StripeCardForm(props) {
         <TextField
           required
           value={amount}
-          onChange={event => {
+          onChange={(event) => {
             onAmountChange(parseInt(event.target.value));
           }}
-          error={amountError ? true : false}
+          error={!!amountError}
           helperText={amountError}
           variant="outlined"
           fullWidth
@@ -47,7 +47,7 @@ function StripeCardForm(props) {
           margin="none"
           label="Amount"
           InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
           }}
         />
       </Grid>
@@ -56,17 +56,17 @@ function StripeCardForm(props) {
           margin="none"
           fullWidth
           label="Credit Card"
-          error={stripeError ? true : false}
+          error={!!stripeError}
           helperText={stripeError}
           variant="outlined"
           required
           StripeElement={CardElement}
           onChange={() => {
             if (stripeError) {
-              setStripeError("");
+              setStripeError('');
             }
           }}
-        ></StripeTextField>
+        />
       </Grid>
     </Grid>
   );
@@ -79,7 +79,7 @@ StripeCardForm.propTypes = {
   onAmountChange: PropTypes.func.isRequired,
   amountError: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  setName: PropTypes.func.isRequired
+  setName: PropTypes.func.isRequired,
 };
 
 export default StripeCardForm;

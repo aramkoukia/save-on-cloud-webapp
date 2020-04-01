@@ -14,8 +14,8 @@ export default function Reports() {
   ReportService.getAzureCost()
     .then((result) => {
       setAzureCost({
-        labels: result.map(item => item.label),
-        series: [result.map(item => item.value)],
+        labels: result.map((item) => item.label),
+        series: [result.map((item) => item.value)],
       });
     });
 

@@ -1,5 +1,5 @@
-import React, { PureComponent, Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Popover,
   IconButton,
@@ -10,38 +10,38 @@ import {
   ListItemText,
   Typography,
   Box,
-  withStyles
-} from "@material-ui/core";
-import MessageIcon from "@material-ui/icons/Message";
-import MessageListItem from "./MessageListItem";
+  withStyles,
+} from '@material-ui/core';
+import MessageIcon from '@material-ui/icons/Message';
+import MessageListItem from './MessageListItem';
 
-const styles = theme => ({
+const styles = (theme) => ({
   tabContainer: {
-    overflowY: "auto",
-    maxHeight: 350
+    overflowY: 'auto',
+    maxHeight: 350,
   },
   popoverPaper: {
-    width: "100%",
+    width: '100%',
     maxWidth: 350,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(1),
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: 270
-    }
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: 270,
+    },
   },
   divider: {
-    marginTop: -2
+    marginTop: -2,
   },
   noShadow: {
-    boxShadow: "none !important"
-  }
+    boxShadow: 'none !important',
+  },
 });
 
 class MessagePopperButton extends PureComponent {
   anchorEl = null;
 
   state = {
-    open: false
+    open: false,
   };
 
   handleClick = () => {
@@ -51,7 +51,7 @@ class MessagePopperButton extends PureComponent {
 
   handleClickAway = () => {
     this.setState({
-      open: false
+      open: false,
     });
   };
 
@@ -79,12 +79,12 @@ class MessagePopperButton extends PureComponent {
   render() {
     const { open } = this.state;
     const { classes } = this.props;
-    const id = open ? "scroll-playground" : null;
+    const id = open ? 'scroll-playground' : null;
     return (
-      <Fragment>
+      <>
         <IconButton
           onClick={this.handleClick}
-          buttonRef={node => {
+          buttonRef={(node) => {
             this.anchorEl = node;
           }}
           aria-label="Open Messages"
@@ -98,17 +98,17 @@ class MessagePopperButton extends PureComponent {
           open={open}
           anchorEl={this.anchorEl}
           anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "left"
+            vertical: 'bottom',
+            horizontal: 'left',
           }}
           transformOrigin={{
-            vertical: "top",
-            horizontal: "right"
+            vertical: 'top',
+            horizontal: 'right',
           }}
           classes={{ paper: classes.popoverPaper }}
           onClose={this.handleClickAway}
         >
-          {<span className={classes.arrow} ref={this.handleArrowRef} />}
+          <span className={classes.arrow} ref={this.handleArrowRef} />
           <div>
             <AppBar
               position="static"
@@ -125,14 +125,14 @@ class MessagePopperButton extends PureComponent {
             </List>
           </div>
         </Popover>
-      </Fragment>
+      </>
     );
   }
 }
 
 MessagePopperButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(MessagePopperButton);

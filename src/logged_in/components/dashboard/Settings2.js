@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
@@ -16,45 +16,45 @@ import {
   MenuItem,
   Checkbox,
   Box,
-  withStyles
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import HelpIcon from "../../../shared/components/HelpIcon";
-import Bordered from "../../../shared/components/Bordered";
-import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
+  withStyles,
+} from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import HelpIcon from '../../../shared/components/HelpIcon';
+import Bordered from '../../../shared/components/Bordered';
+import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
 
-const styles = theme => ({
+const styles = (theme) => ({
   numberInput: {
     width: 120,
-    [theme.breakpoints.down("sm")]: {
-      width: 80
+    [theme.breakpoints.down('sm')]: {
+      width: 80,
     },
-    "@media (max-width: 350px)": {
-      width: 65
-    }
+    '@media (max-width: 350px)': {
+      width: 65,
+    },
   },
   numberInputInput: {
-    padding: "9px 14.5px",
-    "@media (max-width: 380px)": {
-      padding: "9px 8.5px"
+    padding: '9px 14.5px',
+    '@media (max-width: 380px)': {
+      padding: '9px 8.5px',
     },
-    "@media (max-width: 350px)": {
-      padding: "9px 6.5px"
-    }
+    '@media (max-width: 350px)': {
+      padding: '9px 6.5px',
+    },
   },
   listItem: {
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: theme.spacing(4)
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(4),
     },
-    paddingLeft: 100
+    paddingLeft: 100,
   },
   expansionPanelDetails: {
     paddingTop: theme.spacing(0),
-    justifyContent: "flex-end"
+    justifyContent: 'flex-end',
   },
   dBlock: {
-    display: "block"
-  }
+    display: 'block',
+  },
 });
 
 class Settings2 extends PureComponent {
@@ -66,8 +66,8 @@ class Settings2 extends PureComponent {
     option3: false,
     option4: false,
     option5: false,
-    option6: "Both",
-    option7: "2 weeks"
+    option6: 'Both',
+    option7: '2 weeks',
   };
 
   state = this.defaultState;
@@ -77,7 +77,7 @@ class Settings2 extends PureComponent {
     this.setState({ saveLoading: true });
     setTimeout(() => {
       pushMessageToSnackbar({
-        text: "Your settings have been saved"
+        text: 'Your settings have been saved',
       });
       this.setState(this.defaultState);
     }, 1500);
@@ -88,20 +88,20 @@ class Settings2 extends PureComponent {
     this.setState({ defaultLoading: true });
     setTimeout(() => {
       pushMessageToSnackbar({
-        text: "Your settings have been reset to default"
+        text: 'Your settings have been reset to default',
       });
       this.setState(this.defaultState);
     }, 1500);
   };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
-  handleCheckboxChange = name => event => {
+  handleCheckboxChange = (name) => (event) => {
     this.setState({ [name]: event.target.checked });
   };
 
@@ -115,72 +115,72 @@ class Settings2 extends PureComponent {
       option6,
       option7,
       saveLoading,
-      defaultLoading
+      defaultLoading,
     } = this.state;
     const { classes } = this.props;
     const inputs = [
       {
-        title: "Option 1",
+        title: 'Option 1',
         secondaryAction: (
           <Checkbox
             value="option1"
             color="primary"
             checked={option1}
-            onChange={this.handleCheckboxChange("option1")}
+            onChange={this.handleCheckboxChange('option1')}
           />
-        )
+        ),
       },
       {
-        title: "Option 2",
+        title: 'Option 2',
         secondaryAction: (
           <Checkbox
             value="option2"
             color="primary"
             checked={option2}
-            onChange={this.handleCheckboxChange("option2")}
+            onChange={this.handleCheckboxChange('option2')}
           />
-        )
+        ),
       },
       {
-        title: "Option 3",
+        title: 'Option 3',
         secondaryAction: (
           <Checkbox
             value="option3"
             color="primary"
             checked={option3}
-            onChange={this.handleCheckboxChange("option3")}
+            onChange={this.handleCheckboxChange('option3')}
           />
         ),
-        helpText: "You can add some further explanation here."
+        helpText: 'You can add some further explanation here.',
       },
       {
-        title: "Option 4",
+        title: 'Option 4',
         secondaryAction: (
           <Checkbox
             value="option4"
             color="primary"
             checked={option4}
-            onChange={this.handleCheckboxChange("option4")}
+            onChange={this.handleCheckboxChange('option4')}
           />
-        )
+        ),
       },
       {
-        title: "Option 5",
+        title: 'Option 5',
         secondaryAction: (
           <Checkbox
             value="option5"
             color="primary"
             checked={option5}
-            onChange={this.handleCheckboxChange("option5")}
+            onChange={this.handleCheckboxChange('option5')}
           />
-        )
+        ),
       },
       {
-        title: "Option 6",
+        title: 'Option 6',
         secondaryAction: (
           <Select
             value={option6}
-            input={
+            input={(
               <OutlinedInput
                 onChange={this.handleInputChange}
                 labelWidth={0}
@@ -188,7 +188,7 @@ class Settings2 extends PureComponent {
                 classes={{ input: classes.numberInputInput }}
                 name="option6"
               />
-            }
+            )}
           >
             <MenuItem value="Both">Both</MenuItem>
             <MenuItem value="Male+">Male+</MenuItem>
@@ -197,14 +197,14 @@ class Settings2 extends PureComponent {
             <MenuItem value="Only female">Only female</MenuItem>
           </Select>
         ),
-        helpText: "You can add some further explanation here."
+        helpText: 'You can add some further explanation here.',
       },
       {
-        title: "Option 7",
+        title: 'Option 7',
         secondaryAction: (
           <Select
             value={option7}
-            input={
+            input={(
               <OutlinedInput
                 onChange={this.handleInputChange}
                 labelWidth={0}
@@ -212,7 +212,7 @@ class Settings2 extends PureComponent {
                 classes={{ input: classes.numberInputInput }}
                 name="option7"
               />
-            }
+            )}
           >
             <MenuItem value="None">None</MenuItem>
             <MenuItem value="6 hours">6 hours</MenuItem>
@@ -226,8 +226,8 @@ class Settings2 extends PureComponent {
             <MenuItem value="6 months">6 months</MenuItem>
           </Select>
         ),
-        helpText: "If you want you can add some further explanation here."
-      }
+        helpText: 'If you want you can add some further explanation here.',
+      },
     ];
 
     return (
@@ -268,7 +268,9 @@ class Settings2 extends PureComponent {
               onClick={this.onSetDefault}
               disabled={saveLoading || defaultLoading}
             >
-              Default {defaultLoading && <ButtonCircularProgress />}
+              Default
+              {' '}
+              {defaultLoading && <ButtonCircularProgress />}
             </Button>
           </Box>
           <Button
@@ -277,7 +279,9 @@ class Settings2 extends PureComponent {
             onClick={this.onSubmit}
             disabled={saveLoading || defaultLoading}
           >
-            Save {saveLoading && <ButtonCircularProgress />}
+            Save
+            {' '}
+            {saveLoading && <ButtonCircularProgress />}
           </Button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -287,7 +291,7 @@ class Settings2 extends PureComponent {
 
 Settings2.propTypes = {
   classes: PropTypes.object,
-  pushMessageToSnackbar: PropTypes.func
+  pushMessageToSnackbar: PropTypes.func,
 };
 
 export default withStyles(styles, { withTheme: true })(Settings2);

@@ -1,33 +1,35 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ColoredButton from "../../../shared/components/ColoredButton";
+  withStyles,
+} from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ColoredButton from '../../../shared/components/ColoredButton';
 
-const styles = theme => ({
+const styles = (theme) => ({
   dialogActions: {
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    paddingRight: theme.spacing(2)
+    paddingRight: theme.spacing(2),
   },
   dialog: {
-    zIndex: 1400
+    zIndex: 1400,
   },
   backIcon: {
-    marginRight: theme.spacing(1)
-  }
+    marginRight: theme.spacing(1),
+  },
 });
 
 function CookieRulesDialog(props) {
-  const { classes, onClose, open, theme } = props;
+  const {
+    classes, onClose, open, theme,
+  } = props;
   return (
     <Dialog
       open={open}
@@ -148,7 +150,7 @@ CookieRulesDialog.propTypes = {
   classes: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(CookieRulesDialog);

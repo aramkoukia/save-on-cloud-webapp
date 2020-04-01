@@ -1,17 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-  Button
-} from "@material-ui/core";
-import ButtonCircularProgress from "./ButtonCircularProgress";
+  Button,
+} from '@material-ui/core';
+import ButtonCircularProgress from './ButtonCircularProgress';
 
 function ConfirmationDialog(props) {
-  const { open, onClose, loading, title, content, onConfirm } = props;
+  const {
+    open, onClose, loading, title, content, onConfirm,
+  } = props;
   return (
     <Dialog
       open={open}
@@ -33,7 +35,9 @@ function ConfirmationDialog(props) {
           variant="contained"
           disabled={loading}
         >
-          Yes {loading && <ButtonCircularProgress />}
+          Yes
+          {' '}
+          {loading && <ButtonCircularProgress />}
         </Button>
       </DialogActions>
     </Dialog>
@@ -46,7 +50,7 @@ ConfirmationDialog.propTypes = {
   loading: PropTypes.bool,
   title: PropTypes.string,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onConfirm: PropTypes.func
+  onConfirm: PropTypes.func,
 };
 
 export default ConfirmationDialog;

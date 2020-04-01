@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   TextField,
   Dialog,
@@ -7,19 +7,19 @@ import {
   DialogActions,
   Button,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
+  withStyles,
+} from '@material-ui/core';
+import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
 
-const styles = theme => ({
+const styles = (theme) => ({
   dialogContent: {
-    paddingTop: theme.spacing(2)
+    paddingTop: theme.spacing(2),
   },
   dialogActions: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    paddingRight: theme.spacing(2)
-  }
+    paddingRight: theme.spacing(2),
+  },
 });
 
 class ChangePassword extends PureComponent {
@@ -29,7 +29,7 @@ class ChangePassword extends PureComponent {
     const { setLoginStatus, onClose } = this.props;
     this.setState({ loading: true });
     setTimeout(() => {
-      setLoginStatus("verificationEmailSend");
+      setLoginStatus('verificationEmailSend');
       this.setState({ loading: false });
       onClose();
     }, 1500);
@@ -48,7 +48,7 @@ class ChangePassword extends PureComponent {
         maxWidth="xs"
       >
         <form
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             this.sendPasswordEmail();
           }}
@@ -93,7 +93,7 @@ ChangePassword.propTypes = {
   onClose: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  setLoginStatus: PropTypes.func.isRequired
+  setLoginStatus: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(ChangePassword);

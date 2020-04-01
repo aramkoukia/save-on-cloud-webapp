@@ -1,25 +1,25 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   Dialog,
   DialogContent,
   DialogActions,
   Button,
   Box,
-  withStyles
-} from "@material-ui/core";
+  withStyles,
+} from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme) => ({
   dialogPaper: { maxWidth: `${theme.breakpoints.values.md}px !important` },
   dialogContent: {
     paddingTop: theme.spacing(2),
     paddingRight: theme.spacing(2),
-    paddingLeft: theme.spacing(2)
-  }
+    paddingLeft: theme.spacing(2),
+  },
 });
 
 class ImageCropperDialog extends PureComponent {
-  setCropFunction = cropFunction => {
+  setCropFunction = (cropFunction) => {
     this.cropFunction = cropFunction;
   };
 
@@ -38,14 +38,14 @@ class ImageCropperDialog extends PureComponent {
       open,
       src,
       onCrop,
-      aspectRatio
+      aspectRatio,
     } = this.props;
     return (
       <Dialog
         open={open}
         onEscapeKeyDown={onClose}
         classes={{ paper: classes.dialogPaper }}
-        style={{ overflowX: "visible" }}
+        style={{ overflowX: 'visible' }}
       >
         <DialogContent className={classes.dialogContent}>
           <ImageCropper
@@ -76,7 +76,7 @@ ImageCropperDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onCrop: PropTypes.func.isRequired,
   src: PropTypes.string,
-  aspectRatio: PropTypes.number
+  aspectRatio: PropTypes.number,
 };
 
 export default withStyles(styles, { withTheme: true })(ImageCropperDialog);
