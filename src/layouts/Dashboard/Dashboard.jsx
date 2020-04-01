@@ -39,10 +39,6 @@ class App extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
 
-  getRoute() {
-    return this.props.location.pathname !== '/maps';
-  }
-
   isLogin() {
     return this.props.location.pathname === '/login';
   }
@@ -59,7 +55,9 @@ class App extends React.Component {
 
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
-      this.refs.mainPanel.scrollTop = 0;
+      if (this.refs.mainPanel) {
+        this.refs.mainPanel.scrollTop = 0;
+      }
       if (this.state.mobileOpen) {
         this.setState({ mobileOpen: false });
       }
@@ -80,47 +78,47 @@ class App extends React.Component {
           if (prop.redirect) {
             return <Redirect from={prop.path} to={prop.to} key={key} />;
           }
-          return <Route path={prop.path} component={prop.component} key={key} onEnter={requireAuth} />;
+          return (
+            <Route
+              path={prop.path}
+              component={prop.component}
+              key={key}
+              onEnter={requireAuth}
+            />
+          );
         })}
       </Switch>
     );
 
     return (
-      <div className={classes.wrapper}>
+      <div>
+        { this.isLogin() ? (
+          <div>{switchRoutes}</div>
+        ) : (
+          <div className={classes.mainPanel} ref="mainPanel">
+            <Sidebar
+              routes={dashboardRoutes}
+              permissionsChanged={permissionsChanged}
+              logoText="Save On Cloud"
+              logo={logo}
+              image={image}
+              handleDrawerToggle={this.handleDrawerToggle}
+              open={this.state.mobileOpen}
+              color="blue"
+              {...rest}
+            />
+            <Header
+              routes={dashboardRoutes}
+              handleDrawerToggle={this.handleDrawerToggle}
+              {...rest}
+            />
 
-        <Sidebar
-          routes={dashboardRoutes}
-          permissionsChanged={permissionsChanged}
-          logoText="Save On Cloud"
-          logo={logo}
-          image={image}
-          handleDrawerToggle={this.handleDrawerToggle}
-          open={this.state.mobileOpen}
-          color="blue"
-          {...rest}
-        />
+            <div className={classes.container}>{switchRoutes}</div>
+            <Footer />
+          </div>
+        )
+        }
 
-        <div className={classes.mainPanel} ref="mainPanel">
-
-          <Header
-            routes={dashboardRoutes}
-            handleDrawerToggle={this.handleDrawerToggle}
-            {...rest}
-          />
-
-          {/* On the /maps route we want the map to be on full screen -
-          this is not possible if the content and conatiner
-          classes are present because they have some
-          paddings which would make the map smaller */}
-          {this.getRoute() ? (
-            <div className={classes.content}>
-              <div className={classes.container}>{switchRoutes}</div>
-            </div>
-          ) : (
-            <div className={classes.map}>{switchRoutes}</div>
-          )}
-          {this.getRoute() ? <Footer /> : null}
-        </div>
       </div>
     );
   }
