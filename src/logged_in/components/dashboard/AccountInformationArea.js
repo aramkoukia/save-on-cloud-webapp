@@ -71,7 +71,6 @@ function AccountInformationArea(props) {
 
 AccountInformationArea.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
   toggleAccountActivation: PropTypes.func.isRequired,
   isAccountActivated: PropTypes.bool.isRequired,
 };
