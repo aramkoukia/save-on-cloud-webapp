@@ -123,7 +123,7 @@ function HeadSection(props) {
                         <Typography
                           variant={isWidthUp("lg", width) ? "h3" : "h4"}
                         >
-                          Free Template for building an SaaS app using
+                          Save On your Cloud Bills using Save On Cloud
                           Material-UI
                         </Typography>
                       </Box>
@@ -133,8 +133,7 @@ function HeadSection(props) {
                             variant={isWidthUp("lg", width) ? "h6" : "body1"}
                             color="textSecondary"
                           >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed diam nonumy eirmod tempor invidunt
+                            Proactively Monitor Your Cloud Spending and Get Notifications on Anomalies
                           </Typography>
                         </Box>
                         <Button
