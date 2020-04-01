@@ -34,7 +34,7 @@ const styles = theme => ({
 class BlogPost extends PureComponent {
   componentDidMount() {
     const { title } = this.props;
-    document.title = `WaVer - ${title}`;
+    document.title = `Save On Cloud - ${title}`;
     smoothScrollTop();
   }
 
