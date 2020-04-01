@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Box } from '@material-ui/core';
 import SettingsArea from './SettingsArea';
