@@ -82,7 +82,7 @@ const infos = [
   },
   {
     icon: <MailIcon />,
-    description: 'support@company.com',
+    description: 'support@saveoncloud.com',
   },
 ];
 
@@ -223,7 +223,7 @@ function Footer(props) {
           </Hidden>
           <Grid item xs={12} md={6} lg={4}>
             <Typography variant="h6" paragraph className="text-white">
-              About the Company
+              About Save On Cloud
             </Typography>
             <Typography style={{ color: '#8f9296' }} paragraph>
               Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce

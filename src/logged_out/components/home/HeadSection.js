@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import {
   Grid,
@@ -99,7 +100,9 @@ const styles = (theme) => ({
 });
 
 function HeadSection(props) {
-  const { classes, theme, width } = props;
+  const {
+    classes, theme, width, openRegisterDialog,
+  } = props;
   return (
     <>
       <div className={classNames('lg-p-top', classes.wrapper)}>
@@ -140,12 +143,21 @@ function HeadSection(props) {
                           variant="contained"
                           color="secondary"
                           fullWidth
+                          classes={{ label: classes.extraLargeButtonLabel }}
+                          onClick={openRegisterDialog}
+                        >
+                          Try For Free!
+                        </Button>
+                        {/* <Button
+                          variant="contained"
+                          color="secondary"
+                          fullWidth
                           className={classes.extraLargeButton}
                           classes={{ label: classes.extraLargeButtonLabel }}
                           href="https://github.com/dunky11/react-saas-template"
                         >
-                          Download from GitHub
-                        </Button>
+                          Try For Free!
+                        </Button> */}
                       </div>
                     </Box>
                   </Grid>
