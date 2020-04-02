@@ -14,7 +14,7 @@ function StatisticsArea(props) {
             data={data.profit}
             color={theme.palette.secondary.light}
             height="70px"
-            title="Profit"
+            title="Day Over Day Spending"
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -22,7 +22,7 @@ function StatisticsArea(props) {
             data={data.views}
             color={theme.palette.primary.light}
             height="70px"
-            title="Views"
+            title="Daily Spending"
           />
         </Grid>
       </Grid>

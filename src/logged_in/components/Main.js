@@ -99,7 +99,7 @@ class Main extends PureComponent {
     let curUnix = Math.round(new Date().getTime() / 1000) - oneYearSeconds;
     for (let i = 0; i < iterations; i += 1) {
       curUnix += Math.round(oneYearSeconds / iterations);
-      curProfit += Math.round((Math.random() * 2 - 1) * 10);
+      curProfit += Math.round((Math.random() * 2 - 1) * 10 + (i + 1) * 15);
       curViews += Math.round((Math.random() * 2 - 1) * 10);
       statistics.profit.push({
         value: curProfit,
