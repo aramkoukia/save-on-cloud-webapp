@@ -26,7 +26,7 @@ import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import MessagePopperButton from './MessagePopperButton';
+// import MessagePopperButton from './MessagePopperButton';
 import SideDrawer from './SideDrawer';
 import Balance from './Balance';
 import NavigationDrawer from '../../../shared/components/NavigationDrawer';
@@ -276,14 +276,14 @@ class NavBar extends PureComponent {
               width="100%"
             >
               {isWidthUp('sm', width) && (
-                <Box mr={3}>
+                <div>
                   <Balance
-                    balance={2573}
+                    balance={1523}
                     openAddBalanceDialog={openAddBalanceDialog}
                   />
-                </Box>
+                </div>
               )}
-              <MessagePopperButton messages={messages} />
+              {/* <MessagePopperButton messages={messages} /> */}
               <ListItem
                 disableGutters
                 className={classNames(classes.iconListItem, classes.smBordered)}
@@ -297,7 +297,7 @@ class NavBar extends PureComponent {
                   <ListItemText
                     className={classes.username}
                     primary={
-                      <Typography color="textPrimary">Username</Typography>
+                      <Typography color="textPrimary">Aram Koukia</Typography>
                     }
                   />
                 )}
