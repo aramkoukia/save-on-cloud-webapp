@@ -256,6 +256,20 @@ class Main extends PureComponent {
     }
   };
 
+  selectReports = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - Reports';
+    this.setState({
+      selectedTab: 'Reports',
+    });
+    if (!this.hasFetchedCardChart) {
+      this.hasFetchedCardChart = true;
+      import('../../shared/components/CardChart').then((Component) => {
+        this.setState({ CardChart: Component.default });
+      });
+    }
+  };
+
   selectPosts = () => {
     smoothScrollTop();
     document.title = 'Save On Cloud - Posts';
@@ -346,6 +360,7 @@ class Main extends PureComponent {
             posts={posts}
             targets={targets}
             selectDashboard={this.selectDashboard}
+            selectReports={this.selectReports}
             selectPosts={this.selectPosts}
             selectSubscription={this.selectSubscription}
             openAddBalanceDialog={this.openAddBalanceDialog}

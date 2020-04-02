@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 import Dashboard from './dashboard/Dashboard';
 import Posts from './posts/Posts';
+import Reports from './reports/Reports';
 import Subscription from './subscription/Subscription';
 import PropsRoute from '../../shared/components/PropsRoute';
 
@@ -61,6 +62,7 @@ function Routing(props) {
     targets,
     isAccountActivated,
     selectDashboard,
+    selectReports,
     selectPosts,
     selectSubscription,
     openAddBalanceDialog,
@@ -68,6 +70,18 @@ function Routing(props) {
   return (
     <div className={classes.wrapper}>
       <Switch>
+        <PropsRoute
+          path="/c/reports"
+          component={Reports}
+          handleNumberChange={handleNumberChange}
+          handleSwitchToggle={handleSwitchToggle}
+          handleSelectChange={handleSelectChange}
+          toggleAccountActivation={toggleAccountActivation}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          CardChart={CardChart}
+          targets={targets}
+          selectReports={selectReports}
+        />
         <PropsRoute
           path="/c/posts"
           component={Posts}
@@ -124,6 +138,7 @@ Routing.propTypes = {
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
   isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
+  selectReports: PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,

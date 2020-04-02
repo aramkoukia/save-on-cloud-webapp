@@ -178,8 +178,8 @@ class NavBar extends PureComponent {
         },
       },
       {
-        link: '/c/posts',
-        name: 'Posts',
+        link: '/c/reports',
+        name: 'Reports',
         onClick: () => {
           this.closeMobileDrawer();
         },
@@ -187,8 +187,8 @@ class NavBar extends PureComponent {
           desktop: (
             <ImageIcon
               className={
-                selectedTab === 'Posts' ? classes.textPrimary : 'text-white'
-              }
+                 selectedTab === 'Reports' ? classes.textPrimary : 'text-white'
+               }
               fontSize="small"
             />
           ),
@@ -197,7 +197,7 @@ class NavBar extends PureComponent {
       },
       {
         link: '/c/subscription',
-        name: 'Subscription',
+        name: 'Cloud Accounts',
         onClick: () => {
           this.closeMobileDrawer();
         },
@@ -205,7 +205,7 @@ class NavBar extends PureComponent {
           desktop: (
             <AccountBalanceIcon
               className={
-                selectedTab === 'Subscription'
+                selectedTab === 'Cloud Accounts'
                   ? classes.textPrimary
                   : 'text-white'
               }
@@ -265,7 +265,7 @@ class NavBar extends PureComponent {
                   display="inline"
                   color="primary"
                 >
-                  Save
+                  Cloud
                 </Typography>
               </Hidden>
             </Box>
@@ -354,6 +354,7 @@ class NavBar extends PureComponent {
                       <ListItemIcon className={classes.justifyCenter}>
                         {element.icon.desktop}
                       </ListItemIcon>
+                      {/* {element.name} */}
                     </ListItem>
                   </Tooltip>
                 </Link>

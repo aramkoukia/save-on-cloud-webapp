@@ -13,6 +13,7 @@
     "@stripe/react-stripe-js": "^1.1.0",
     "@stripe/stripe-js": "^1.2.0",
     "aos": "^2.3.4",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "date-fns": "^2.11.1",
     "emoji-mart": "^3.0.0",
