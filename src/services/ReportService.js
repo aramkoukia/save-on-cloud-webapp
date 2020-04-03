@@ -11,4 +11,15 @@ export default class ReportService {
       return false;
     }
   }
+
+  static async getAzureCostDaily() {
+    try {
+      const response = await RestUtilities.get(
+        'azure/cost/daily',
+      );
+      return response.content;
+    } catch (err) {
+      return false;
+    }
+  }
 }
