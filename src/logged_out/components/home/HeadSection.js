@@ -125,8 +125,7 @@ function HeadSection(props) {
                         <Typography
                           variant={isWidthUp('lg', width) ? 'h3' : 'h4'}
                         >
-                          Save On your Cloud Bills using Save On Cloud
-                          Material-UI
+                          Sign Up and Start Saving On Cloud Now!
                         </Typography>
                       </Box>
                       <div>
@@ -135,7 +134,7 @@ function HeadSection(props) {
                             variant={isWidthUp('lg', width) ? 'h6' : 'body1'}
                             color="textSecondary"
                           >
-                            Proactively Monitor Your Cloud Spending and Get Notifications on Anomalies
+                            Answer critical questions about the cost structure of your Cloud Infrastructure spending
                           </Typography>
                         </Box>
                         <Button
@@ -145,7 +144,7 @@ function HeadSection(props) {
                           classes={{ label: classes.extraLargeButtonLabel }}
                           onClick={openRegisterDialog}
                         >
-                          Try For Free!
+                          Start For Free!
                         </Button>
                         {/* <Button
                           variant="contained"

@@ -43,18 +43,18 @@ const features = [
   },
   {
     color: '#d50000',
-    headline: 'Feature 4',
+    headline: 'Real-time running cost and forecasting',
     text:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
+      'Our real-time running cost feature allows you to know your Cloud spend in real-time long before you are surprised with a huge bill.',
     icon: <ComputerIcon style={{ fontSize: iconSize }} />,
     mdDelay: '0',
     smDelay: '200',
   },
   {
     color: '#DD2C00',
-    headline: 'Feature 5',
+    headline: 'Cloud Spend Alert and Notification',
     text:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
+      'You will get notified if your Cloud services started to spend a lot of money, so you can stop them before it is too late.',
     icon: <BarChartIcon style={{ fontSize: iconSize }} />,
     mdDelay: '200',
     smDelay: '0',

@@ -25,5 +25,7 @@ module.exports = {
       'never',
     ],
     'no-bitwise': 'off',
+    'react/jsx-props-no-spreading': 'warning',
+    'react/require-default-props': 'warning',
   },
 };
