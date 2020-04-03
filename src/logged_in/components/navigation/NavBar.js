@@ -278,7 +278,7 @@ class NavBar extends PureComponent {
               {isWidthUp('sm', width) && (
                 <div>
                   <Balance
-                    balance={1523}
+                    balance={1545523}
                     openAddBalanceDialog={openAddBalanceDialog}
                   />
                 </div>
