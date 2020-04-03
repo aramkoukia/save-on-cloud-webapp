@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box, Button } from '@material-ui/core';
 import SettingsArea from './SettingsArea';
-import UserDataArea from './UserDataArea';
-import AccountInformationArea from './AccountInformationArea';
 import StatisticsArea from './StatisticsArea';
 
 class Dashboard extends PureComponent {
@@ -16,15 +14,12 @@ class Dashboard extends PureComponent {
     const {
       CardChart,
       statistics,
-      toggleAccountActivation,
       pushMessageToSnackbar,
-      targets,
-      isAccountActivated,
     } = this.props;
     return (
       <>
         <StatisticsArea CardChart={CardChart} data={statistics} />
-        <Box mt={4}>
+        {/* <Box mt={4}>
           <Typography variant="subtitle1" gutterBottom>
             Your Account
           </Typography>
@@ -32,29 +27,24 @@ class Dashboard extends PureComponent {
         <AccountInformationArea
           isAccountActivated={isAccountActivated}
           toggleAccountActivation={toggleAccountActivation}
-        />
+        /> */}
         <Box mt={4}>
           <Typography variant="subtitle1" gutterBottom>
-            Settings
+            Your Cloud Accounts
           </Typography>
+
         </Box>
         <SettingsArea pushMessageToSnackbar={pushMessageToSnackbar} />
-        <UserDataArea
-          pushMessageToSnackbar={pushMessageToSnackbar}
-          targets={targets}
-        />
       </>
     );
   }
 }
 
 Dashboard.propTypes = {
-  CardChart: PropTypes.elementType,
+  CardChart: PropTypes.elementType.isRequired,
   statistics: PropTypes.object.isRequired,
   toggleAccountActivation: PropTypes.func,
   pushMessageToSnackbar: PropTypes.func,
-  targets: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
 };
 
