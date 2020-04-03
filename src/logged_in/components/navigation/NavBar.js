@@ -25,9 +25,9 @@ import ImageIcon from '@material-ui/icons/Image';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+// import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 // import MessagePopperButton from './MessagePopperButton';
-import SideDrawer from './SideDrawer';
+// import SideDrawer from './SideDrawer';
 import Balance from './Balance';
 import NavigationDrawer from '../../../shared/components/NavigationDrawer';
 import profilePicture from '../../dummy_data/images/profilePicture.jpg';
@@ -302,14 +302,14 @@ class NavBar extends PureComponent {
                 )}
               </ListItem>
             </Box>
-            <IconButton
+            {/* <IconButton
               onClick={this.openDrawer}
               color="primary"
               aria-label="Open Sidedrawer"
             >
               <SupervisorAccountIcon />
             </IconButton>
-            <SideDrawer open={sideDrawerOpen} onClose={this.closeDrawer} />
+            <SideDrawer open={sideDrawerOpen} onClose={this.closeDrawer} /> */}
           </Toolbar>
         </AppBar>
         <Hidden xsDown>
