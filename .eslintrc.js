@@ -20,5 +20,10 @@ module.exports = {
     'linebreak-style': 0,
     'react/jsx-filename-extension': 'off',
     'react/forbid-prop-types': 'off',
+    'react/state-in-constructor': [
+      'error',
+      'never',
+    ],
+    'no-bitwise': 'off',
   },
 };
