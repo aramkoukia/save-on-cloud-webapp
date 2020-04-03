@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Settings1 from './Settings1';
 import Settings2 from './Settings2';

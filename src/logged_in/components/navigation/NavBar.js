@@ -153,7 +153,6 @@ class NavBar extends PureComponent {
     const { mobileOpen, sideDrawerOpen } = this.state;
     const {
       selectedTab,
-      messages,
       classes,
       width,
       openAddBalanceDialog,

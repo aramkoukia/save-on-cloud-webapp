@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Typography } from '@material-ui/core';
 import blogPost1 from './images/blogPost1.jpg';
 import blogPost2 from './images/blogPost2.jpg';
