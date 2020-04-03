@@ -25,9 +25,6 @@ import ImageIcon from '@material-ui/icons/Image';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
-// import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-// import MessagePopperButton from './MessagePopperButton';
-// import SideDrawer from './SideDrawer';
 import Balance from './Balance';
 import NavigationDrawer from '../../../shared/components/NavigationDrawer';
 import profilePicture from '../../dummy_data/images/profilePicture.jpg';
@@ -128,7 +125,7 @@ const styles = (theme) => ({
 });
 
 class NavBar extends PureComponent {
-  state = { mobileOpen: false, sideDrawerOpen: false };
+  state = { mobileOpen: false };
 
   // Will be use to make website more accessible by screen readers
   links = [];
@@ -141,16 +138,8 @@ class NavBar extends PureComponent {
     this.setState({ mobileOpen: false });
   };
 
-  closeDrawer = () => {
-    this.setState({ sideDrawerOpen: false });
-  };
-
-  openDrawer = () => {
-    this.setState({ sideDrawerOpen: true });
-  };
-
   render() {
-    const { mobileOpen, sideDrawerOpen } = this.state;
+    const { mobileOpen } = this.state;
     const {
       selectedTab,
       classes,
@@ -302,18 +291,10 @@ class NavBar extends PureComponent {
                 )}
               </ListItem>
             </Box>
-            {/* <IconButton
-              onClick={this.openDrawer}
-              color="primary"
-              aria-label="Open Sidedrawer"
-            >
-              <SupervisorAccountIcon />
-            </IconButton>
-            <SideDrawer open={sideDrawerOpen} onClose={this.closeDrawer} /> */}
           </Toolbar>
         </AppBar>
         <Hidden xsDown>
-          <Drawer //  both drawers can be combined into one for performance
+          <Drawer
             variant="permanent"
             classes={{
               paper: classes.drawerPaper,
@@ -326,7 +307,7 @@ class NavBar extends PureComponent {
                   to={element.link}
                   className={classes.menuLink}
                   onClick={element.onClick}
-                  key={index}
+                  key={element.link}
                   ref={(node) => {
                     this.links[index] = node;
                   }}
@@ -379,7 +360,6 @@ class NavBar extends PureComponent {
 }
 
 NavBar.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedTab: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
