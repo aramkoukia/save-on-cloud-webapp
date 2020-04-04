@@ -3,19 +3,24 @@ import AuthStore from '../stores/Auth';
 
 export default class Auth {
   static isSignedIn() {
-    return true; //! !AuthStore.getToken();
+    return !!AuthStore.getToken();
   }
 
   static getUser() {
     return AuthStore.getUser();
   }
 
-  static signInOrRegister(email, password, isRegister) {
+  static register(email, password) {
     return RestUtilities.post(
-      `auth/${isRegister ? 'register' : 'login'}`,
-      `username=${email}&password=${password}${
-        !isRegister ? '&grant_type=password' : ''
-      }`,
+      'auth/register',
+      `email=${email}&password=${password}`,
+    ).then((response) => response);
+  }
+
+  static signIn(email, password) {
+    return RestUtilities.post(
+      'auth/login',
+      `email=${email}&password=${password}'&grant_type=password'`,
     ).then((response) => {
       if (!response.is_error) {
         AuthStore.setToken(response.content.token);
@@ -24,14 +29,6 @@ export default class Auth {
       }
       return response;
     });
-  }
-
-  static signIn(email, password) {
-    return Auth.signInOrRegister(email, password, false);
-  }
-
-  static register(email, password) {
-    return Auth.signInOrRegister(email, password, true);
   }
 
   static userHasPermission(permission) {
