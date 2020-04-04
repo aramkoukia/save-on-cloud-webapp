@@ -21,7 +21,7 @@ function SubscriptionInfo(props) {
         onClick={openAddBalanceDialog}
         disableElevation
       >
-        Add Balance
+        Add Cloud Account
       </Button>
     </Toolbar>
   );

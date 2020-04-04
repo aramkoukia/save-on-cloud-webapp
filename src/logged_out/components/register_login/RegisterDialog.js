@@ -13,6 +13,7 @@ import FormDialog from '../../../shared/components/FormDialog';
 import HighlightedInformation from '../../../shared/components/HighlightedInformation';
 import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
 import VisibilityPasswordTextField from '../../../shared/components/VisibilityPasswordTextField';
+import AuthService from '../../../services/AuthService';
 
 const styles = (theme) => ({
   link: {
@@ -38,7 +39,7 @@ class RegisterDialog extends PureComponent {
     passwordIsVisible: false,
   };
 
-  register = () => {
+  register = async () => {
     const { setStatus } = this.props;
     if (!this.registerTermsCheckbox.checked) {
       this.setState({ termsOfServiceError: true });
@@ -48,11 +49,18 @@ class RegisterDialog extends PureComponent {
       setStatus('passwordsDontMatch');
       return;
     }
-    setStatus(null);
     this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false });
-    }, 1500);
+    const result = await AuthService.register(
+      this.registerEmail.value,
+      this.registerPassword.value,
+    );
+
+    if (result.is_error) {
+      setStatus(result.error_content);
+    } else {
+      setStatus(null);
+    }
+    this.setState({ loading: false });
   };
 
   onVisibilityChange = (isVisible) => {
@@ -109,7 +117,7 @@ class RegisterDialog extends PureComponent {
               required
               fullWidth
               error={
-                status === 'passwordTooShort' || status === 'passwordsDontMatch'
+                status === 'passwordTooShort' || status === 'passwordsDontMatch' || status === 'PasswordRequiresNonAlphanumeric'
               }
               label="Password"
               inputRef={(node) => {
@@ -120,6 +128,7 @@ class RegisterDialog extends PureComponent {
                 if (
                   status === 'passwordTooShort'
                   || status === 'passwordsDontMatch'
+                  || status === 'PasswordRequiresNonAlphanumeric'
                 ) {
                   setStatus(null);
                 }
@@ -130,6 +139,9 @@ class RegisterDialog extends PureComponent {
                 }
                 if (status === 'passwordsDontMatch') {
                   return 'Your passwords dont match.';
+                }
+                if (status === 'PasswordRequiresNonAlphanumeric') {
+                  return 'Your password requires at least one Non Alphanumeric character.';
                 }
                 return null;
               })()}
@@ -143,7 +155,7 @@ class RegisterDialog extends PureComponent {
               required
               fullWidth
               error={
-                status === 'passwordTooShort' || status === 'passwordsDontMatch'
+                status === 'passwordTooShort' || status === 'passwordsDontMatch' || status === 'PasswordRequiresNonAlphanumeric'
               }
               label="Repeat Password"
               inputRef={(node) => {
@@ -154,6 +166,7 @@ class RegisterDialog extends PureComponent {
                 if (
                   status === 'passwordTooShort'
                   || status === 'passwordsDontMatch'
+                  || status === 'PasswordRequiresNonAlphanumeric'
                 ) {
                   setStatus(null);
                 }
@@ -164,6 +177,9 @@ class RegisterDialog extends PureComponent {
                 }
                 if (status === 'passwordsDontMatch') {
                   return 'Your passwords dont match.';
+                }
+                if (status === 'PasswordRequiresNonAlphanumeric') {
+                  return 'Your password requires at least one Non Alphanumeric character.';
                 }
               })()}
               FormHelperTextProps={{ error: true }}

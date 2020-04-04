@@ -1,7 +1,7 @@
 import RestUtilities from './RestUtilities';
 import AuthStore from '../stores/Auth';
 
-export default class Auth {
+export default class AuthService {
   static isSignedIn() {
     return !!AuthStore.getToken();
   }
