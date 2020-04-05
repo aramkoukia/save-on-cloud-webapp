@@ -21,7 +21,10 @@ import {
   withWidth,
 } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ImageIcon from '@material-ui/icons/Image';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import NotificationsPausedIcon from '@material-ui/icons/NotificationsPaused';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -166,20 +169,74 @@ class NavBar extends PureComponent {
       },
       {
         link: '/c/reports',
-        name: 'Reports',
+        name: 'Daily Cost Monitoring',
         onClick: () => {
           this.closeMobileDrawer();
         },
         icon: {
           desktop: (
-            <ImageIcon
+            <AssessmentIcon
               className={
-                 selectedTab === 'Reports' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'Daily Cost Monitoring' ? classes.textPrimary : 'text-white'
                }
               fontSize="small"
             />
           ),
-          mobile: <ImageIcon className="text-white" />,
+          mobile: <AssessmentIcon className="text-white" />,
+        },
+      },
+      {
+        link: '/c/reports',
+        name: 'Most Expensive Resources',
+        onClick: () => {
+          this.closeMobileDrawer();
+        },
+        icon: {
+          desktop: (
+            <MonetizationOnIcon
+              className={
+                 selectedTab === 'Most Expensive Resources' ? classes.textPrimary : 'text-white'
+               }
+              fontSize="small"
+            />
+          ),
+          mobile: <MonetizationOnIcon className="text-white" />,
+        },
+      },
+      {
+        link: '/c/reports',
+        name: 'Fastest Growing Resources',
+        onClick: () => {
+          this.closeMobileDrawer();
+        },
+        icon: {
+          desktop: (
+            <TrendingUpIcon
+              className={
+                 selectedTab === 'Fastest Growing Resources' ? classes.textPrimary : 'text-white'
+               }
+              fontSize="small"
+            />
+          ),
+          mobile: <TrendingUpIcon className="text-white" />,
+        },
+      },
+      {
+        link: '/c/reports',
+        name: 'Useless Resources',
+        onClick: () => {
+          this.closeMobileDrawer();
+        },
+        icon: {
+          desktop: (
+            <NotificationsPausedIcon
+              className={
+                 selectedTab === 'Useless Resources' ? classes.textPrimary : 'text-white'
+               }
+              fontSize="small"
+            />
+          ),
+          mobile: <NotificationsPausedIcon className="text-white" />,
         },
       },
       {
