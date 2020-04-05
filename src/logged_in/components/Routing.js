@@ -4,7 +4,10 @@ import { Switch } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 import Dashboard from './dashboard/Dashboard';
 import Posts from './posts/Posts';
-import Reports from './reports/Reports';
+import MostExpensiveResources from './reports/MostExpensiveResources';
+import FastestGrowingResources from './reports/FastestGrowingResources';
+import UselessResources from './reports/UselessResources';
+import DailyCost from './reports/DailyCost';
 import Subscription from './subscription/Subscription';
 import PropsRoute from '../../shared/components/PropsRoute';
 
@@ -62,7 +65,10 @@ function Routing(props) {
     targets,
     isAccountActivated,
     selectDashboard,
-    selectReports,
+    selectUselessResources,
+    selectMostExpensiveResources,
+    selectDailyCost,
+    selectFastestGrowingResources,
     selectPosts,
     selectSubscription,
     openAddBalanceDialog,
@@ -71,8 +77,8 @@ function Routing(props) {
     <div className={classes.wrapper}>
       <Switch>
         <PropsRoute
-          path="/c/reports"
-          component={Reports}
+          path="/c/mostexpensive"
+          component={MostExpensiveResources}
           handleNumberChange={handleNumberChange}
           handleSwitchToggle={handleSwitchToggle}
           handleSelectChange={handleSelectChange}
@@ -80,7 +86,43 @@ function Routing(props) {
           pushMessageToSnackbar={pushMessageToSnackbar}
           CardChart={CardChart}
           targets={targets}
-          selectReports={selectReports}
+          selectReports={selectMostExpensiveResources}
+        />
+        <PropsRoute
+          path="/c/fastestgrowing"
+          component={FastestGrowingResources}
+          handleNumberChange={handleNumberChange}
+          handleSwitchToggle={handleSwitchToggle}
+          handleSelectChange={handleSelectChange}
+          toggleAccountActivation={toggleAccountActivation}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          CardChart={CardChart}
+          targets={targets}
+          selectReports={selectFastestGrowingResources}
+        />
+        <PropsRoute
+          path="/c/dailycost"
+          component={DailyCost}
+          handleNumberChange={handleNumberChange}
+          handleSwitchToggle={handleSwitchToggle}
+          handleSelectChange={handleSelectChange}
+          toggleAccountActivation={toggleAccountActivation}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          CardChart={CardChart}
+          targets={targets}
+          selectReports={selectDailyCost}
+        />
+        <PropsRoute
+          path="/c/uselessresources"
+          component={UselessResources}
+          handleNumberChange={handleNumberChange}
+          handleSwitchToggle={handleSwitchToggle}
+          handleSelectChange={handleSelectChange}
+          toggleAccountActivation={toggleAccountActivation}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          CardChart={CardChart}
+          targets={targets}
+          selectReports={selectUselessResources}
         />
         <PropsRoute
           path="/c/posts"
@@ -138,7 +180,10 @@ Routing.propTypes = {
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
   isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
-  selectReports: PropTypes.func.isRequired,
+  selectDailyCost: PropTypes.func.isRequired,
+  selectFastestGrowingResources: PropTypes.func.isRequired,
+  selectMostExpensiveResources: PropTypes.func.isRequired,
+  selectUselessResources: PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,

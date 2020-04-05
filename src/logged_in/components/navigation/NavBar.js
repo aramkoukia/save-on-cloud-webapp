@@ -168,7 +168,7 @@ class NavBar extends PureComponent {
         },
       },
       {
-        link: '/c/reports',
+        link: '/c/dailycost',
         name: 'Daily Cost Monitoring',
         onClick: () => {
           this.closeMobileDrawer();
@@ -186,7 +186,7 @@ class NavBar extends PureComponent {
         },
       },
       {
-        link: '/c/reports',
+        link: '/c/mostexpensive',
         name: 'Most Expensive Resources',
         onClick: () => {
           this.closeMobileDrawer();
@@ -204,7 +204,7 @@ class NavBar extends PureComponent {
         },
       },
       {
-        link: '/c/reports',
+        link: '/c/fastestgrowing',
         name: 'Fastest Growing Resources',
         onClick: () => {
           this.closeMobileDrawer();
@@ -222,7 +222,7 @@ class NavBar extends PureComponent {
         },
       },
       {
-        link: '/c/reports',
+        link: '/c/uselessresources',
         name: 'Useless Resources',
         onClick: () => {
           this.closeMobileDrawer();

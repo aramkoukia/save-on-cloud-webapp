@@ -256,57 +256,43 @@ class Main extends PureComponent {
     }
   };
 
-  selectReports = () => {
-    smoothScrollTop();
-    document.title = 'Save On Cloud - Reports';
-    this.setState({
-      selectedTab: 'Reports',
-    });
-    if (!this.hasFetchedCardChart) {
-      this.hasFetchedCardChart = true;
-      import('../../shared/components/CardChart').then((Component) => {
-        this.setState({ CardChart: Component.default });
-      });
-    }
-  };
-
-  selectPosts = () => {
-    smoothScrollTop();
-    document.title = 'Save On Cloud - Posts';
-    this.setState({
-      selectedTab: 'Posts',
-    });
-    if (!this.hasFetchedEmojiTextArea) {
-      this.hasFetchedEmojiTextArea = true;
-      import('../../shared/components/EmojiTextArea').then((Component) => {
-        this.setState({ EmojiTextArea: Component.default });
-      });
-    }
-    if (!this.hasFetchedImageCropper) {
-      this.hasFetchedImageCropper = true;
-      import('../../shared/components/ImageCropper').then((Component) => {
-        this.setState({ ImageCropper: Component.default });
-      });
-    }
-    if (!this.hasFetchedDropzone) {
-      this.hasFetchedDropzone = true;
-      import('../../shared/components/Dropzone').then((Component) => {
-        this.setState({ Dropzone: Component.default });
-      });
-    }
-    if (!this.hasFetchedDateTimePicker) {
-      this.hasFetchedDateTimePicker = true;
-      import('../../shared/components/DateTimePicker').then((Component) => {
-        this.setState({ DateTimePicker: Component.default });
-      });
-    }
-  };
-
   selectSubscription = () => {
     smoothScrollTop();
     document.title = 'Save On Cloud - Subscription';
     this.setState({
       selectedTab: 'Subscription',
+    });
+  };
+
+  selectDailyCost = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - Daily Cost';
+    this.setState({
+      selectedTab: 'DailyCost',
+    });
+  };
+
+  selectMostExpensiveResources = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - MostExpensiveResources';
+    this.setState({
+      selectedTab: 'MostExpensiveResources',
+    });
+  };
+
+  selectUselessResources = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - Useless Resources';
+    this.setState({
+      selectedTab: 'UselessResources',
+    });
+  };
+
+  selectFastestGrowingResources = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - Fastest Growing Resources';
+    this.setState({
+      selectedTab: 'FastestGrowingResources',
     });
   };
 
