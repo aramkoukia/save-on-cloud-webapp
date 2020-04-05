@@ -20,7 +20,7 @@ export default class AuthService {
   static signIn(email, password) {
     return RestUtilities.post(
       'auth/login',
-      `email=${email}&password=${password}'&grant_type=password'`,
+      `email=${email}&password=${password}`,
     ).then((response) => {
       if (!response.is_error) {
         AuthStore.setToken(response.content.token);

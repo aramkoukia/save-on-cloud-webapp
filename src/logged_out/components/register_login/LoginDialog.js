@@ -14,6 +14,7 @@ import FormDialog from '../../../shared/components/FormDialog';
 import HighlightedInformation from '../../../shared/components/HighlightedInformation';
 import ButtonCircularProgress from '../../../shared/components/ButtonCircularProgress';
 import VisibilityPasswordTextField from '../../../shared/components/VisibilityPasswordTextField';
+import AuthService from '../../../services/AuthService';
 
 const styles = (theme) => ({
   forgotPassword: {
@@ -43,30 +44,21 @@ class LoginDialog extends PureComponent {
     this.setState({ passwordIsVisible: isVisible });
   };
 
-  login = () => {
+  login = async () => {
     const { setStatus, history } = this.props;
     this.setState({
       loading: true,
     });
     setStatus(null);
-    if (this.loginEmail.value !== 'test@web.com') {
-      setTimeout(() => {
-        setStatus('invalidEmail');
-        this.setState({
-          loading: false,
-        });
-      }, 1500);
-    } else if (this.loginPassword.value !== 'test') {
-      setTimeout(() => {
-        setStatus('invalidPassword');
-        this.setState({
-          loading: false,
-        });
-      }, 1500);
+
+    const result = await AuthService.signIn(this.loginEmail.value, this.loginPassword.value);
+    if (result.is_error) {
+      setStatus('invalidEmail');
+      this.setState({
+        loading: false,
+      });
     } else {
-      setTimeout(() => {
-        history.push('/c/dashboard');
-      }, 150);
+      history.push('/c/dashboard');
     }
   };
 
@@ -168,15 +160,7 @@ class LoginDialog extends PureComponent {
                   your email address
                 </HighlightedInformation>
               ) : (
-                <HighlightedInformation>
-                  Email is:
-                  {' '}
-                  <b>test@web.com</b>
-                  <br />
-                  Password is:
-                  {' '}
-                  <b>test</b>
-                </HighlightedInformation>
+                <div />
               )}
             </>
           )}
@@ -204,7 +188,6 @@ class LoginDialog extends PureComponent {
                 tabIndex={0}
                 role="button"
                 onKeyDown={(event) => {
-                  // For screenreaders listen to space and enter events
                   if (
                     (!loading && event.keyCode === 13)
                     || event.keyCode === 32

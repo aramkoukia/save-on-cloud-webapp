@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Gravatar from 'react-gravatar';
 import {
   AppBar,
   Toolbar,
   Typography,
-  Avatar,
   Drawer,
   List,
   IconButton,
@@ -27,7 +27,6 @@ import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
 import Balance from './Balance';
 import NavigationDrawer from '../../../shared/components/NavigationDrawer';
-import profilePicture from '../../dummy_data/images/profilePicture.jpg';
 
 const styles = (theme) => ({
   appBar: {
@@ -276,9 +275,8 @@ class NavBar extends PureComponent {
                 disableGutters
                 className={classNames(classes.iconListItem, classes.smBordered)}
               >
-                <Avatar
-                  alt="profile picture"
-                  src={profilePicture}
+                <Gravatar
+                  email="aramkoukia@gmail.com"
                   className={classNames(classes.accountAvatar)}
                 />
                 {isWidthUp('sm', width) && (
