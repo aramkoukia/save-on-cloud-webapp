@@ -7,7 +7,6 @@ import Footer from './footer/Footer';
 import 'aos/dist/aos.css';
 import CookieRulesDialog from './cookies/CookieRulesDialog';
 import CookieConsent from './cookies/CookieConsent';
-import dummyBlogPosts from '../dummy_data/blogPosts';
 import DialogSelector from './register_login/DialogSelector';
 import Routing from './Routing';
 import smoothScrollTop from '../../shared/functions/smoothScrollTop';
@@ -25,27 +24,17 @@ class Main extends PureComponent {
   state = {
     selectedTab: null,
     mobileDrawerOpen: false,
-    blogPosts: [],
     dialogOpen: null,
     cookieRulesDialogOpen: false,
   };
 
-  blogPostsMaxUnix = Math.round(new Date().getTime() / 1000);
-
   componentDidMount() {
-    this.fetchBlogPosts();
   }
 
   selectHome = () => {
     smoothScrollTop();
     document.title = 'Save On Cloud';
     this.setState({ selectedTab: 'Home' });
-  };
-
-  selectBlog = () => {
-    smoothScrollTop();
-    document.title = 'Save On Cloud - Blog';
-    this.setState({ selectedTab: 'Blog' });
   };
 
   openLoginDialog = () => {
@@ -83,29 +72,6 @@ class Main extends PureComponent {
     this.setState({ dialogOpen: 'changePassword' });
   };
 
-  fetchBlogPosts = () => {
-    /**
-     * You would fetch this from the server, however we gonna use the example values from state here
-     */
-    this.blogPostsMaxUnix = dummyBlogPosts[dummyBlogPosts.length - 1].date;
-    const blogPosts = dummyBlogPosts.map((blogPost) => {
-      let { title } = blogPost;
-      title = title.toLowerCase();
-      /* Remove unwanted characters, only accept alphanumeric and space */
-      title = title.replace(/[^A-Za-z0-9 ]/g, '');
-      /* Replace multi spaces with a single space */
-      title = title.replace(/\s{2,}/g, ' ');
-      /* Replace space with a '-' symbol */
-      title = title.replace(/\s/g, '-');
-      blogPost.url = `/blog/post/${title}`;
-      blogPost.params = `?id=${blogPost.id}`;
-      return blogPost;
-    });
-    this.setState({
-      blogPosts,
-    });
-  };
-
   handleCookieRulesDialogOpen = () => {
     this.setState({ cookieRulesDialogOpen: true });
   };
@@ -119,7 +85,6 @@ class Main extends PureComponent {
     const {
       selectedTab,
       mobileDrawerOpen,
-      blogPosts,
       dialogOpen,
       cookieRulesDialogOpen,
     } = this.state;
@@ -152,9 +117,7 @@ class Main extends PureComponent {
           handleMobileDrawerClose={this.handleMobileDrawerClose}
         />
         <Routing
-          blogPosts={blogPosts}
           selectHome={this.selectHome}
-          selectBlog={this.selectBlog}
         />
         <Footer />
       </div>

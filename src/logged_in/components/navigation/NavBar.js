@@ -177,7 +177,7 @@ class NavBar extends PureComponent {
           desktop: (
             <AssessmentIcon
               className={
-                 selectedTab === 'Daily Cost Monitoring' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'DailyCost' ? classes.textPrimary : 'text-white'
                }
               fontSize="small"
             />
@@ -195,7 +195,7 @@ class NavBar extends PureComponent {
           desktop: (
             <MonetizationOnIcon
               className={
-                 selectedTab === 'Most Expensive Resources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'MostExpensiveResources' ? classes.textPrimary : 'text-white'
                }
               fontSize="small"
             />
@@ -213,7 +213,7 @@ class NavBar extends PureComponent {
           desktop: (
             <TrendingUpIcon
               className={
-                 selectedTab === 'Fastest Growing Resources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'FastestGrowingResources' ? classes.textPrimary : 'text-white'
                }
               fontSize="small"
             />
@@ -231,7 +231,7 @@ class NavBar extends PureComponent {
           desktop: (
             <NotificationsPausedIcon
               className={
-                 selectedTab === 'Useless Resources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'UselessResources' ? classes.textPrimary : 'text-white'
                }
               fontSize="small"
             />
@@ -249,7 +249,7 @@ class NavBar extends PureComponent {
           desktop: (
             <AccountBalanceIcon
               className={
-                selectedTab === 'Cloud Accounts'
+                selectedTab === 'Subscription'
                   ? classes.textPrimary
                   : 'text-white'
               }

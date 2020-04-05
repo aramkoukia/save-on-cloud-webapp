@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Switch } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 import Dashboard from './dashboard/Dashboard';
-import Posts from './posts/Posts';
 import MostExpensiveResources from './reports/MostExpensiveResources';
 import FastestGrowingResources from './reports/FastestGrowingResources';
 import UselessResources from './reports/UselessResources';
@@ -54,7 +53,6 @@ function Routing(props) {
     Dropzone,
     DateTimePicker,
     pushMessageToSnackbar,
-    posts,
     transactions,
     handleNumberChange,
     handleSwitchToggle,
@@ -69,7 +67,6 @@ function Routing(props) {
     selectMostExpensiveResources,
     selectDailyCost,
     selectFastestGrowingResources,
-    selectPosts,
     selectSubscription,
     openAddBalanceDialog,
   } = props;
@@ -86,7 +83,7 @@ function Routing(props) {
           pushMessageToSnackbar={pushMessageToSnackbar}
           CardChart={CardChart}
           targets={targets}
-          selectReports={selectMostExpensiveResources}
+          selectMostExpensiveResources={selectMostExpensiveResources}
         />
         <PropsRoute
           path="/c/fastestgrowing"
@@ -98,7 +95,7 @@ function Routing(props) {
           pushMessageToSnackbar={pushMessageToSnackbar}
           CardChart={CardChart}
           targets={targets}
-          selectReports={selectFastestGrowingResources}
+          selectFastestGrowingResources={selectFastestGrowingResources}
         />
         <PropsRoute
           path="/c/dailycost"
@@ -110,7 +107,7 @@ function Routing(props) {
           pushMessageToSnackbar={pushMessageToSnackbar}
           CardChart={CardChart}
           targets={targets}
-          selectReports={selectDailyCost}
+          selectDailyCost={selectDailyCost}
         />
         <PropsRoute
           path="/c/uselessresources"
@@ -122,18 +119,7 @@ function Routing(props) {
           pushMessageToSnackbar={pushMessageToSnackbar}
           CardChart={CardChart}
           targets={targets}
-          selectReports={selectUselessResources}
-        />
-        <PropsRoute
-          path="/c/posts"
-          component={Posts}
-          EmojiTextArea={EmojiTextArea}
-          ImageCropper={ImageCropper}
-          Dropzone={Dropzone}
-          DateTimePicker={DateTimePicker}
-          pushMessageToSnackbar={pushMessageToSnackbar}
-          posts={posts}
-          selectPosts={selectPosts}
+          selectUselessResources={selectUselessResources}
         />
         <PropsRoute
           path="/c/subscription"
@@ -169,7 +155,6 @@ Routing.propTypes = {
   Dropzone: PropTypes.elementType,
   DateTimePicker: PropTypes.elementType,
   pushMessageToSnackbar: PropTypes.func,
-  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
   transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleNumberChange: PropTypes.func,
   handleSwitchToggle: PropTypes.func,
@@ -184,7 +169,6 @@ Routing.propTypes = {
   selectFastestGrowingResources: PropTypes.func.isRequired,
   selectMostExpensiveResources: PropTypes.func.isRequired,
   selectUselessResources: PropTypes.func.isRequired,
-  selectPosts: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,
 };

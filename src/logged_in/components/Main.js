@@ -39,7 +39,6 @@ class Main extends PureComponent {
     DateTimePicker: null,
     transactions: [],
     statistics: { views: [], profit: [] },
-    posts: [],
     targets: [],
     messages: [],
     isAccountActivated: false,
@@ -51,7 +50,6 @@ class Main extends PureComponent {
     this.fetchRandomStatistics();
     this.fetchRandomTransactions();
     this.fetchRandomMessages();
-    this.fetchRandomPosts();
   }
 
   fetchRandomTargets = () => {
@@ -193,29 +191,6 @@ class Main extends PureComponent {
     this.setState({ messages });
   };
 
-  fetchRandomPosts = () => {
-    shuffle(persons);
-    const posts = [];
-    const iterations = persons.length;
-    const oneDaySeconds = 60 * 60 * 24;
-    let curUnix = Math.round(
-      new Date().getTime() / 1000 - iterations * oneDaySeconds,
-    );
-    for (let i = 0; i < iterations; i += 1) {
-      const person = persons[i];
-      const post = {
-        id: i,
-        src: person.profilePicUrl,
-        timestamp: curUnix,
-        name: person.name,
-      };
-      curUnix += oneDaySeconds;
-      posts.reverse();
-      posts.push(post);
-    }
-    this.setState({ posts });
-  };
-
   /**
    * We have to call the pushSnackBarMessage function of this
    * child's consecutiveSnackbarMessages component. Thats why we pass it
@@ -307,7 +282,6 @@ class Main extends PureComponent {
       DateTimePicker,
       transactions,
       statistics,
-      posts,
       targets,
       isAccountActivated,
       messages,
@@ -343,11 +317,12 @@ class Main extends PureComponent {
             pushMessageToSnackbar={this.pushMessageToSnackbar}
             transactions={transactions}
             statistics={statistics}
-            posts={posts}
             targets={targets}
             selectDashboard={this.selectDashboard}
-            selectReports={this.selectReports}
-            selectPosts={this.selectPosts}
+            selectMostExpensiveResources={this.selectMostExpensiveResources}
+            selectFastestGrowingResources={this.selectFastestGrowingResources}
+            selectUselessResources={this.selectUselessResources}
+            selectDailyCost={this.selectDailyCost}
             selectSubscription={this.selectSubscription}
             openAddBalanceDialog={this.openAddBalanceDialog}
           />
