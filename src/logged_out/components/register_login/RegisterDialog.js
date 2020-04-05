@@ -58,7 +58,7 @@ class RegisterDialog extends PureComponent {
     if (result.is_error) {
       setStatus(result.error_content);
     } else {
-      setStatus(null);
+      setStatus('accountCreated');
     }
     this.setState({ loading: false });
   };
@@ -208,7 +208,6 @@ class RegisterDialog extends PureComponent {
                     tabIndex={0}
                     role="button"
                     onKeyDown={(event) => {
-                      // For screenreaders listen to space and enter events
                       if (
                         (!loading && event.keyCode === 13)
                         || event.keyCode === 32
@@ -241,9 +240,7 @@ class RegisterDialog extends PureComponent {
                 email we have sent to you before logging in.
               </HighlightedInformation>
             ) : (
-              <HighlightedInformation>
-                Registration is disabled until we go live.
-              </HighlightedInformation>
+              <div />
             )}
           </>
         )}
