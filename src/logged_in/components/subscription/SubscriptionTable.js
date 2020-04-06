@@ -13,8 +13,8 @@ function SubscriptionTable() {
 
   const options = {
     paging: true,
-    pageSizeOptions: [25, 50, 100],
-    pageSize: 25,
+    pageSizeOptions: [5, 10, 50],
+    pageSize: 5,
     columnsButton: true,
     exportButton: true,
     filtering: true,
