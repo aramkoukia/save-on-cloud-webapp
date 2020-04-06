@@ -13,8 +13,8 @@ function DailyCost(props) {
   const columns = [
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Resource Name', field: 'resourceName' },
-    { title: 'Date Created', field: 'dateCreated' },
-    { title: 'cost', field: 'cost' },
+    { title: 'Date', field: 'dateCreated' },
+    { title: 'Cost', field: 'cost' },
   ];
 
   const options = {
