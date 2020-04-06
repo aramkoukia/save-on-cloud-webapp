@@ -48,10 +48,6 @@ const styles = (theme) => ({
 function Routing(props) {
   const {
     classes,
-    EmojiTextArea,
-    ImageCropper,
-    Dropzone,
-    DateTimePicker,
     pushMessageToSnackbar,
     transactions,
     handleNumberChange,
@@ -150,10 +146,6 @@ function Routing(props) {
 
 Routing.propTypes = {
   classes: PropTypes.object.isRequired,
-  EmojiTextArea: PropTypes.elementType,
-  ImageCropper: PropTypes.elementType,
-  Dropzone: PropTypes.elementType,
-  DateTimePicker: PropTypes.elementType,
   pushMessageToSnackbar: PropTypes.func,
   transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleNumberChange: PropTypes.func,

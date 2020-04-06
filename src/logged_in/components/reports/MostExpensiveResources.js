@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
-import { MaterialTable } from 'material-table';
+import MaterialTable from 'material-table';
 // import ReportService from '../../../services/ReportService';
 
 
 function MostExpensiveResources(props) {
-  // const [azureCost, setAzureCost] = React.useState([]);
+  const [azureCost, setAzureCost] = React.useState([]);
   const { selectMostExpensiveResources } = props;
   selectMostExpensiveResources();
   // setAzureCost([]);
@@ -15,53 +15,32 @@ function MostExpensiveResources(props) {
   //     setAzureCost(result);
   //   });
 
-  // const columns = [
-  //   { title: 'Order Id', field: 'orderId' },
-  //   { title: 'Order Date', field: 'orderDate' },
-  //   { title: 'Sub Total', field: 'subTotal' },
-  //   { title: 'Total', field: 'total' },
-  //   { title: 'PO Number', field: 'poNumber' },
-  //   { title: 'Paid Amount', field: 'paidAmount' },
-  //   {
-  //     title: 'Payment Type',
-  //     field: 'paymentTypeName',
-  //   },
-  //   { title: 'Due Date', field: 'dueDate' },
-  //   { title: 'Company Name', field: 'companyName' },
-  // ];
+  const columns = [
+    { title: 'Subscription Name', field: 'subscriptionName' },
+    { title: 'Resource Name', field: 'resourceName' },
+    { title: 'Date Created', field: 'dateCreated' },
+    { title: 'cost', field: 'cost' },
+  ];
 
-  // const options = {
-  //   paging: true,
-  //   pageSizeOptions: [25, 50, 100],
-  //   pageSize: 25,
-  //   columnsButton: true,
-  //   exportButton: true,
-  //   filtering: true,
-  //   search: true,
-  // };
+  const options = {
+    paging: true,
+    pageSizeOptions: [25, 50, 100],
+    pageSize: 25,
+    columnsButton: true,
+    exportButton: true,
+    filtering: true,
+    search: true,
+  };
 
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
-        Most Expensive Resources
-        {/* <MaterialTable
-          columns={[
-            { title: 'Adı', field: 'name' },
-            { title: 'Soyadı', field: 'surname' },
-            { title: 'Doğum Yılı', field: 'birthYear', type: 'numeric' },
-            {
-              title: 'Doğum Yeri',
-              field: 'birthCity',
-              lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-            },
-          ]}
-          data={[
-            {
-              name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63,
-            },
-          ]}
-          title="Demo Title"
-        /> */}
+        <MaterialTable
+          columns={columns}
+          options={options}
+          data={azureCost}
+          title="Most Expensive Resources"
+        />
       </Grid>
     </Grid>
   );
@@ -75,4 +54,4 @@ MostExpensiveResources.defaultProps = {
   selectMostExpensiveResources: () => {},
 };
 
-export default MostExpensiveResources;
+export default withTheme(MostExpensiveResources);
