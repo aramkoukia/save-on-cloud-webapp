@@ -146,7 +146,6 @@ class NavBar extends PureComponent {
       selectedTab,
       classes,
       width,
-      openAddBalanceDialog,
     } = this.props;
     const menuItems = [
       {
@@ -321,13 +320,9 @@ class NavBar extends PureComponent {
             >
               {isWidthUp('sm', width) && (
                 <div>
-                  <Balance
-                    balance={1545523}
-                    openAddBalanceDialog={openAddBalanceDialog}
-                  />
+                  <Balance balance={1545523} />
                 </div>
               )}
-              {/* <MessagePopperButton messages={messages} /> */}
               <ListItem
                 disableGutters
                 className={classNames(classes.iconListItem, classes.smBordered)}
@@ -418,7 +413,6 @@ NavBar.propTypes = {
   selectedTab: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
-  openAddBalanceDialog: PropTypes.func.isRequired,
 };
 
 export default withWidth()(withStyles(styles, { withTheme: true })(NavBar));

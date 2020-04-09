@@ -64,7 +64,6 @@ function Routing(props) {
     selectDailyCost,
     selectFastestGrowingResources,
     selectSubscription,
-    openAddBalanceDialog,
   } = props;
   return (
     <div className={classes.wrapper}>
@@ -123,7 +122,6 @@ function Routing(props) {
           transactions={transactions}
           pushMessageToSnackbar={pushMessageToSnackbar}
           selectSubscription={selectSubscription}
-          openAddBalanceDialog={openAddBalanceDialog}
         />
         <PropsRoute
           path=""
@@ -162,7 +160,6 @@ Routing.propTypes = {
   selectMostExpensiveResources: PropTypes.func.isRequired,
   selectUselessResources: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
-  openAddBalanceDialog: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(memo(Routing));

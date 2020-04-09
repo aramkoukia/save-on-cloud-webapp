@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
+import SubscriptionService from '../../../services/SubscriptionService';
 
 function SubscriptionTable() {
-  const [azureCost, setAzureCost] = React.useState([]);
+  const [subscriptionData, setSubscriptionData] = useState([]);
   const columns = [
     { title: 'Subscription Id', field: 'subscriptionId' },
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Latest Bill', field: 'latestBill' },
     { title: 'Current Cycle Spending', field: 'currentCycleSpending' },
   ];
+
+  const fetchData = () => {
+    SubscriptionService.getSubscriptions()
+      .then((result) => {
+        setSubscriptionData(result);
+      });
+  };
+
+  useEffect(() => {
+    fetchData(subscriptionData);
+  }, [subscriptionData.length]);
 
   const options = {
     paging: true,
@@ -25,7 +37,7 @@ function SubscriptionTable() {
     <MaterialTable
       columns={columns}
       options={options}
-      data={azureCost}
+      data={subscriptionData}
       title="Cloud Accounts"
     />
   );

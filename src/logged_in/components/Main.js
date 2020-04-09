@@ -112,7 +112,6 @@ class Main extends PureComponent {
         <NavBar
           selectedTab={selectedTab}
           messages={messages}
-          openAddBalanceDialog={this.openAddBalanceDialog}
         />
         <main className={classNames(classes.main)}>
           <Routing
@@ -136,7 +135,6 @@ class Main extends PureComponent {
             selectUselessResources={this.selectUselessResources}
             selectDailyCost={this.selectDailyCost}
             selectSubscription={this.selectSubscription}
-            openAddBalanceDialog={this.openAddBalanceDialog}
           />
         </main>
       </>
