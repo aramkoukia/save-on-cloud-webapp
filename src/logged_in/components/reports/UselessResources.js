@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
+import ReportFilter from './ReportFilter';
 // import ReportService from '../../../services/ReportService';
 
 
@@ -32,6 +33,7 @@ function UselessResources(props) {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
+        <ReportFilter />
         <MaterialTable
           columns={columns}
           options={options}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import DailyCostChart from './DailyCostCharts';
+import ReportFilter from './ReportFilter';
 // import ReportService from '../../../services/ReportService';
 
 function DailyCost(props) {
@@ -36,8 +37,8 @@ function DailyCost(props) {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
+        <ReportFilter />
         <DailyCostChart CardChart={CardChart} data={statistics} />
-
         <MaterialTable
           columns={columns}
           options={options}
