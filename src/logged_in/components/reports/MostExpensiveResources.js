@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import ReportFilter from './ReportFilter';
-// import ReportService from '../../../services/ReportService';
-
+import ReportService from '../../../services/ReportService';
 
 function MostExpensiveResources(props) {
-  const [azureCost, setAzureCost] = React.useState([]);
+  const [data, setData] = React.useState([]);
   const { selectMostExpensiveResources } = props;
   selectMostExpensiveResources();
-  // setAzureCost([]);
-  // ReportService.getAzureCost()
-  //   .then((result) => {
-  //     setAzureCost(result);
-  //   });
+
+  const fetchData = () => {
+    ReportService.getMostExpensiveResources()
+      .then((result) => {
+        setData(result);
+      });
+  };
+
+  useEffect(() => {
+    fetchData(data);
+  }, [data.length]);
 
   const columns = [
     { title: 'Subscription Name', field: 'subscriptionName' },
+    { title: 'Resource Type', field: 'resourceType' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date Created', field: 'dateCreated' },
     { title: 'Average Daily Cost', field: 'avgDailyCost' },
@@ -32,6 +38,7 @@ function MostExpensiveResources(props) {
     exportButton: true,
     filtering: true,
     search: true,
+    grouping: true,
   };
 
   return (
@@ -41,7 +48,7 @@ function MostExpensiveResources(props) {
         <MaterialTable
           columns={columns}
           options={options}
-          data={azureCost}
+          data={data}
           title="Most Expensive Resources"
         />
       </Grid>
