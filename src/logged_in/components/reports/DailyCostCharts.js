@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import ReportFilter from './ReportFilter';
 import ReportService from '../../../services/ReportService';
 
 function DailyCostCharts(props) {
@@ -24,7 +23,6 @@ function DailyCostCharts(props) {
 
   return (
     <Grid container spacing={3}>
-      <ReportFilter />
       <Grid item xs={12} md={6}>
         {CardChart
     && data
