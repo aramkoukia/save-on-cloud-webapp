@@ -1,5 +1,7 @@
 import React from 'react';
-import { withTheme } from '@material-ui/core';
+import {
+  Card, CardContent, Typography, withTheme,
+} from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import Input from '@material-ui/core/Input';
@@ -60,59 +62,66 @@ function ReportFilter() {
   };
 
   return (
-    <>
-      <form noValidate autoComplete="off">
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="MM/dd/yyyy"
-            margin="normal"
-            id="date-picker-inline"
-            label="From Date"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-          <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="MM/dd/yyyy"
-            margin="normal"
-            id="date-picker-inline"
-            label="To Date"
-            value={selectedDate}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-        </MuiPickersUtilsProvider>
+    <form noValidate autoComplete="off">
+      <Card variant="outlined">
+        <CardContent>
+          <Typography color="textPrimary" gutterBottom>
+            Filters
+          </Typography>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="From Date"
+              value={selectedDate}
+              onChange={handleDateChange}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
+            &nbsp;
+            &nbsp;
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="To Date"
+              value={selectedDate}
+              onChange={handleDateChange}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
+          </MuiPickersUtilsProvider>
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-mutiple-checkbox-label">Subscriptions/Accounts</InputLabel>
-          <Select
-            labelId="demo-mutiple-checkbox-label"
-            id="demo-mutiple-checkbox"
-            multiple
-            value={personName}
-            onChange={handleChange}
-            input={<Input />}
-            renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
-          >
-            {names.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={personName.indexOf(name) > -1} />
-                <ListItemText primary={name} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </form>
-    </>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-mutiple-checkbox-label">Subscriptions/Accounts</InputLabel>
+            <Select
+              labelId="demo-mutiple-checkbox-label"
+              id="demo-mutiple-checkbox"
+              multiple
+              value={personName}
+              onChange={handleChange}
+              input={<Input />}
+              renderValue={(selected) => selected.join(', ')}
+              MenuProps={MenuProps}
+            >
+              {names.map((name) => (
+                <MenuItem key={name} value={name}>
+                  <Checkbox checked={personName.indexOf(name) > -1} />
+                  <ListItemText primary={name} />
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </CardContent>
+      </Card>
+    </form>
   );
 }
 

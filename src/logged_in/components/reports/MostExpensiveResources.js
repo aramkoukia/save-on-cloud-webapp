@@ -45,6 +45,7 @@ function MostExpensiveResources(props) {
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
         <ReportFilter />
+        <br />
         <MaterialTable
           columns={columns}
           options={options}
