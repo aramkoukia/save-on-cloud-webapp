@@ -6,7 +6,11 @@ import SubscriptionService from '../../../services/SubscriptionService';
 function SubscriptionTable() {
   const [subscriptionData, setSubscriptionData] = useState([]);
   const columns = [
-    { title: 'Cloud Provider', field: 'cloudProvider' },
+    {
+      title: 'Cloud Provider',
+      field: 'cloudProvider',
+      // defaultGroupOrder: 0
+    },
     { title: 'Subscription Id', field: 'subscriptionId' },
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Latest Bill', field: 'latestBill' },
@@ -33,6 +37,7 @@ function SubscriptionTable() {
     exportButton: true,
     filtering: true,
     search: true,
+    // grouping: true,
   };
 
   return (
