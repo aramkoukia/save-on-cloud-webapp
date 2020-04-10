@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import {
   Grid, Typography, Card, CardContent, withTheme,
 } from '@material-ui/core';
@@ -11,6 +10,8 @@ import {
   YAxis,
   ResponsiveContainer,
   Tooltip,
+  BarChart,
+  Bar,
 } from 'recharts';
 import ReportService from '../../../services/ReportService';
 
@@ -43,20 +44,19 @@ function DailyCostCharts() {
               Daily Cost
             </Typography>
             <ResponsiveContainer width="95%" height={200}>
-              <AreaChart
+              <BarChart
                 width={600}
                 height={400}
                 data={dailyData}
                 margin={{
-                  top: 10, right: 30, left: 0, bottom: 0,
+                  top: 5, right: 30, left: 20, bottom: 5,
                 }}
               >
-                <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
-                <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
-              </AreaChart>
+                <Bar dataKey="value" fill="#8884d8" />
+              </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
@@ -67,16 +67,14 @@ function DailyCostCharts() {
             <Typography color="textPrimary" gutterBottom>
               Day Over Day Cost
             </Typography>
-            <ResponsiveContainer width="95%" height={200}>
+            <ResponsiveContainer height={200}>
               <AreaChart
-                width={600}
-                height={400}
                 data={dayOverDayData}
                 margin={{
                   top: 10, right: 30, left: 0, bottom: 0,
                 }}
               >
-                <CartesianGrid strokeDasharray="3 3" />
+                {/* <CartesianGrid strokeDasharray="3 3" /> */}
                 <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
