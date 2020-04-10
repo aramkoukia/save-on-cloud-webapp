@@ -22,8 +22,8 @@ function UselessResources(props) {
 
   const options = {
     paging: true,
-    pageSizeOptions: [25, 50, 100],
-    pageSize: 25,
+    pageSizeOptions: [10, 20, 100],
+    pageSize: 10,
     columnsButton: true,
     exportButton: true,
     filtering: true,
