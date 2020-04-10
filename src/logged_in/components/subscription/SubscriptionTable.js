@@ -27,7 +27,7 @@ function SubscriptionTable() {
 
   useEffect(() => {
     fetchData(subscriptionData);
-  }, [subscriptionData.length]);
+  }, []);
 
   const options = {
     paging: true,

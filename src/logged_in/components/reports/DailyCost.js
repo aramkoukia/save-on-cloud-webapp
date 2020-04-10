@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import DailyCostChart from './DailyCostCharts';
 import ReportFilter from './ReportFilter';
-// import ReportService from '../../../services/ReportService';
+import ReportService from '../../../services/ReportService';
 
 function DailyCost(props) {
-  const [azureCost, setAzureCost] = React.useState([]);
+  const [data, setData] = React.useState([]);
   const {
     selectDailyCost,
-    CardChart,
-    statistics,
   } = props;
 
   selectDailyCost();
@@ -34,15 +32,26 @@ function DailyCost(props) {
     search: true,
   };
 
+  const fetchData = () => {
+    ReportService.getMostExpensiveResources()
+      .then((result) => {
+        setData(result);
+      });
+  };
+
+  useEffect(() => {
+    fetchData(data);
+  }, []);
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
         <ReportFilter />
-        <DailyCostChart CardChart={CardChart} data={statistics} />
+        <DailyCostChart />
         <MaterialTable
           columns={columns}
           options={options}
-          data={azureCost}
+          data={data}
           title="Daily Cost of Resources"
         />
       </Grid>
@@ -52,8 +61,6 @@ function DailyCost(props) {
 
 DailyCost.propTypes = {
   selectDailyCost: PropTypes.func,
-  CardChart: PropTypes.elementType.isRequired,
-  statistics: PropTypes.object.isRequired,
 };
 
 DailyCost.defaultProps = {
