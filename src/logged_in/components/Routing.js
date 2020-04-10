@@ -54,7 +54,6 @@ function Routing(props) {
     handleSwitchToggle,
     handleSelectChange,
     toggleAccountActivation,
-    CardChart,
     statistics,
     targets,
     isAccountActivated,
@@ -76,7 +75,6 @@ function Routing(props) {
           handleSelectChange={handleSelectChange}
           toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          CardChart={CardChart}
           targets={targets}
           selectMostExpensiveResources={selectMostExpensiveResources}
         />
@@ -88,7 +86,6 @@ function Routing(props) {
           handleSelectChange={handleSelectChange}
           toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          CardChart={CardChart}
           targets={targets}
           selectFastestGrowingResources={selectFastestGrowingResources}
         />
@@ -100,7 +97,6 @@ function Routing(props) {
           handleSelectChange={handleSelectChange}
           toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          CardChart={CardChart}
           targets={targets}
           selectDailyCost={selectDailyCost}
         />
@@ -112,7 +108,6 @@ function Routing(props) {
           handleSelectChange={handleSelectChange}
           toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          CardChart={CardChart}
           targets={targets}
           selectUselessResources={selectUselessResources}
         />
@@ -131,7 +126,6 @@ function Routing(props) {
           handleSelectChange={handleSelectChange}
           toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          CardChart={CardChart}
           statistics={statistics}
           targets={targets}
           isAccountActivated={isAccountActivated}
@@ -150,7 +144,6 @@ Routing.propTypes = {
   handleSwitchToggle: PropTypes.func,
   handleSelectChange: PropTypes.func,
   toggleAccountActivation: PropTypes.func,
-  CardChart: PropTypes.elementType,
   statistics: PropTypes.object.isRequired,
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
   isAccountActivated: PropTypes.bool.isRequired,

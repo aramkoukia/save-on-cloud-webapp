@@ -22,8 +22,6 @@ const styles = (theme) => ({
 class Main extends PureComponent {
   state = {
     selectedTab: null,
-    CardChart: null,
-    EmojiTextArea: null,
     ImageCropper: null,
     Dropzone: null,
     transactions: [],
@@ -43,12 +41,6 @@ class Main extends PureComponent {
     this.setState({
       selectedTab: 'Dashboard',
     });
-    if (!this.hasFetchedCardChart) {
-      this.hasFetchedCardChart = true;
-      import('../../shared/components/CardChart').then((Component) => {
-        this.setState({ CardChart: Component.default });
-      });
-    }
   };
 
   selectSubscription = () => {
@@ -96,8 +88,6 @@ class Main extends PureComponent {
     const {
       selectedTab,
       ImageCropper,
-      EmojiTextArea,
-      CardChart,
       Dropzone,
       transactions,
       statistics,
@@ -115,8 +105,6 @@ class Main extends PureComponent {
           <Routing
             isAccountActivated={isAccountActivated}
             ImageCropper={ImageCropper}
-            EmojiTextArea={EmojiTextArea}
-            CardChart={CardChart}
             Dropzone={Dropzone}
             handleNumberChange={this.handleNumberChange}
             handleSwitchToggle={this.handleSwitchToggle}

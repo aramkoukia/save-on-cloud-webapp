@@ -26,8 +26,8 @@ function MostExpensiveResources(props) {
     { title: 'Resource Type', field: 'resourceType' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date Created', field: 'dateCreated' },
-    { title: 'Average Daily Cost', field: 'avgDailyCost' },
-    { title: 'Average Monthly Cost', field: 'avgMonthlyCost' },
+    { title: 'Average Daily Cost $', field: 'avgDailyCost' },
+    { title: 'Average Monthly Cost $', field: 'avgMonthlyCost' },
   ];
 
   const options = {

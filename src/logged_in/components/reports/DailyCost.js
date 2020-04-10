@@ -18,8 +18,8 @@ function DailyCost(props) {
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date', field: 'date' },
-    { title: 'Daily Cost', field: 'cost' },
-    { title: 'Day Over Day Cost', field: 'cost' },
+    { title: 'Cost $', field: 'cost' },
+    { title: 'Avg Daily Cost $', field: 'avgDailyCost' },
   ];
 
   const options = {
@@ -33,7 +33,7 @@ function DailyCost(props) {
   };
 
   const fetchData = () => {
-    ReportService.getMostExpensiveResources()
+    ReportService.getAzureCostDailyDetail()
       .then((result) => {
         setData(result);
       });

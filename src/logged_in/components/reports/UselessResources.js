@@ -15,7 +15,7 @@ function UselessResources(props) {
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date Created', field: 'dateCreated' },
-    { title: 'Average Daily Cost', field: 'avgDailyCost' },
+    { title: 'Average Daily Cost $', field: 'avgDailyCost' },
     { title: 'Network Usage?', field: 'networkUsage' },
     { title: 'I/O?', field: 'ioUsage' },
   ];

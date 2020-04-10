@@ -15,8 +15,8 @@ function FastestGrowingResources(props) {
     { title: 'Subscription Name', field: 'subscriptionName' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date Created', field: 'dateCreated' },
-    { title: 'Average Daily Cost', field: 'avgDailyCost' },
-    { title: 'Total Cost', field: 'cost' },
+    { title: 'Average Daily Cost $', field: 'avgDailyCost' },
+    { title: 'Total Cost $', field: 'cost' },
   ];
 
   const options = {
