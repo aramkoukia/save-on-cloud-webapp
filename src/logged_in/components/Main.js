@@ -26,7 +26,6 @@ class Main extends PureComponent {
     EmojiTextArea: null,
     ImageCropper: null,
     Dropzone: null,
-    DateTimePicker: null,
     transactions: [],
     statistics: { views: [], profit: [] },
     targets: [],
@@ -100,7 +99,6 @@ class Main extends PureComponent {
       EmojiTextArea,
       CardChart,
       Dropzone,
-      DateTimePicker,
       transactions,
       statistics,
       targets,
@@ -120,7 +118,6 @@ class Main extends PureComponent {
             EmojiTextArea={EmojiTextArea}
             CardChart={CardChart}
             Dropzone={Dropzone}
-            DateTimePicker={DateTimePicker}
             handleNumberChange={this.handleNumberChange}
             handleSwitchToggle={this.handleSwitchToggle}
             handleSelectChange={this.handleSelectChange}
