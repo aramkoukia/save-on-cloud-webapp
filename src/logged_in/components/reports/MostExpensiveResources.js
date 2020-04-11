@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import ReportFilter from './ReportFilter';
+import MostExpensiveResourcesChart from './MostExpensiveResourcesChart';
 import ReportService from '../../../services/ReportService';
+
 
 function MostExpensiveResources(props) {
   const [data, setData] = React.useState([]);
@@ -45,6 +47,8 @@ function MostExpensiveResources(props) {
     <Grid container spacing={3}>
       <Grid item xs={12} md={12}>
         <ReportFilter />
+        <br />
+        <MostExpensiveResourcesChart />
         <br />
         <MaterialTable
           columns={columns}
