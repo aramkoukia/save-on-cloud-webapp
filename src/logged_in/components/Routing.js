@@ -9,6 +9,8 @@ import UselessResources from './reports/UselessResources';
 import DailyCost from './reports/DailyCost';
 import Subscription from './subscription/Subscription';
 import Billing from './billing/Billing';
+import AddAzureSubscription from './subscription/AddAzureSubscription';
+import AddAwsSubscription from './subscription/AddAwsSubscription';
 import PropsRoute from '../../shared/components/PropsRoute';
 
 const styles = (theme) => ({
@@ -50,13 +52,8 @@ function Routing(props) {
   const {
     classes,
     pushMessageToSnackbar,
-    handleNumberChange,
-    handleSwitchToggle,
     handleSelectChange,
-    toggleAccountActivation,
-    statistics,
     targets,
-    isAccountActivated,
     selectDashboard,
     selectUselessResources,
     selectMostExpensiveResources,
@@ -64,6 +61,8 @@ function Routing(props) {
     selectFastestGrowingResources,
     selectSubscription,
     selectBilling,
+    selectAddAzureSubscription,
+    selectAddAwsSubscription,
   } = props;
   return (
     <div className={classes.wrapper}>
@@ -71,10 +70,7 @@ function Routing(props) {
         <PropsRoute
           path="/c/mostexpensive"
           component={MostExpensiveResources}
-          handleNumberChange={handleNumberChange}
-          handleSwitchToggle={handleSwitchToggle}
           handleSelectChange={handleSelectChange}
-          toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
           targets={targets}
           selectMostExpensiveResources={selectMostExpensiveResources}
@@ -82,10 +78,7 @@ function Routing(props) {
         <PropsRoute
           path="/c/fastestgrowing"
           component={FastestGrowingResources}
-          handleNumberChange={handleNumberChange}
-          handleSwitchToggle={handleSwitchToggle}
           handleSelectChange={handleSelectChange}
-          toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
           targets={targets}
           selectFastestGrowingResources={selectFastestGrowingResources}
@@ -98,10 +91,7 @@ function Routing(props) {
         <PropsRoute
           path="/c/uselessresources"
           component={UselessResources}
-          handleNumberChange={handleNumberChange}
-          handleSwitchToggle={handleSwitchToggle}
           handleSelectChange={handleSelectChange}
-          toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
           targets={targets}
           selectUselessResources={selectUselessResources}
@@ -113,6 +103,18 @@ function Routing(props) {
           selectSubscription={selectSubscription}
         />
         <PropsRoute
+          path="/c/addazuresubscription"
+          component={AddAzureSubscription}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          selectAddAzureSubscription={selectAddAzureSubscription}
+        />
+        <PropsRoute
+          path="/c/addawssubscription"
+          component={AddAwsSubscription}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          selectAddAwsSubscription={selectAddAwsSubscription}
+        />
+        <PropsRoute
           path="/c/billing"
           component={Billing}
           pushMessageToSnackbar={pushMessageToSnackbar}
@@ -121,14 +123,9 @@ function Routing(props) {
         <PropsRoute
           path=""
           component={Dashboard}
-          handleNumberChange={handleNumberChange}
-          handleSwitchToggle={handleSwitchToggle}
           handleSelectChange={handleSelectChange}
-          toggleAccountActivation={toggleAccountActivation}
           pushMessageToSnackbar={pushMessageToSnackbar}
-          statistics={statistics}
           targets={targets}
-          isAccountActivated={isAccountActivated}
           selectDashboard={selectDashboard}
         />
       </Switch>
@@ -139,19 +136,16 @@ function Routing(props) {
 Routing.propTypes = {
   classes: PropTypes.object.isRequired,
   pushMessageToSnackbar: PropTypes.func,
-  handleNumberChange: PropTypes.func,
-  handleSwitchToggle: PropTypes.func,
   handleSelectChange: PropTypes.func,
-  toggleAccountActivation: PropTypes.func,
-  statistics: PropTypes.object.isRequired,
   targets: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
   selectDailyCost: PropTypes.func.isRequired,
   selectFastestGrowingResources: PropTypes.func.isRequired,
   selectMostExpensiveResources: PropTypes.func.isRequired,
   selectUselessResources: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
+  selectAddAzureSubscription: PropTypes.func.isRequired,
+  selectAddAwsSubscription: PropTypes.func.isRequired,
   selectBilling: PropTypes.func.isRequired,
 };
 

@@ -1,21 +1,27 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import {
   Card, Button, CardContent, withTheme, Icon,
 } from '@material-ui/core';
 
-function AddSubscription(props) {
-  const {
-    onAddAzureSubscription,
-    onAddAwsSubscription,
-  } = props;
+function AddSubscription() {
+  const history = useHistory();
+
+  function HandleAddAzureSubscription() {
+    history.push('/c/addazuresubscription');
+  }
+
+  function HandleAddAwsSubscription() {
+    history.push('/c/addawssubscription');
+  }
+
   return (
     <Card variant="outlined">
       <CardContent>
         <Button
           variant="contained"
           color="primary"
-          onClick={onAddAwsSubscription}
+          onClick={HandleAddAzureSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add Azure Subscription
@@ -24,7 +30,7 @@ function AddSubscription(props) {
         <Button
           variant="contained"
           color="secondary"
-          onClick={onAddAzureSubscription}
+          onClick={HandleAddAwsSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add AWS Subscription
@@ -33,10 +39,5 @@ function AddSubscription(props) {
     </Card>
   );
 }
-
-AddSubscription.propTypes = {
-  onAddAzureSubscription: propTypes.func.isRequired,
-  onAddAwsSubscription: propTypes.func.isRequired,
-};
 
 export default withTheme(AddSubscription);
