@@ -116,9 +116,15 @@ function AddAzureSubscription() {
           &nbsp;
           <strong>tenant keys</strong>
           &nbsp;
-          appear in the output of
-          az ad sp create-for-rbac and are used in service principal authentication.
-          Record their values, but they can be retrieved at any point with az ad sp list.
+          appear in the output of:
+          <Typography variant="h6" color="primary" paragraph>
+            <pre>az ad sp create-for-rbac</pre>
+          </Typography>
+          and are used in service principal authentication.
+          Record their values, but they can be retrieved at any point with:
+          <Typography variant="h6" color="primary" paragraph>
+            <pre>az ad sp list</pre>
+          </Typography>
         </Typography>
 
         <hr />
