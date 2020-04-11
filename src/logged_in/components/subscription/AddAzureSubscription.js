@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Card, Button, CardContent, Icon, Typography, withTheme,
+  Card, Button, CardContent, Icon, Typography, withTheme, TextField, Grid,
 } from '@material-ui/core';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
@@ -28,7 +29,7 @@ function AddAzureSubscription() {
           This access is restricted by the roles assigned to the service principal,
           giving you control over which resources can be accessed and at which level.
           For security reasons,
-          it&apos;s always recommended to use service principals with automated tools
+          it's always recommended to use service principals with automated tools
           rather than allowing them to log in with a user identity.
         </Typography>
         <Typography paragraph>
@@ -43,7 +44,8 @@ function AddAzureSubscription() {
         </Typography>
 
         <Typography paragraph>
-          Create a service principal with the az ad sp create-for-rbac command. When creating a service principal, you choose the type of sign-in authentication it uses.
+          Create a service principal with the az ad sp create-for-rbac command.
+          When creating a service principal, you choose the type of sign-in authentication it uses.
         </Typography>
 
         <Alert severity="warning">
@@ -100,7 +102,7 @@ function AddAzureSubscription() {
           The output for a service principal with password authentication
           includes the password key.
           &nbsp;
-          <strong>Make sure you copy this value - it can&apos;t be retrieved.</strong>
+          <strong>Make sure you copy this value - it can't be retrieved.</strong>
           &nbsp;
           If you forget the password, reset the service principal credentials.
         </Typography>
@@ -119,14 +121,88 @@ function AddAzureSubscription() {
           Record their values, but they can be retrieved at any point with az ad sp list.
         </Typography>
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAddSubscription}
-          endIcon={<Icon>add</Icon>}
+        <hr />
+
+        <Typography variant="h6" color="primary" paragraph>
+          Add The Service Principal to your Account
+        </Typography>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.sendPasswordEmail();
+          }}
         >
-          Save
-        </Button>
+          <Grid container spacing={1}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                variant="outlined"
+                margin="dense"
+                required
+                fullWidth
+                label="Subscription Id"
+                autoFocus
+                type="text"
+                autoComplete="off"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                variant="outlined"
+                margin="dense"
+                required
+                fullWidth
+                label="Tenant Id or Tenant name"
+                autoFocus
+                type="text"
+                autoComplete="off"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                variant="outlined"
+                margin="dense"
+                required
+                fullWidth
+                label="Client Id"
+                autoFocus
+                type="text"
+                autoComplete="off"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                variant="outlined"
+                margin="dense"
+                required
+                fullWidth
+                label="Client Secret"
+                autoFocus
+                type="text"
+                autoComplete="off"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleAddSubscription}
+                endIcon={<Icon>cloudDone</Icon>}
+              >
+                Test
+              </Button>
+              &nbsp;&nbsp;
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleAddSubscription}
+                endIcon={<Icon>save</Icon>}
+              >
+                Save
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
       </CardContent>
     </Card>
   );
