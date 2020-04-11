@@ -27,6 +27,7 @@ import NotificationsPausedIcon from '@material-ui/icons/NotificationsPaused';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 import MenuIcon from '@material-ui/icons/Menu';
 import Balance from './Balance';
 import NavigationDrawer from '../../../shared/components/NavigationDrawer';
@@ -256,6 +257,26 @@ class NavBar extends PureComponent {
             />
           ),
           mobile: <AccountBalanceIcon className="text-white" />,
+        },
+      },
+      {
+        link: '/c/billing',
+        name: 'Billing',
+        onClick: () => {
+          this.closeMobileDrawer();
+        },
+        icon: {
+          desktop: (
+            <ReceiptIcon
+              className={
+                selectedTab === 'Billing'
+                  ? classes.textPrimary
+                  : 'text-white'
+              }
+              fontSize="small"
+            />
+          ),
+          mobile: <ReceiptIcon className="text-white" />,
         },
       },
       {

@@ -24,8 +24,6 @@ class Main extends PureComponent {
     selectedTab: null,
     ImageCropper: null,
     Dropzone: null,
-    transactions: [],
-    statistics: { views: [], profit: [] },
     targets: [],
     messages: [],
     isAccountActivated: false,
@@ -48,6 +46,14 @@ class Main extends PureComponent {
     document.title = 'Save On Cloud - Subscription';
     this.setState({
       selectedTab: 'Subscription',
+    });
+  };
+
+  selectBilling = () => {
+    smoothScrollTop();
+    document.title = 'Save On Cloud - Billing';
+    this.setState({
+      selectedTab: 'Billing',
     });
   };
 
@@ -89,8 +95,6 @@ class Main extends PureComponent {
       selectedTab,
       ImageCropper,
       Dropzone,
-      transactions,
-      statistics,
       targets,
       isAccountActivated,
       messages,
@@ -106,13 +110,9 @@ class Main extends PureComponent {
             isAccountActivated={isAccountActivated}
             ImageCropper={ImageCropper}
             Dropzone={Dropzone}
-            handleNumberChange={this.handleNumberChange}
             handleSwitchToggle={this.handleSwitchToggle}
             handleSelectChange={this.handleSelectChange}
-            toggleAccountActivation={this.toggleAccountActivation}
             pushMessageToSnackbar={this.pushMessageToSnackbar}
-            transactions={transactions}
-            statistics={statistics}
             targets={targets}
             selectDashboard={this.selectDashboard}
             selectMostExpensiveResources={this.selectMostExpensiveResources}
@@ -120,6 +120,7 @@ class Main extends PureComponent {
             selectUselessResources={this.selectUselessResources}
             selectDailyCost={this.selectDailyCost}
             selectSubscription={this.selectSubscription}
+            selectBilling={this.selectBilling}
           />
         </main>
       </>

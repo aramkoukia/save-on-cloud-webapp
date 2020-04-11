@@ -8,6 +8,7 @@ import FastestGrowingResources from './reports/FastestGrowingResources';
 import UselessResources from './reports/UselessResources';
 import DailyCost from './reports/DailyCost';
 import Subscription from './subscription/Subscription';
+import Billing from './billing/Billing';
 import PropsRoute from '../../shared/components/PropsRoute';
 
 const styles = (theme) => ({
@@ -63,6 +64,7 @@ function Routing(props) {
     selectDailyCost,
     selectFastestGrowingResources,
     selectSubscription,
+    selectBilling,
   } = props;
   return (
     <div className={classes.wrapper}>
@@ -92,12 +94,6 @@ function Routing(props) {
         <PropsRoute
           path="/c/dailycost"
           component={DailyCost}
-          handleNumberChange={handleNumberChange}
-          handleSwitchToggle={handleSwitchToggle}
-          handleSelectChange={handleSelectChange}
-          toggleAccountActivation={toggleAccountActivation}
-          pushMessageToSnackbar={pushMessageToSnackbar}
-          targets={targets}
           selectDailyCost={selectDailyCost}
         />
         <PropsRoute
@@ -114,9 +110,14 @@ function Routing(props) {
         <PropsRoute
           path="/c/subscription"
           component={Subscription}
-          transactions={transactions}
           pushMessageToSnackbar={pushMessageToSnackbar}
           selectSubscription={selectSubscription}
+        />
+        <PropsRoute
+          path="/c/billing"
+          component={Billing}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          selectBilling={selectBilling}
         />
         <PropsRoute
           path=""
@@ -153,6 +154,7 @@ Routing.propTypes = {
   selectMostExpensiveResources: PropTypes.func.isRequired,
   selectUselessResources: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
+  selectBilling: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(memo(Routing));
