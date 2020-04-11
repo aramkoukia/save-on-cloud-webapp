@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Card, CardContent, Typography, withTheme,
+  Card, CardContent, Typography, withTheme, Icon, Button,
 } from '@material-ui/core';
 import SubscriptionService from '../../../services/SubscriptionService';
 
@@ -23,6 +23,15 @@ function BillingInformation() {
       <CardContent>
         <Typography color="primary" gutterBottom>
           Billing Information
+          &nbsp;
+          <Button
+            variant="contained"
+            color="secondary"
+            disableElevation
+            endIcon={<Icon>edit</Icon>}
+          >
+            Update
+          </Button>
         </Typography>
         <Typography color="primaryText" gutterBottom>
           Random Org Services Inc

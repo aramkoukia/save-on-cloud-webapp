@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Card, CardContent, Typography, withTheme,
+  Card, CardContent, Typography, withTheme, Button, Icon,
 } from '@material-ui/core';
 import SubscriptionService from '../../../services/SubscriptionService';
 
@@ -23,6 +23,15 @@ function PaymentInformation() {
       <CardContent>
         <Typography color="primary" gutterBottom>
           Payment Method
+          &nbsp;
+          <Button
+            variant="contained"
+            color="secondary"
+            disableElevation
+            endIcon={<Icon>edit</Icon>}
+          >
+            Update
+          </Button>
         </Typography>
         <Typography color="primaryText" gutterBottom>
           <b>Card</b>
