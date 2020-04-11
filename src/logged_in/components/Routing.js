@@ -50,7 +50,6 @@ function Routing(props) {
   const {
     classes,
     pushMessageToSnackbar,
-    transactions,
     handleNumberChange,
     handleSwitchToggle,
     handleSelectChange,
@@ -140,7 +139,6 @@ function Routing(props) {
 Routing.propTypes = {
   classes: PropTypes.object.isRequired,
   pushMessageToSnackbar: PropTypes.func,
-  transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleNumberChange: PropTypes.func,
   handleSwitchToggle: PropTypes.func,
   handleSelectChange: PropTypes.func,
