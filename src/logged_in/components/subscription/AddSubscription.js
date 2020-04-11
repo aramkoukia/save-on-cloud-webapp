@@ -1,16 +1,21 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import {
   Card, Button, CardContent, withTheme, Icon,
 } from '@material-ui/core';
 
-function AddSubscription() {
+function AddSubscription(props) {
+  const {
+    onAddAzureSubscription,
+    onAddAwsSubscription,
+  } = props;
   return (
     <Card variant="outlined">
       <CardContent>
         <Button
           variant="contained"
           color="primary"
-          disableElevation
+          onClick={onAddAwsSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add Azure Subscription
@@ -19,7 +24,7 @@ function AddSubscription() {
         <Button
           variant="contained"
           color="secondary"
-          disableElevation
+          onClick={onAddAzureSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add AWS Subscription
@@ -30,6 +35,8 @@ function AddSubscription() {
 }
 
 AddSubscription.propTypes = {
+  onAddAzureSubscription: propTypes.func.isRequired,
+  onAddAwsSubscription: propTypes.func.isRequired,
 };
 
 export default withTheme(AddSubscription);
