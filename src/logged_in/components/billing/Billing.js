@@ -21,7 +21,7 @@ function Billing(props) {
       <Grid item xs={12} md={6}>
         <PaymentInformation />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12}>
         <BillingInformation />
       </Grid>
       <Grid item xs={12} md={12}>
