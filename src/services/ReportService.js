@@ -146,46 +146,46 @@ export default class ReportService {
   static async getMostExpensiveResourcesChart() {
     return [
       {
-        name: '1/3/20', resource1: 4000, resource2: 2400, resource3: 3500,
+        name: '1/3/20', resource1: 4000, resource2: 2400, resource3: 3500, resource4: 0, resource5: 2344,
       },
       {
-        name: '2/3/20', resource1: 3000, resource2: 1398, resource3: 2210,
+        name: '2/3/20', resource1: 3000, resource2: 1398, resource3: 2210, resource4: 0, resource5: 2344,
       },
       {
-        name: '3/3/20', resource1: 2000, resource2: 9800, resource3: 2290,
+        name: '3/3/20', resource1: 2000, resource2: 9800, resource3: 2290, resource4: 0, resource5: 2344,
       },
       {
-        name: '4/3/20', resource1: 2780, resource2: 3908, resource3: 2000,
+        name: '4/3/20', resource1: 2780, resource2: 3908, resource3: 2000, resource4: 0, resource5: 2344,
       },
       {
-        name: '5/3/20', resource1: 1890, resource2: 4800, resource3: 2181,
+        name: '5/3/20', resource1: 1890, resource2: 4800, resource3: 2181, resource4: 0, resource5: 2344,
       },
       {
-        name: '6/3/20', resource1: 2390, resource2: 3800, resource3: 2500,
+        name: '6/3/20', resource1: 2390, resource2: 3800, resource3: 2500, resource4: 0, resource5: 1232,
       },
       {
-        name: '7/3/20', resource1: 3490, resource2: 4300, resource3: 3500,
+        name: '7/3/20', resource1: 3490, resource2: 4300, resource3: 3500, resource4: 6788, resource5: 1233,
       },
       {
-        name: '8/3/20', resource1: 4500, resource2: 5455, resource3: 5500,
+        name: '8/3/20', resource1: 4500, resource2: 5455, resource3: 5500, resource4: 5677, resource5: 1233,
       },
       {
-        name: '9/3/20', resource1: 2500, resource2: 9999, resource3: 6000,
+        name: '9/3/20', resource1: 2500, resource2: 9999, resource3: 6000, resource4: 2343, resource5: 2342,
       },
       {
-        name: '10/3/20', resource1: 2000, resource2: 8852, resource3: 3900,
+        name: '10/3/20', resource1: 2000, resource2: 8852, resource3: 3900, resource4: 2344, resource5: 0,
       },
       {
-        name: '11/3/20', resource1: 3490, resource2: 7788, resource3: 5500,
+        name: '11/3/20', resource1: 3490, resource2: 7788, resource3: 5500, resource4: 2133, resource5: 0,
       },
       {
-        name: '12/3/20', resource1: 1250, resource2: 6500, resource3: 3500,
+        name: '12/3/20', resource1: 1250, resource2: 6500, resource3: 3500, resource4: 1233, resource5: 0,
       },
       {
-        name: '13/3/20', resource1: 3500, resource2: 8800, resource3: 4500,
+        name: '13/3/20', resource1: 3500, resource2: 8800, resource3: 4500, resource4: 3433, resource5: 0,
       },
       {
-        name: '14/3/20', resource1: 3660, resource2: 9000, resource3: 2336,
+        name: '14/3/20', resource1: 3660, resource2: 9000, resource3: 2336, resource4: 4544, resource5: 0,
       },
     ];
   }

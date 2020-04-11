@@ -34,10 +34,8 @@ function MostExpensiveResourcesChart() {
         <Typography color="textPrimary" gutterBottom>
           Most Expensive Resources Trend
         </Typography>
-        <ResponsiveContainer width="95%" height={200}>
+        <ResponsiveContainer width="95%" height={300}>
           <LineChart
-            width={600}
-            height={300}
             data={data}
             margin={{
               top: 5, right: 30, left: 20, bottom: 5,
@@ -49,8 +47,10 @@ function MostExpensiveResourcesChart() {
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="resource1" stroke="#8884d8" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="resource2" stroke="#82ca9d" />
-            <Line type="monotone" dataKey="resource3" stroke="#FFBB28" />
+            <Line type="monotone" dataKey="resource2" stroke="#82ca9d" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="resource3" stroke="#FFBB28" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="resource4" stroke="#FF8042" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="resource5" stroke="#00C49F" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
       </CardContent>
