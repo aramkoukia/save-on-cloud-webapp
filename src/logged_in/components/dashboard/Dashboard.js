@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Typography, Box } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import SubscriptionTable from '../subscription/SubscriptionTable';
+import SubscriptionPieChart from '../reports/SubscriptionPieChart';
+import ResourceTypePieChart from '../reports/ResourceTypePieChart';
+import ReportFilter from '../reports/ReportFilter';
 
 class Dashboard extends PureComponent {
   componentDidMount() {
@@ -11,15 +14,20 @@ class Dashboard extends PureComponent {
 
   render() {
     return (
-      <>
-        <Box mt={4}>
-          <Typography variant="subtitle1" gutterBottom>
-            Your Cloud Accounts
-          </Typography>
-
-        </Box>
-        <SubscriptionTable />
-      </>
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={12}>
+          <ReportFilter />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <SubscriptionPieChart />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ResourceTypePieChart />
+        </Grid>
+        <Grid item xs={12} md={12}>
+          <SubscriptionTable />
+        </Grid>
+      </Grid>
     );
   }
 }

@@ -141,4 +141,70 @@ export default class ReportService {
       },
     ];
   }
+
+  static async getAccountCostShare() {
+    return [
+      {
+        name: 'Enterprise Agreement',
+        value: 6000.50,
+      },
+      {
+        name: 'Production Agreement',
+        value: 9000.50,
+      },
+      {
+        name: 'Dev/Test Subscription',
+        value: 3500.00,
+      },
+      {
+        name: 'Pay As You Go Account',
+        value: 2000.50,
+      },
+      {
+        name: 'Office 365 Agreement',
+        value: 1200.50,
+      },
+      {
+        name: 'Developer Subscription',
+        value: 5000.50,
+      },
+    ];
+  }
+
+  static async getResourceTypeShare() {
+    return [
+      {
+        name: 'Linux Virtual Machine',
+        value: 6000.50,
+      },
+      {
+        name: 'Windows Virtual Machine',
+        value: 9000.50,
+      },
+      {
+        name: 'Function App',
+        value: 3500.00,
+      },
+      {
+        name: 'Azure SQL',
+        value: 2000.50,
+      },
+      {
+        name: 'App Service',
+        value: 1200.50,
+      },
+      {
+        name: 'Blob Storage',
+        value: 1000.50,
+      },
+      {
+        name: 'CosmosDB',
+        value: 1200.50,
+      },
+      {
+        name: 'PostgresDB',
+        value: 6500.50,
+      },
+    ];
+  }
 }
