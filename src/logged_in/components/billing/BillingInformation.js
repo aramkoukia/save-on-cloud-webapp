@@ -27,7 +27,7 @@ function BillingInformation() {
         <Typography color="primaryText" gutterBottom>
           Random Org Services Inc
           <br />
-          1111 WEST HASTINGS ST STE 400, V6E 0C3
+          1111 WEST HASTINGS ST STE 500, V48 0CD
           <br />
           VANCOUVER BC Canada
           <br />
