@@ -175,31 +175,31 @@ export default class ReportService {
     return [
       {
         name: 'Linux Virtual Machine',
-        value: 6000.50,
+        value: 21564.50,
       },
       {
         name: 'Windows Virtual Machine',
-        value: 9000.50,
+        value: 54654.50,
       },
       {
         name: 'Function App',
-        value: 3500.00,
+        value: 5456.00,
       },
       {
         name: 'Azure SQL',
-        value: 2000.50,
+        value: 54541.50,
       },
       {
         name: 'App Service',
-        value: 1200.50,
+        value: 5458.50,
       },
       {
         name: 'Blob Storage',
-        value: 1000.50,
+        value: 2122.50,
       },
       {
         name: 'CosmosDB',
-        value: 1200.50,
+        value: 9887.50,
       },
       {
         name: 'PostgresDB',
