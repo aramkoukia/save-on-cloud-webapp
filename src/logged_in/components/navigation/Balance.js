@@ -22,6 +22,7 @@ function Balance(props) {
     <div>
       <Typography color="primary">
         Total spending this month:
+        &nbsp;
         {currencyPrettyPrint(balance)}
       </Typography>
     </div>

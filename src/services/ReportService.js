@@ -142,7 +142,6 @@ export default class ReportService {
     ];
   }
 
-
   static async getMostExpensiveResourcesChart() {
     return [
       {
@@ -252,6 +251,90 @@ export default class ReportService {
       {
         name: 'PostgresDB',
         value: 6500.50,
+      },
+    ];
+  }
+
+  static async getFastestGrowingResources() {
+    return [
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'App Service',
+        resourceName: 'Lights and Parts Web App',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 30.50,
+        avgMonthlyCost: 1120,
+      },
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'Azure SQL Server',
+        resourceName: 'Lights and Parts Server',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 12.90,
+        avgMonthlyCost: 600,
+      },
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'Azure SQL DB',
+        resourceName: 'Lights and Parts DB',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 19.90,
+        avgMonthlyCost: 700,
+      },
+      {
+        subscriptionName: 'Dev/Test Subscription',
+        resourceType: 'Storage Account',
+        resourceName: 'Save On Cloud Blob Storage',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 19.90,
+        avgMonthlyCost: 600,
+      },
+    ];
+  }
+
+  static async getFastestGrowingResourcesChart() {
+    return [
+      {
+        name: '1/3/20', resource1: 0, resource2: 0, resource3: 0, resource4: 0,
+      },
+      {
+        name: '2/3/20', resource1: 0, resource2: 0, resource3: 0, resource4: 0,
+      },
+      {
+        name: '3/3/20', resource1: 0, resource2: 0, resource3: 0, resource4: 0,
+      },
+      {
+        name: '4/3/20', resource1: 0, resource2: 0, resource3: 0, resource4: 0,
+      },
+      {
+        name: '5/3/20', resource1: 0, resource2: 0, resource3: 0, resource4: 0,
+      },
+      {
+        name: '6/3/20', resource1: 0, resource2: 3800, resource3: 0, resource4: 0,
+      },
+      {
+        name: '7/3/20', resource1: 0, resource2: 4300, resource3: 0, resource4: 6788,
+      },
+      {
+        name: '8/3/20', resource1: 0, resource2: 5455, resource3: 5500, resource4: 5677,
+      },
+      {
+        name: '9/3/20', resource1: 2500, resource2: 9999, resource3: 6000, resource4: 2343,
+      },
+      {
+        name: '10/3/20', resource1: 2000, resource2: 8852, resource3: 3900, resource4: 2344,
+      },
+      {
+        name: '11/3/20', resource1: 3490, resource2: 7788, resource3: 5500, resource4: 2133,
+      },
+      {
+        name: '12/3/20', resource1: 1250, resource2: 6500, resource3: 3500, resource4: 1233,
+      },
+      {
+        name: '13/3/20', resource1: 3500, resource2: 8800, resource3: 4500, resource4: 3433,
+      },
+      {
+        name: '14/3/20', resource1: 3660, resource2: 9000, resource3: 2336, resource4: 4544,
       },
     ];
   }

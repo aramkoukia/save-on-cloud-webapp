@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import ReportFilter from './ReportFilter';
-// import ReportService from '../../../services/ReportService';
-
+import FastestGrowingResourcesChart from './FastestGrowingResourcesChart';
+import ReportService from '../../../services/ReportService';
 
 function FastestGrowingResources(props) {
-  const [azureCost, setAzureCost] = React.useState([]);
+  const [data, setData] = React.useState([]);
   const { selectFastestGrowingResources } = props;
   selectFastestGrowingResources();
 
+  const fetchData = () => {
+    ReportService.getFastestGrowingResources()
+      .then((result) => {
+        setData(result);
+      });
+  };
+
+  useEffect(() => {
+    fetchData(data);
+  }, [data.length]);
+
   const columns = [
     { title: 'Subscription Name', field: 'subscriptionName' },
+    { title: 'Resource Type', field: 'resourceType' },
     { title: 'Resource Name', field: 'resourceName' },
     { title: 'Date Created', field: 'dateCreated' },
     { title: 'Average Daily Cost $', field: 'avgDailyCost' },
-    { title: 'Total Cost $', field: 'cost' },
+    { title: 'Average Monthly Cost $', field: 'avgMonthlyCost' },
   ];
 
   const options = {
@@ -34,10 +46,12 @@ function FastestGrowingResources(props) {
       <Grid item xs={12} md={12}>
         <ReportFilter />
         <br />
+        <FastestGrowingResourcesChart />
+        <br />
         <MaterialTable
           columns={columns}
           options={options}
-          data={azureCost}
+          data={data}
           title="Fastest Growing Resources"
         />
       </Grid>
