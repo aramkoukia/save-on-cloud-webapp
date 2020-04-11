@@ -62,19 +62,18 @@ function PricingSection(props) {
             item
             xs={12}
             sm={6}
-            lg={4}
+            lg={3}
             className={classes.cardWrapper}
             data-aos="zoom-in-up"
           >
             <PriceCard
-              title="Starter"
+              title="Starter Plan"
               pricing={(
                 <span>
                   Free For Ever
-                  {/* <Typography display="inline"> / month</Typography> */}
                 </span>
               )}
-              features={['Feature 1', 'Feature 2', 'Feature 3']}
+              features={['Under 10k$ Per Month Cloud Spending', 'All Features Are Available']}
             />
           </Grid>
           <Grid
@@ -82,20 +81,20 @@ function PricingSection(props) {
             className={classes.cardWrapperHighlighted}
             xs={12}
             sm={6}
-            lg={4}
+            lg={3}
             data-aos="zoom-in-up"
             data-aos-delay="200"
           >
             <PriceCard
-              highlighted
-              title="Premium"
+              // highlighted
+              title="Pro Plan"
               pricing={(
                 <span>
-                  $100.00
-                  <Typography display="inline"> / month</Typography>
+                  $25.00
+                  <Typography display="inline"> / Month</Typography>
                 </span>
               )}
-              features={['Feature 1', 'Feature 2', 'Feature 3']}
+              features={['Between 10k$ and 50k$ Per Month Cloud Spending', 'All Features Are Available']}
             />
           </Grid>
           <Grid
@@ -103,19 +102,39 @@ function PricingSection(props) {
             className={classes.cardWrapper}
             xs={12}
             sm={6}
-            lg={4}
+            lg={3}
             data-aos="zoom-in-up"
             data-aos-delay={isWidthUp('md', width) ? '400' : '0'}
           >
             <PriceCard
-              title="Enterprise"
+              title="Premium Plan"
               pricing={(
                 <span>
-                  Contact Us!
-                  {/* <Typography display="inline"> / month</Typography> */}
+                  $125.00
+                  <Typography display="inline"> / Month</Typography>
                 </span>
               )}
-              features={['Feature 1', 'Feature 2', 'Feature 3']}
+              features={['Between 50k$ and 400k$ Per Month Cloud Spending', 'All Features Are Available']}
+            />
+          </Grid>
+          <Grid
+            item
+            className={classes.cardWrapper}
+            xs={12}
+            sm={6}
+            lg={3}
+            data-aos="zoom-in-up"
+            data-aos-delay={isWidthUp('md', width) ? '400' : '0'}
+          >
+            <PriceCard
+              title="Enterprise Plan"
+              pricing={(
+                <span>
+                  $1000.00
+                  <Typography display="inline"> / Month</Typography>
+                </span>
+              )}
+              features={['Over 400k$ Per Month Cloud Spending', 'All Features Are Available']}
             />
           </Grid>
         </Grid>
@@ -126,6 +145,7 @@ function PricingSection(props) {
 
 PricingSection.propTypes = {
   width: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(

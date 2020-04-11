@@ -1,18 +1,18 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
 // colors
-const primary = '#b3294e';
-const secondary = '#4829B2';
+const primary = '#f44336';
+const secondary = '#3f51b5';
 const black = '#343a40';
-const darkBlack = 'rgb(36, 40, 44)';
+const darkBlack = '#002984';
 const background = '#f5f5f5';
-const warningLight = 'rgba(253, 200, 69, .3)';
-const warningMain = 'rgba(253, 200, 69, .5)';
-const warningDark = 'rgba(253, 200, 69, .7)';
+const warningLight = '#ff7961';
+const warningMain = '#f44336';
+const warningDark = '#ba000d';
 
 // border
 const borderWidth = 2;
-const borderColor = 'rgba(0, 0, 0, 0.13)';
+const borderColor = '#ff7961';
 
 // breakpoints
 const xl = 1920;

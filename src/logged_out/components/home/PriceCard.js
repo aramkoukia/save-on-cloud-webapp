@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, Box, withStyles } from '@material-ui/core';
+import {
+  Button, Typography, Box, withStyles,
+} from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 
 const styles = (theme) => ({
@@ -71,6 +73,17 @@ function PriceCard(props) {
           </Box>
         </Box>
       ))}
+      <br />
+      <Button
+        variant="contained"
+        color="secondary"
+        fullWidth="true"
+      >
+        Get Started
+      </Button>
+      <Typography align="center" color="textSecondary">
+        No Credit Card Required!
+      </Typography>
     </div>
   );
 }
@@ -81,6 +94,7 @@ PriceCard.propTypes = {
   title: PropTypes.string.isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool,
+  features: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(PriceCard);
