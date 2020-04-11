@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-  List, Divider, Paper, withStyles,
-} from '@material-ui/core';
+import { Grid, withStyles } from '@material-ui/core';
 import SubscriptionTable from './SubscriptionTable';
-import SubscriptionInfo from './SubscriptionInfo';
+import AddSubscription from './AddSubscription';
 
 const styles = {
   divider: {
@@ -19,21 +17,20 @@ class Subscription extends PureComponent {
   }
 
   render() {
-    const { classes } = this.props;
     return (
-      <Paper>
-        <List disablePadding>
-          <SubscriptionInfo />
-          <Divider className={classes.divider} />
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={12}>
+          <AddSubscription />
+        </Grid>
+        <Grid item xs={12} md={12}>
           <SubscriptionTable />
-        </List>
-      </Paper>
+        </Grid>
+      </Grid>
     );
   }
 }
 
 Subscription.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectSubscription: PropTypes.func.isRequired,
 };
 

@@ -338,4 +338,41 @@ export default class ReportService {
       },
     ];
   }
+
+  static async getUselessResources() {
+    return [
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'Logic App',
+        resourceName: 'Test Logic Twitter',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 12.50,
+        avgMonthlyCost: 400,
+      },
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'Blob Storage',
+        resourceName: 'Temp Blob storage account',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 9.90,
+        avgMonthlyCost: 270,
+      },
+      {
+        subscriptionName: 'Enterprise Agreement',
+        resourceType: 'Function App',
+        resourceName: 'Testing Function App',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 5.90,
+        avgMonthlyCost: 150,
+      },
+      {
+        subscriptionName: 'Production Agreement',
+        resourceType: 'Function App',
+        resourceName: 'Test Function Serverless',
+        dateCreated: '10/04/2020',
+        avgDailyCost: 18.90,
+        avgMonthlyCost: 30,
+      },
+    ];
+  }
 }
