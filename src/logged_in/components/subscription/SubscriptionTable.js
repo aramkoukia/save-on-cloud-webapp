@@ -13,6 +13,7 @@ function SubscriptionTable() {
     },
     { title: 'Subscription Id', field: 'subscriptionId' },
     { title: 'Subscription Name', field: 'subscriptionName' },
+    { title: 'Tenant Name', field: 'tenantName' },
     { title: 'Latest Bill', field: 'latestBill' },
     { title: 'Current Cycle Spending', field: 'currentCycleSpending' },
     { title: 'Current Cycle Forecast', field: 'currentCycleForecast' },
