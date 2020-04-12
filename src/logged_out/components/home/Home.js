@@ -11,11 +11,12 @@ class Home extends PureComponent {
   }
 
   render() {
+    const { openRegisterDialog } = this.props;
     return (
       <>
-        <HeadSection />
+        <HeadSection openRegisterDialog={openRegisterDialog} />
         <FeatureSection />
-        <PricingSection />
+        <PricingSection openRegisterDialog={openRegisterDialog} />
       </>
     );
   }
@@ -23,6 +24,7 @@ class Home extends PureComponent {
 
 Home.propTypes = {
   selectHome: PropTypes.func.isRequired,
+  openRegisterDialog: PropTypes.func.isRequired,
 };
 
 export default Home;

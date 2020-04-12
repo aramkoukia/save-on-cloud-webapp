@@ -35,7 +35,9 @@ const styles = (theme) => ({
 function PriceCard(props) {
   const {
     classes, theme, title, pricing, features, highlighted,
+    openRegisterDialog,
   } = props;
+
   return (
     <div className={highlighted ? classes.cardHightlighted : classes.card}>
       <Box mb={2}>
@@ -54,8 +56,8 @@ function PriceCard(props) {
           {pricing}
         </Typography>
       </Box>
-      {features.map((feature, index) => (
-        <Box display="flex" alignItems="center" mb={1} key={index}>
+      {features.map((feature) => (
+        <Box display="flex" alignItems="center" mb={1} key={feature}>
           <CheckIcon
             style={{
               color: highlighted
@@ -78,6 +80,7 @@ function PriceCard(props) {
         variant="contained"
         color="secondary"
         fullWidth="true"
+        onClick={openRegisterDialog}
       >
         Get Started
       </Button>
@@ -95,6 +98,12 @@ PriceCard.propTypes = {
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool,
   features: PropTypes.object.isRequired,
+  openRegisterDialog: PropTypes.func.isRequired,
 };
+
+PriceCard.defaultProps = {
+  highlighted: false,
+};
+
 
 export default withStyles(styles, { withTheme: true })(PriceCard);

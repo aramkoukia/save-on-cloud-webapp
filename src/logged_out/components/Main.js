@@ -118,6 +118,8 @@ class Main extends PureComponent {
         />
         <Routing
           selectHome={this.selectHome}
+          openRegisterDialog={this.openRegisterDialog}
+          onClose={this.closeDialog}
         />
         <Footer />
       </div>

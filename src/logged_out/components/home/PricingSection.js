@@ -46,7 +46,7 @@ const styles = (theme) => ({
 });
 
 function PricingSection(props) {
-  const { width, classes } = props;
+  const { width, classes, openRegisterDialog } = props;
   return (
     <div className="lg-p-top" style={{ backgroundColor: '#FFFFFF' }}>
       <Typography variant="h3" align="center" className="lg-mg-bottom">
@@ -74,6 +74,7 @@ function PricingSection(props) {
                 </span>
               )}
               features={['Under 10k$ Per Month Cloud Spending', 'All Features Are Available']}
+              openRegisterDialog={openRegisterDialog}
             />
           </Grid>
           <Grid
@@ -95,6 +96,7 @@ function PricingSection(props) {
                 </span>
               )}
               features={['Between 10k$ and 50k$ Per Month Cloud Spending', 'All Features Are Available']}
+              openRegisterDialog={openRegisterDialog}
             />
           </Grid>
           <Grid
@@ -115,6 +117,7 @@ function PricingSection(props) {
                 </span>
               )}
               features={['Between 50k$ and 400k$ Per Month Cloud Spending', 'All Features Are Available']}
+              openRegisterDialog={openRegisterDialog}
             />
           </Grid>
           <Grid
@@ -135,6 +138,7 @@ function PricingSection(props) {
                 </span>
               )}
               features={['Over 400k$ Per Month Cloud Spending', 'All Features Are Available']}
+              openRegisterDialog={openRegisterDialog}
             />
           </Grid>
         </Grid>
@@ -146,6 +150,7 @@ function PricingSection(props) {
 PricingSection.propTypes = {
   width: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
+  openRegisterDialog: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(

@@ -5,11 +5,16 @@ import PropsRoute from '../../shared/components/PropsRoute';
 import Home from './home/Home';
 
 function Routing(props) {
-  const { selectHome } = props;
+  const { selectHome, openRegisterDialog } = props;
   return (
     <Switch>
       )
-      <PropsRoute path="/" component={Home} selectHome={selectHome} />
+      <PropsRoute
+        path="/"
+        component={Home}
+        selectHome={selectHome}
+        openRegisterDialog={openRegisterDialog}
+      />
       )
     </Switch>
   );
@@ -17,6 +22,7 @@ function Routing(props) {
 
 Routing.propTypes = {
   selectHome: PropTypes.func.isRequired,
+  openRegisterDialog: PropTypes.func.isRequired,
 };
 
 export default memo(Routing);
