@@ -134,7 +134,8 @@ function HeadSection(props) {
                             variant={isWidthUp('lg', width) ? 'h6' : 'body1'}
                             color="textSecondary"
                           >
-                            Answer critical questions about the cost structure of your Cloud Infrastructure spending
+                            Answer critical questions about the cost
+                            structure of your Cloud Infrastructure spending
                           </Typography>
                         </Box>
                         <Button
@@ -146,16 +147,6 @@ function HeadSection(props) {
                         >
                           Start For Free!
                         </Button>
-                        {/* <Button
-                          variant="contained"
-                          color="secondary"
-                          fullWidth
-                          className={classes.extraLargeButton}
-                          classes={{ label: classes.extraLargeButtonLabel }}
-                          href="https://github.com/aramkoukia/save-on-cloud-webapp"
-                        >
-                          Try For Free!
-                        </Button> */}
                       </div>
                     </Box>
                   </Grid>
@@ -188,6 +179,14 @@ HeadSection.propTypes = {
   classes: PropTypes.object,
   width: PropTypes.string,
   theme: PropTypes.object,
+  openRegisterDialog: PropTypes.func,
+};
+
+HeadSection.defaultProps = {
+  classes: {},
+  width: '',
+  theme: {},
+  openRegisterDialog: () => {},
 };
 
 export default withWidth()(

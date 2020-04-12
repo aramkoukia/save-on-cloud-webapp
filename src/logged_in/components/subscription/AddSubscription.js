@@ -7,11 +7,11 @@ import {
 function AddSubscription() {
   const history = useHistory();
 
-  function HandleAddAzureSubscription() {
+  function handleAddAzureSubscription() {
     history.push('/c/addazuresubscription');
   }
 
-  function HandleAddAwsSubscription() {
+  function handleAddAwsSubscription() {
     history.push('/c/addawssubscription');
   }
 
@@ -21,7 +21,7 @@ function AddSubscription() {
         <Button
           variant="contained"
           color="primary"
-          onClick={HandleAddAzureSubscription}
+          onClick={handleAddAzureSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add Azure Subscription
@@ -30,7 +30,7 @@ function AddSubscription() {
         <Button
           variant="contained"
           color="secondary"
-          onClick={HandleAddAwsSubscription}
+          onClick={handleAddAwsSubscription}
           endIcon={<Icon>add</Icon>}
         >
           Add AWS Subscription
