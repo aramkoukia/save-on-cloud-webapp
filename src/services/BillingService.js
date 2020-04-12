@@ -1,6 +1,20 @@
 // import RestUtilities from './RestUtilities';
 
 export default class SubscriptionService {
+  static async getBillingInformation() {
+    return [
+      {
+        companyName: 'Random Org Services Inc',
+        address: '1111 WEST HASTINGS ST STE 500',
+        country: 'Canada',
+        province: 'BC',
+        city: 'Vancouver',
+        postalCode: 'V48 0CD',
+        email: 'it@ramdomorg.ca',
+      },
+    ];
+  }
+
   static async getPaymentHistory() {
     return [
       {

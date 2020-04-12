@@ -154,8 +154,20 @@ function Footer(props) {
                   <TextField
                     variant="outlined"
                     multiline
+                    email
+                    placeholder="Email"
+                    InputProps={{
+                      className: classes.whiteBg,
+                    }}
+                    fullWidth
+                    required
+                  />
+                </Box>
+                <Box mb={1}>
+                  <TextField
+                    variant="outlined"
+                    multiline
                     placeholder="Get in touch with us"
-                    inputProps={{ 'aria-label': 'Get in Touch' }}
                     InputProps={{
                       className: classes.whiteBg,
                     }}
@@ -178,8 +190,8 @@ function Footer(props) {
             <Grid item xs={12} md={6} lg={4}>
               <Box display="flex" justifyContent="center">
                 <div>
-                  {infos.map((info, index) => (
-                    <Box display="flex" mb={1} key={index}>
+                  {infos.map((info) => (
+                    <Box display="flex" mb={1} key={info.description}>
                       <Box mr={2}>
                         <IconButton
                           className={classes.infoIcon}
@@ -213,7 +225,7 @@ function Footer(props) {
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (
-                <Box key={index} mr={index !== socialIcons.length - 1 ? 1 : 0}>
+                <Box key={socialIcon.href} mr={index !== socialIcons.length - 1 ? 1 : 0}>
                   <IconButton
                     aria-label={socialIcon.label}
                     className={classes.socialIcon}

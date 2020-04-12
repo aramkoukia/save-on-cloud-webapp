@@ -37,7 +37,7 @@ function PlanInformation() {
 
         <Typography color="textPrimary" gutterBottom>
           Current plan: &nbsp;
-          <b>Standard</b>
+          <b>Free</b>
         </Typography>
       </CardContent>
     </Card>
