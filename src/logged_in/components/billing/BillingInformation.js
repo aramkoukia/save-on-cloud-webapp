@@ -41,13 +41,10 @@ function BillingInformation() {
       options={options}
       data={data}
       title="Billing Information"
-      actions={[
-        {
-          icon: 'edit',
-          tooltip: 'Edit Billing Information',
-          onClick: (event, rowData) => alert(`Edit ${rowData.companyName}`),
-        },
-      ]}
+      editable={{
+        onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
+        }),
+      }}
     />
   );
 }
