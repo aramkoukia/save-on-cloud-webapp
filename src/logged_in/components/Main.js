@@ -35,7 +35,7 @@ class Main extends PureComponent {
 
   selectDashboard = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Dashboard';
+    document.title = 'Dashboard';
     this.setState({
       selectedTab: 'Dashboard',
     });
@@ -43,7 +43,7 @@ class Main extends PureComponent {
 
   selectSubscription = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Subscription';
+    document.title = 'Subscription';
     this.setState({
       selectedTab: 'Subscription',
     });
@@ -51,7 +51,7 @@ class Main extends PureComponent {
 
   selectBilling = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Billing';
+    document.title = 'Billing';
     this.setState({
       selectedTab: 'Billing',
     });
@@ -59,7 +59,7 @@ class Main extends PureComponent {
 
   selectDailyCost = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Daily Cost';
+    document.title = 'Daily Cost';
     this.setState({
       selectedTab: 'DailyCost',
     });
@@ -67,7 +67,7 @@ class Main extends PureComponent {
 
   selectMostExpensiveResources = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - MostExpensiveResources';
+    document.title = 'Most Expensive Resources';
     this.setState({
       selectedTab: 'MostExpensiveResources',
     });
@@ -75,7 +75,7 @@ class Main extends PureComponent {
 
   selectUselessResources = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Useless Resources';
+    document.title = 'Useless Resources';
     this.setState({
       selectedTab: 'UselessResources',
     });
@@ -83,7 +83,7 @@ class Main extends PureComponent {
 
   selectFastestGrowingResources = () => {
     smoothScrollTop();
-    document.title = 'Save On Cloud - Fastest Growing Resources';
+    document.title = 'Fastest Growing Resources';
     this.setState({
       selectedTab: 'FastestGrowingResources',
     });

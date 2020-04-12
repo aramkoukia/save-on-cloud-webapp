@@ -16,14 +16,18 @@ function AddAzureSubscription() {
   }
 
   return (
+    <div>
+    <Typography color="secondary" paragraph>
+      Add New Azure Subscription
+    </Typography>
     <Card variant="outlined">
       <CardContent>
         <AzureInstructions />
-        <hr />
-        <Typography variant="h6" color="primary" paragraph>
+
+        <br />
+        <Typography color="secondary" paragraph>
           Add The Service Principal to your Account
         </Typography>
-
         <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
             <TextField
@@ -95,6 +99,7 @@ function AddAzureSubscription() {
         </Grid>
       </CardContent>
     </Card>
+    </div>
   );
 }
 
