@@ -37,6 +37,7 @@ function SubscriptionTable() {
     exportButton: true,
     filtering: true,
     search: true,
+    actionsColumnIndex: -1,
     // grouping: true,
   };
 
@@ -46,6 +47,13 @@ function SubscriptionTable() {
       options={options}
       data={subscriptionData}
       title="Cloud Accounts"
+      actions={[
+        {
+          icon: 'delete',
+          tooltip: 'Delete Account',
+          onClick: (event, rowData) => alert(`Deleted ${rowData.subscriptionName}`),
+        },
+      ]}
     />
   );
 }
