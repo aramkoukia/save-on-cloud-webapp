@@ -1,10 +1,23 @@
 import React from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import {
+  Card, CardContent, Typography, withTheme, Button, Icon,
+  Radio, RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from '@material-ui/core';
 import CardSection from './CardSection';
 
-export default function CheckoutForm() {
+function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+
+  const [value, setValue] = React.useState('female');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
   const stripePaymentMethodHandler = async (result) => {
     if (result.error) {
@@ -48,11 +61,39 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardSection />
-      <button type="submit" disabled={!stripe}>
-        Subscribe
-      </button>
-    </form>
+    <Card variant="outlined">
+      <CardContent>
+        <Typography color="primary" gutterBottom>
+          Plan Information
+          &nbsp;
+        </Typography>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Select Plan</FormLabel>
+          <RadioGroup aria-label="Select Plan" name="plan" value={value} onChange={handleChange}>
+            <FormControlLabel value="freePLan" control={<Radio />} label="Free PLan" />
+            <FormControlLabel value="proPlan" control={<Radio />} label="Pro Plan" />
+            <FormControlLabel value="premiumPlan" control={<Radio />} label="Premium Plan" />
+            <FormControlLabel value="enterprisePlan" control={<Radio />} label="Enterprise Plan" />
+          </RadioGroup>
+        </FormControl>
+        <form onSubmit={handleSubmit}>
+          <CardSection />
+          <br />
+          <Button
+            type="submit"
+            disabled={!stripe}
+            right
+            variant="contained"
+            color="secondary"
+            disableElevation
+            endIcon={<Icon>dvr</Icon>}
+          >
+            Pay And Subscribe
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 }
+
+export default withTheme(CheckoutForm);
