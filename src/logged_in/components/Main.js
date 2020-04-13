@@ -57,6 +57,14 @@ class Main extends PureComponent {
     });
   };
 
+  selectCheckout = () => {
+    smoothScrollTop();
+    document.title = 'Checkout';
+    this.setState({
+      selectedTab: 'CheckoutBilling',
+    });
+  };
+
   selectDailyCost = () => {
     smoothScrollTop();
     document.title = 'Daily Cost';

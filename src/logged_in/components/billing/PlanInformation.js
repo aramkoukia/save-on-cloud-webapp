@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Card, CardContent, Typography, withTheme, Button, Icon,
 } from '@material-ui/core';
 import SubscriptionService from '../../../services/SubscriptionService';
 
 function PlanInformation() {
+  const history = useHistory();
   const [subscriptionData, setSubscriptionData] = useState([]);
+
+  function handleUpgrade() {
+    history.push('/c/checkout');
+  }
 
   const fetchData = () => {
     SubscriptionService.getSubscriptions()
@@ -30,6 +36,7 @@ function PlanInformation() {
             color="primary"
             disableElevation
             endIcon={<Icon>dvr</Icon>}
+            onClick={handleUpgrade}
           >
             Upgrade
           </Button>

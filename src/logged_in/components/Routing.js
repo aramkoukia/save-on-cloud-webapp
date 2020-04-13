@@ -11,6 +11,7 @@ import Subscription from './subscription/Subscription';
 import Billing from './billing/Billing';
 import AddAzureSubscription from './subscription/AddAzureSubscription';
 import AddAwsSubscription from './subscription/AddAwsSubscription';
+import CardSection from './billing/CardSection';
 import PropsRoute from '../../shared/components/PropsRoute';
 
 const styles = (theme) => ({
@@ -63,6 +64,7 @@ function Routing(props) {
     selectBilling,
     selectAddAzureSubscription,
     selectAddAwsSubscription,
+    selectCheckout,
   } = props;
   return (
     <div className={classes.wrapper}>
@@ -121,6 +123,12 @@ function Routing(props) {
           selectBilling={selectBilling}
         />
         <PropsRoute
+          path="/c/checkout"
+          component={CardSection}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          selectBilling={selectCheckout}
+        />
+        <PropsRoute
           path=""
           component={Dashboard}
           handleSelectChange={handleSelectChange}
@@ -147,6 +155,7 @@ Routing.propTypes = {
   selectAddAzureSubscription: PropTypes.func.isRequired,
   selectAddAwsSubscription: PropTypes.func.isRequired,
   selectBilling: PropTypes.func.isRequired,
+  selectCheckout: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(memo(Routing));
