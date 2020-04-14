@@ -13,7 +13,7 @@ function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [value, setValue] = React.useState('female');
+  const [value, setValue] = React.useState('proPlan');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -68,7 +68,7 @@ function CheckoutForm() {
           &nbsp;
         </Typography>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Select Plan</FormLabel>
+          {/* <FormLabel component="legend">Select Plan</FormLabel> */}
           <RadioGroup aria-label="Select Plan" name="plan" value={value} onChange={handleChange}>
             <FormControlLabel value="freePLan" control={<Radio />} label="Free PLan" />
             <FormControlLabel value="proPlan" control={<Radio />} label="Pro Plan" />
@@ -76,6 +76,38 @@ function CheckoutForm() {
             <FormControlLabel value="enterprisePlan" control={<Radio />} label="Enterprise Plan" />
           </RadioGroup>
         </FormControl>
+        <br />
+
+        { value === 'proPlan' && (
+        <Card>
+          <Typography variant="h6" color="primary" gutterBottom>
+            Pro Plan Details
+          </Typography>
+        </Card>
+        )}
+        { value === 'freePLan' && (
+        <Card>
+          <Typography variant="h6" color="primary" gutterBottom>
+            Free Plan Details
+          </Typography>
+        </Card>
+        )}
+        { value === 'premiumPlan' && (
+        <Card>
+          <Typography variant="h6" color="primary" gutterBottom>
+            Premium Plan Details
+          </Typography>
+        </Card>
+        )}
+        { value === 'enterprisePlan' && (
+        <Card>
+          <Typography variant="h6" color="primary" gutterBottom>
+            Enterprise Plan Details
+          </Typography>
+        </Card>
+        )}
+        <br />
+
         <form onSubmit={handleSubmit}>
           <CardSection />
           <br />
