@@ -22,7 +22,7 @@ function ButtonCircularProgress(props) {
 }
 
 ButtonCircularProgress.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.number.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

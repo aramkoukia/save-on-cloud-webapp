@@ -181,6 +181,7 @@ class RegisterDialog extends PureComponent {
                 if (status === 'PasswordRequiresNonAlphanumeric') {
                   return 'Your password requires at least one Non Alphanumeric character.';
                 }
+                return '';
               })()}
               FormHelperTextProps={{ error: true }}
               isVisible={passwordIsVisible}
@@ -269,6 +270,10 @@ RegisterDialog.propTypes = {
   status: PropTypes.string,
   setStatus: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
+};
+
+RegisterDialog.defaultProps = {
+  status: '',
 };
 
 export default withStyles(styles, { withTheme: true })(RegisterDialog);

@@ -35,16 +35,16 @@ function Bordered(props) {
 }
 
 Bordered.propTypes = {
-  classes: PropTypes.object,
-  theme: PropTypes.object,
-  disableVerticalPadding: PropTypes.bool,
-  disableBorderRadius: PropTypes.bool,
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+  disableVerticalPadding: PropTypes.bool.isRequired,
+  disableBorderRadius: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
     PropTypes.array,
-  ]),
-  variant: PropTypes.string,
+  ]).isRequired,
+  variant: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(Bordered);

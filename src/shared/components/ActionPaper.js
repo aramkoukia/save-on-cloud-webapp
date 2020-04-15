@@ -64,12 +64,12 @@ ActionPaper.propTypes = {
     PropTypes.element,
     PropTypes.func,
     PropTypes.string,
-  ]),
-  content: PropTypes.element,
-  maxWidth: PropTypes.string,
-  actions: PropTypes.element,
-  helpPadding: PropTypes.bool,
-  fullWidthActions: PropTypes.bool,
+  ]).isRequired,
+  content: PropTypes.element.isRequired,
+  maxWidth: PropTypes.string.isRequired,
+  actions: PropTypes.element.isRequired,
+  helpPadding: PropTypes.bool.isRequired,
+  fullWidthActions: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(ActionPaper);

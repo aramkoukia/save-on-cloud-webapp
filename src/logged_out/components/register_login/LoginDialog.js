@@ -215,4 +215,8 @@ LoginDialog.propTypes = {
   status: PropTypes.string,
 };
 
+LoginDialog.defaultProps = {
+  status: '',
+};
+
 export default withRouter(withStyles(styles)(LoginDialog));

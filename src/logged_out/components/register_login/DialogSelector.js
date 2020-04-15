@@ -64,6 +64,9 @@ class DialogSelector extends PureComponent {
           />
         );
       default:
+        return (
+          <></>
+        );
     }
   };
 
@@ -85,6 +88,10 @@ DialogSelector.propTypes = {
   openTermsDialog: PropTypes.func.isRequired,
   openRegisterDialog: PropTypes.func.isRequired,
   openChangePasswordDialog: PropTypes.func.isRequired,
+};
+
+DialogSelector.defaultProps = {
+  dialogOpen: false,
 };
 
 export default DialogSelector;

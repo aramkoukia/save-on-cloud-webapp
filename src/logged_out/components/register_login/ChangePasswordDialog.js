@@ -92,7 +92,6 @@ class ChangePassword extends PureComponent {
 ChangePassword.propTypes = {
   onClose: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
   setLoginStatus: PropTypes.func.isRequired,
 };
 

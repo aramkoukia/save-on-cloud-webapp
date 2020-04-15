@@ -20,7 +20,7 @@ function ColorfulChip(props) {
 ColorfulChip.propTypes = {
   color: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
 export default ColorfulChip;
