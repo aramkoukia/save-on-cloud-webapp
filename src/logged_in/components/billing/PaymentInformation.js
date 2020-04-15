@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Card, CardContent, Typography, withTheme, Button, Icon,
 } from '@material-ui/core';
-import SubscriptionService from '../../../services/SubscriptionService';
+// import SubscriptionService from '../../../services/SubscriptionService';
 
 function PaymentInformation() {
-  const [subscriptionData, setSubscriptionData] = useState([]);
+  // const [subscriptionData, setSubscriptionData] = useState([]);
 
-  const fetchData = () => {
-    SubscriptionService.getSubscriptions()
-      .then((result) => {
-        setSubscriptionData(result);
-      });
-  };
+  // const fetchData = () => {
+  //   SubscriptionService.getSubscriptions()
+  //     .then((result) => {
+  //       setSubscriptionData(result);
+  //     });
+  // };
 
-  useEffect(() => {
-    fetchData(subscriptionData);
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <Card variant="outlined">

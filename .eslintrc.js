@@ -29,7 +29,7 @@ module.exports = {
     ],
     'no-bitwise': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'off', // Checks effect dependencies
+    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     // 'react/jsx-props-no-spreading': 'off',
     // 'react/require-default-props': 'off',
   },

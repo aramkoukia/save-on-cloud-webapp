@@ -20,8 +20,8 @@ function MostExpensiveResources(props) {
   };
 
   useEffect(() => {
-    fetchData(data);
-  }, [data.length]);
+    fetchData();
+  }, []);
 
   const columns = [
     { title: 'Subscription Name', field: 'subscriptionName' },

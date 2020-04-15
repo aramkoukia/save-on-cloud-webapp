@@ -45,12 +45,12 @@ function ConfirmationDialog(props) {
 }
 
 ConfirmationDialog.propTypes = {
-  open: PropTypes.bool,
-  onClose: PropTypes.func,
-  loading: PropTypes.bool,
-  title: PropTypes.string,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onConfirm: PropTypes.func,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  onConfirm: PropTypes.func.isRequired,
 };
 
 export default ConfirmationDialog;

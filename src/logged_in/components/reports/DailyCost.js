@@ -40,7 +40,7 @@ function DailyCost(props) {
   };
 
   useEffect(() => {
-    fetchData(data);
+    fetchData();
   }, []);
 
   return (

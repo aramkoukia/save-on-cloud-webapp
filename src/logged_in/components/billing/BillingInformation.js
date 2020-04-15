@@ -6,15 +6,16 @@ import BillingService from '../../../services/BillingService';
 function BillingInformation() {
   const [data, setData] = useState([]);
 
-  const fetchData = () => {
-    BillingService.getBillingInformation()
-      .then((result) => {
-        setData(result);
-      });
-  };
 
   useEffect(() => {
-    fetchData(data);
+    const fetchData = () => {
+      BillingService.getBillingInformation()
+        .then((result) => {
+          setData(result);
+        });
+    };
+
+    fetchData();
   }, []);
 
   const columns = [

@@ -27,7 +27,7 @@ function SubscriptionTable() {
   };
 
   useEffect(() => {
-    fetchData(subscriptionData);
+    fetchData();
   }, []);
 
   const options = {

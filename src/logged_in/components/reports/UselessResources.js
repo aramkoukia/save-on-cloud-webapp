@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
@@ -18,8 +19,8 @@ function UselessResources(props) {
   };
 
   useEffect(() => {
-    fetchData(data);
-  }, [data.length]);
+    fetchData();
+  }, []);
 
   const columns = [
     { title: 'Subscription Name', field: 'subscriptionName' },
