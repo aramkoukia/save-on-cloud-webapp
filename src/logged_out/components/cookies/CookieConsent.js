@@ -12,7 +12,7 @@ import fetchIpData from './fetchIpData';
 
 const styles = (theme) => ({
   snackbarContent: {
-    borderBotttomLeftRadius: 0,
+    borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
@@ -95,10 +95,11 @@ class CookieConsent extends PureComponent {
 
   render() {
     const { classes, handleCookieRulesDialogOpen } = this.props;
+    const { visible } = this.state;
     return (
       <Snackbar
         className={classes.snackbarContent}
-        open={this.state.visible}
+        open={visible}
         message={(
           <Typography className="text-white">
             We use cookies to ensure you get the best experience on our website.
@@ -124,6 +125,7 @@ class CookieConsent extends PureComponent {
 
 CookieConsent.propTypes = {
   handleCookieRulesDialogOpen: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(CookieConsent);

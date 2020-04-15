@@ -52,7 +52,7 @@ function SubscriptionTable() {
         {
           icon: 'delete',
           tooltip: 'Delete Account',
-          onClick: (event, rowData) => alert(`Deleted ${rowData.subscriptionName}`),
+          // onClick: (event, rowData) => alert(`Deleted ${rowData.subscriptionName}`),
         },
       ]}
     />

@@ -5,7 +5,6 @@ import {
   Radio, RadioGroup,
   FormControlLabel,
   FormControl,
-  FormLabel,
 } from '@material-ui/core';
 import CardSection from './CardSection';
 

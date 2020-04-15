@@ -5,7 +5,6 @@ import MaterialTable from 'material-table';
 import ReportFilter from './ReportFilter';
 import ReportService from '../../../services/ReportService';
 
-
 function UselessResources(props) {
   const [data, setData] = React.useState([]);
   const { selectUselessResources } = props;

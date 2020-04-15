@@ -42,8 +42,8 @@ function BillingInformation() {
       data={data}
       title="Billing Information"
       editable={{
-        onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
-        }),
+        // onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
+        // }),
       }}
     />
   );

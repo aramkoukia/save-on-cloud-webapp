@@ -24,16 +24,18 @@ function AwsInstructions() {
           <Grid container spacing={1}>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
-
             </Grid>
           </Grid>
         </ExpansionPanelDetails>
@@ -54,18 +56,20 @@ function AwsInstructions() {
           <Grid container spacing={1}>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Alert severity="warning">
                 <AlertTitle>Note</AlertTitle>
                 <Typography paragraph>
+                  Test
                 </Typography>
               </Alert>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
-
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
@@ -75,26 +79,30 @@ function AwsInstructions() {
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography variant="h6" color="primary" paragraph>
-                <pre></pre>
+                <pre>test</pre>
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Alert severity="info">
                 <AlertTitle>Important</AlertTitle>
                 <Typography paragraph>
+                  Test
                 </Typography>
               </Alert>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
             <Grid item xs={12} md={12}>
               <Typography paragraph>
+                Test
               </Typography>
             </Grid>
           </Grid>
