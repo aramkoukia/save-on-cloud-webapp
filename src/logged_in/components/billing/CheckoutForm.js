@@ -5,7 +5,9 @@ import {
   Radio, RadioGroup,
   FormControlLabel,
   FormControl,
+  Box,
 } from '@material-ui/core';
+import CheckIcon from '@material-ui/icons/Check';
 import CardSection from './CardSection';
 
 function CheckoutForm() {
@@ -69,41 +71,97 @@ function CheckoutForm() {
         <FormControl component="fieldset">
           {/* <FormLabel component="legend">Select Plan</FormLabel> */}
           <RadioGroup aria-label="Select Plan" name="plan" value={value} onChange={handleChange}>
-            <FormControlLabel value="freePLan" control={<Radio />} label="Free PLan" />
-            <FormControlLabel value="proPlan" control={<Radio />} label="Pro Plan" />
-            <FormControlLabel value="premiumPlan" control={<Radio />} label="Premium Plan" />
-            <FormControlLabel value="enterprisePlan" control={<Radio />} label="Enterprise Plan" />
+            <FormControlLabel value="freePLan" control={<Radio />} label="Free Plan" />
+            <FormControlLabel value="proPlan" control={<Radio />} label="Pro Plan (25$ / Month)" />
+            <FormControlLabel value="premiumPlan" control={<Radio />} label="Premium Plan (125$ / Month)" />
+            <FormControlLabel value="enterprisePlan" control={<Radio />} label="Enterprise Plan (1000$ / Month)" />
           </RadioGroup>
         </FormControl>
         <br />
 
         { value === 'proPlan' && (
-        <Card>
-          <Typography variant="h6" color="primary" gutterBottom>
-            Pro Plan Details
-          </Typography>
-        </Card>
+          <Card>
+            <Box p={2}>
+              <Typography variant="h6" color="primary" gutterBottom>
+                Pro Plan Details
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    All Features are available
+                  </Typography>
+                </Box>
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    25$ Per Month
+                  </Typography>
+                </Box>
+              </Typography>
+            </Box>
+          </Card>
         )}
         { value === 'freePLan' && (
-        <Card>
-          <Typography variant="h6" color="primary" gutterBottom>
-            Free Plan Details
-          </Typography>
-        </Card>
+          <Card>
+            <Box p={2}>
+              <Typography variant="h6" color="primary" gutterBottom>
+                Free Plan Details
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    All Features are available
+                  </Typography>
+                </Box>
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    Free Forever!
+                  </Typography>
+                </Box>
+              </Typography>
+            </Box>
+          </Card>
         )}
         { value === 'premiumPlan' && (
-        <Card>
-          <Typography variant="h6" color="primary" gutterBottom>
-            Premium Plan Details
-          </Typography>
-        </Card>
+          <Card>
+            <Box p={2}>
+              <Typography variant="h6" color="primary" gutterBottom>
+                Premium Plan Details
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    All Features are available
+                  </Typography>
+                </Box>
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    125$ Per Month
+                  </Typography>
+                </Box>
+              </Typography>
+            </Box>
+          </Card>
         )}
         { value === 'enterprisePlan' && (
-        <Card>
-          <Typography variant="h6" color="primary" gutterBottom>
-            Enterprise Plan Details
-          </Typography>
-        </Card>
+          <Card>
+            <Box p={2}>
+              <Typography variant="h6" color="primary" gutterBottom>
+                Enterprise Plan Details
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    All Features are available
+                  </Typography>
+                </Box>
+                <Box p={1} display="flex" alignItems="center">
+                  <CheckIcon />
+                  <Typography variant="body1">
+                    1000$ Per Month
+                  </Typography>
+                </Box>
+              </Typography>
+            </Box>
+          </Card>
         )}
         <br />
 
