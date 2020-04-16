@@ -22,7 +22,6 @@ const styles = (theme) => ({
 class Main extends PureComponent {
   state = {
     selectedTab: null,
-    Dropzone: null,
     targets: [],
     messages: [],
     isAccountActivated: false,
@@ -100,7 +99,6 @@ class Main extends PureComponent {
     const { classes } = this.props;
     const {
       selectedTab,
-      Dropzone,
       targets,
       isAccountActivated,
       messages,
@@ -114,7 +112,6 @@ class Main extends PureComponent {
         <main className={classNames(classes.main)}>
           <Routing
             isAccountActivated={isAccountActivated}
-            Dropzone={Dropzone}
             handleSwitchToggle={this.handleSwitchToggle}
             handleSelectChange={this.handleSelectChange}
             pushMessageToSnackbar={this.pushMessageToSnackbar}
