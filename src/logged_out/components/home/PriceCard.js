@@ -87,6 +87,9 @@ function PriceCard(props) {
       <Typography align="center" color="textSecondary">
         No Credit Card Required!
       </Typography>
+      <Typography align="center" color="textSecondary">
+        Cancel Any Time!
+      </Typography>
     </div>
   );
 }
