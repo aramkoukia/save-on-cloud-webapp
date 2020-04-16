@@ -62,8 +62,8 @@ function Dropzone(props) {
 Dropzone.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  onDrop: PropTypes.func,
-  accept: PropTypes.string,
+  onDrop: PropTypes.func.isRequired,
+  accept: PropTypes.string.isRequired,
   fullHeight: PropTypes.bool,
   style: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),

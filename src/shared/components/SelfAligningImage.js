@@ -89,7 +89,7 @@ SelfAligningImage.propTypes = {
   classes: PropTypes.object.isRequired,
   src: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   timeStamp: PropTypes.number,
   roundedBorder: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),

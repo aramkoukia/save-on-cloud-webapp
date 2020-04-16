@@ -49,11 +49,11 @@ function DialogTitleWithCloseIcon(props) {
 }
 
 DialogTitleWithCloseIcon.propTypes = {
-  theme: PropTypes.object,
+  theme: PropTypes.object.isRequired,
   paddingBottom: PropTypes.number,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   disablePadding: PropTypes.bool,
 };
 
