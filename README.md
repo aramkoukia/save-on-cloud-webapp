@@ -6,7 +6,7 @@
 ![alt text](https://github.com/aramkoukia/save-on-cloud-webapp/blob/master/public/dashboard.png "Dashboard")
 
 ### Daily Cost Monitoring
-![alt text](https://github.com/aramkoukia/save-on-cloud-webapp/blob/master/public/daily-monitoring.png "Daily Monitoring")
+![alt text](https://github.com/aramkoukia/save-on-cloud-webapp/blob/master/public/daily-cost-monitoring.png "Daily Monitoring")
 
 ### Most Expensive Resources
 ![alt text](https://github.com/aramkoukia/save-on-cloud-webapp/blob/master/public/most-expensive-resources.png "Most Expensive Resources")
