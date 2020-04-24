@@ -43,24 +43,12 @@ function TermsOfServiceDialog(props) {
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
           ipsum dolor sit amet.
         </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren.
-        </Typography>
         <Typography variant="h6" color="primary" paragraph>
           Intellectual Property Rights
         </Typography>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren,
         </Typography>
         <Typography variant="h6" color="primary" paragraph>
           Restrictions
@@ -76,43 +64,14 @@ function TermsOfServiceDialog(props) {
           - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
         </Typography>
-        <Typography className={classes.termsConditionsListitem}>
-          - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
-        <Typography className={classes.termsConditionsListitem}>
-          - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
-        <Typography className={classes.termsConditionsListitem}>
-          - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua.
-        </Typography>
-        <Typography className={classes.termsConditionsListitem}>
-          - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
-        <Typography className={classes.termsConditionsListitem}>
-          - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
         <Typography className={classes.termsConditionsListitem} paragraph>
           - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
           rebum. Stet clita kasd gubergren,
         </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        </Typography>
         <Typography variant="h6" color="primary" paragraph>
           Your Content
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
         </Typography>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
