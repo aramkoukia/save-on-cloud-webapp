@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import Carousel from 'react-material-ui-carousel';
 import {
   Grid,
   Typography,
@@ -12,8 +11,9 @@ import {
   withWidth,
   isWidthUp,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import headerImage from '../../dummy_data/images/headerImage.jpg';
-import WaveBorder from '../../../shared/components/WaveBorder';
 
 const styles = (theme) => ({
   extraLargeButtonLabel: {
@@ -66,7 +66,6 @@ const styles = (theme) => ({
   },
   wrapper: {
     position: 'relative',
-    // backgroundColor: theme.palette.secondary.main,
     paddingBottom: theme.spacing(2),
   },
   image: {
@@ -99,8 +98,29 @@ const styles = (theme) => ({
 });
 
 function HeadSection(props) {
+  const items = [
+    {
+      name: 'Sign Up and Start Saving On Cloud Now!',
+      description: 'Answer critical questions about the cost structure of your Cloud Infrastructure spending',
+    },
+    {
+      name: 'It is Free! Start Saving Now!',
+      description: 'Find the most expensive and fastest growing Cloud Resources',
+    },
+  ];
+
+  return (
+    <Carousel>
+      {
+        items.map((item) => <Item item={item} {...props} />)
+      }
+    </Carousel>
+  );
+}
+
+function Item(props) {
   const {
-    classes, theme, width, openRegisterDialog,
+    classes, theme, width, openRegisterDialog, item,
   } = props;
   return (
     <>
@@ -125,7 +145,7 @@ function HeadSection(props) {
                         <Typography
                           variant={isWidthUp('lg', width) ? 'h3' : 'h4'}
                         >
-                          Sign Up and Start Saving On Cloud Now!
+                          {item.name}
                         </Typography>
                       </Box>
                       <div>
@@ -134,8 +154,7 @@ function HeadSection(props) {
                             variant={isWidthUp('lg', width) ? 'h6' : 'body1'}
                             color="textSecondary"
                           >
-                            Answer critical questions about the cost
-                            structure of your Cloud Infrastructure spending
+                            {item.description}
                           </Typography>
                         </Box>
                         <Button
@@ -165,12 +184,6 @@ function HeadSection(props) {
           </Box>
         </div>
       </div>
-      {/* <WaveBorder
-        upperColor={theme.palette.secondary.main}
-        lowerColor="#FFFFFF"
-        className={classes.waveBorder}
-        animationNegativeDelay={2}
-      /> */}
     </>
   );
 }
