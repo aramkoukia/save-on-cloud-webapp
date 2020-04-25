@@ -20,7 +20,7 @@ function Balance(props) {
   const { balance } = props;
   return (
     <div>
-      <Typography color="primary">
+      <Typography color="secondary">
         Total spending this month:
         &nbsp;
         {currencyPrettyPrint(balance)}

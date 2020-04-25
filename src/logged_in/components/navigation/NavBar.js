@@ -103,8 +103,8 @@ const styles = (theme) => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
-  textPrimary: {
-    color: theme.palette.primary.main,
+  textSecondary: {
+    color: theme.palette.secondary.main,
   },
   mobileItemSelected: {
     backgroundColor: `${theme.palette.primary.main} !important`,
@@ -159,7 +159,7 @@ class NavBar extends PureComponent {
           desktop: (
             <DashboardIcon
               className={
-                selectedTab === 'Dashboard' ? classes.textPrimary : 'text-white'
+                selectedTab === 'Dashboard' ? classes.textSecondary : 'text-white'
               }
               fontSize="small"
             />
@@ -177,7 +177,7 @@ class NavBar extends PureComponent {
           desktop: (
             <AssessmentIcon
               className={
-                 selectedTab === 'DailyCost' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'DailyCost' ? classes.textSecondary : 'text-white'
                }
               fontSize="small"
             />
@@ -195,7 +195,7 @@ class NavBar extends PureComponent {
           desktop: (
             <MonetizationOnIcon
               className={
-                 selectedTab === 'MostExpensiveResources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'MostExpensiveResources' ? classes.textSecondary : 'text-white'
                }
               fontSize="small"
             />
@@ -213,7 +213,7 @@ class NavBar extends PureComponent {
           desktop: (
             <TrendingUpIcon
               className={
-                 selectedTab === 'FastestGrowingResources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'FastestGrowingResources' ? classes.textSecondary : 'text-white'
                }
               fontSize="small"
             />
@@ -231,7 +231,7 @@ class NavBar extends PureComponent {
           desktop: (
             <NotificationsPausedIcon
               className={
-                 selectedTab === 'UselessResources' ? classes.textPrimary : 'text-white'
+                 selectedTab === 'UselessResources' ? classes.textSecondary : 'text-white'
                }
               fontSize="small"
             />
@@ -250,7 +250,7 @@ class NavBar extends PureComponent {
             <AccountBalanceIcon
               className={
                 selectedTab === 'Subscription'
-                  ? classes.textPrimary
+                  ? classes.textSecondary
                   : 'text-white'
               }
               fontSize="small"
@@ -270,7 +270,7 @@ class NavBar extends PureComponent {
             <ReceiptIcon
               className={
                 selectedTab === 'Billing'
-                  ? classes.textPrimary
+                  ? classes.textSecondary
                   : 'text-white'
               }
               fontSize="small"
@@ -356,7 +356,7 @@ class NavBar extends PureComponent {
                   <ListItemText
                     className={classes.username}
                     primary={
-                      <Typography color="textPrimary">Aram Koukia</Typography>
+                      <Typography color="textSecondary">Aram Koukia</Typography>
                     }
                   />
                 )}
