@@ -8,6 +8,10 @@ Answer critical questions about the cost structure of your Cloud Infrastructure 
 * Real-time running cost and forecasting - Our real-time running cost feature allows you to know your Cloud spend in real-time long before you are surprised with a huge bill.
 * Cloud Spend Alert and Notification - You will get notified if your Cloud services started to spend a lot of money, so you can stop them before it is too late.
 
+## Running Demo
+URL: https://saveoncloud.z22.web.core.windows.net/index.html
+
+
 ## Screenshots
 #### Dashboard
 ![alt text](https://github.com/aramkoukia/save-on-cloud-webapp/blob/master/public/dashboard.png "Dashboard")
