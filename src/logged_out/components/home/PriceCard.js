@@ -12,7 +12,7 @@ const styles = (theme) => ({
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
     marginTop: theme.spacing(2),
-    border: `3px solid ${theme.palette.primary.dark}`,
+    border: `3px solid ${theme.palette.secondary.dark}`,
     borderRadius: theme.shape.borderRadius * 2,
   },
   cardHightlighted: {
@@ -20,7 +20,7 @@ const styles = (theme) => ({
     paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
-    border: `3px solid ${theme.palette.primary.dark}`,
+    border: `3px solid ${theme.palette.secondary.dark}`,
     borderRadius: theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.down('xs')]: {
@@ -28,7 +28,7 @@ const styles = (theme) => ({
     },
   },
   title: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
   },
 });
 

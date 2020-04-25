@@ -49,7 +49,7 @@ function PricingSection(props) {
   const { width, classes, openRegisterDialog } = props;
   return (
     <div className="lg-p-top" style={{ backgroundColor: '#FFFFFF' }}>
-      <Typography variant="h3" align="center" className="lg-mg-bottom">
+      <Typography color="secondary" variant="h3" align="center" className="lg-mg-bottom">
         How much does it cost?
       </Typography>
       <div className={classNames('container-fluid', classes.containerFix)}>

@@ -66,7 +66,7 @@ function FeatureSection(props) {
   return (
     <div style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container-fluid lg-p-top">
-        <Typography variant="h3" align="center" className="lg-mg-bottom">
+        <Typography color="secondary" variant="h3" align="center" className="lg-mg-bottom">
           How can Save On Cloud help?
         </Typography>
         <div className="container-fluid">
